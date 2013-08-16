@@ -1,0 +1,29 @@
+{% raw %}
+{% extends "_layouts/base.html" %}
+{% block content %}
+<div class="container-narrow">
+  <h1>Register</h1>
+    <br/>
+    <form class="form form-register" method="POST" action="" role="form">
+            <div class="form-group">
+                {{form.username.label}}
+                {{form.username(placeholder="Username", class_="form-control")}}
+            </div>
+            <div class="form-group">
+                {{form.email.label}}
+                {{form.email(placeholder="Email", class_="form-control")}}
+            </div>
+            <div class="form-group">
+                {{form.password.label}}
+                {{form.password(placeholder="Password", class_="form-control")}}
+            </div>
+            <div class="form-group">
+                {{form.confirm.label}}
+                {{form.confirm(placeholder="Password (again)", class_="form-control")}}
+            </div>
+            <p><input class="btn btn-default btn-submit" type="submit" value="Register"></p>
+    </form>
+    <p><em>Already registered?</em> Click <a href="/">here</a> to login.</p>
+</div>
+{% endblock %}
+{% endraw %}

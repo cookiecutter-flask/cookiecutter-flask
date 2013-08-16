@@ -1,0 +1,12 @@
+# Everything that needed in production
+Flask==0.10.1
+Flask-SQLAlchemy==1.0
+Flask-WTF==0.9.0
+Jinja2==2.7
+MarkupSafe==0.18
+SQLAlchemy==0.8.2
+WTForms==1.0.4
+Werkzeug==0.9.3
+gunicorn==17.5
+itsdangerous==0.23
+wsgiref==0.1.2

@@ -1,0 +1,42 @@
+{% raw %}
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="{{ url_for('home') }}">
+{% endraw %}
+      {{cookiecutter.project_name}}
+{% raw %}
+    </a>
+  </div>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('about') }}">About</a></li>
+    </ul>
+    {% if session.logged_in %}
+    <a class="btn btn-default btn-sm navbar-btn navbar-right" href="{{ url_for('logout') }}">Log out</a>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{{ url_for('members') }}">Logged in as {{ session.username }}</a></li>
+    </ul>
+    {% elif form %}
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="{{ url_for('register') }}">Create account</a></li>
+    </ul>
+    <form method="POST" class="navbar-form form-inline navbar-right" action="" role="login">
+      <div class="form-group">
+        {{ form.username(placeholder="Username", class_="form-control") }}
+        {{ form.password(placeholder="Password", class_="form-control") }}
+      </div>
+      <button type="submit" class="btn btn-default">Log in</button>
+    </form>
+    {% endif %}
+  </div><!-- /.navbar-collapse -->
+</nav>
+{% endraw %}
