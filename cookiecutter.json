@@ -5,7 +5,5 @@
 	"project_name": "My Flask App",
 	"repo_name": "myflaskapp",
 	"project_short_description": "A flasky app.",
-	"release_date": "2013-08-15",
-	"year": "2013",
-	"version": "0.1.0"
+	"year": "2013"
 }
