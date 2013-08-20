@@ -30,6 +30,7 @@
       <li><a href="{{ url_for('register') }}">Create account</a></li>
     </ul>
     <form method="POST" class="navbar-form form-inline navbar-right" action="" role="login">
+      {{ form.hidden_tag() }}
       <div class="form-group">
         {{ form.username(placeholder="Username", class_="form-control") }}
         {{ form.password(placeholder="Password", class_="form-control") }}

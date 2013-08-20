@@ -5,6 +5,7 @@
   <h1>Register</h1>
     <br/>
     <form class="form form-register" method="POST" action="" role="form">
+            {{ form.hidden_tag() }}
             <div class="form-group">
                 {{form.username.label}}
                 {{form.username(placeholder="Username", class_="form-control")}}
