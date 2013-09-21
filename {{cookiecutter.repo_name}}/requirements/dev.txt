@@ -3,3 +3,6 @@
 
 # Testing
 nose
+
+# Management script
+Flask-Script

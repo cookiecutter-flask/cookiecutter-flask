@@ -21,6 +21,6 @@ class User(db.Model):
         self.password = password
 
     def __repr__(self):
-        return '<User %r>' % (self.username)
+        return '<User "{username}">'.format(username=self.username)
 
 db.create_all()

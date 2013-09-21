@@ -13,6 +13,7 @@ Features
 - Flask-WTForms with login and registration forms
 - Procfile for deploying to a PaaS (e.g. Heroku)
 - nose for testing
+- A simple ``manage.py`` script.
 
 Screenshots
 -----------
