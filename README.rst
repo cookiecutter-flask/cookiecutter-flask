@@ -14,6 +14,7 @@ Features
 - Procfile for deploying to a PaaS (e.g. Heroku)
 - nose for testing
 - A simple ``manage.py`` script.
+- CSS and JS minification using Flask-Assets
 - Easily switch between development and production environments through the MYFLASKAPP_ENV system  variable.
 
 Screenshots

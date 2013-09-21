@@ -20,9 +20,10 @@
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
   <meta name="viewport" content="width=device-width">
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='libs/bootstrap3/css/bootstrap.min.css') }}">
+  {% assets "common_css" %}
+    <link rel="stylesheet" href="{{ ASSET_URL }}">
+  {% endassets %}
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   {% block css %}{% endblock %}
 
 </head>
@@ -58,15 +59,11 @@
 
 {% include "_layouts/footer.html" %}
 
-
 <!-- JavaScript at the bottom for fast page loading -->
-<script src="{{ url_for('static', filename='libs/jquery2/jquery-2.0.3.min.js') }}"></script>
-<script src="{{ url_for('static', filename='libs/bootstrap3/js/bootstrap.min.js') }}"></script>
-
-
-<script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
+{% assets "common_js" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+{% block js %}{% endblock %}
 <!-- end scripts -->
 {% endblock %}
 </body>

@@ -4,7 +4,7 @@
 Entry point for all things, to avoid circular imports.
 """
 import os
-from .app import app, db
+from .app import app, db, assets_env
 from .models import *
 from .views import *
 
