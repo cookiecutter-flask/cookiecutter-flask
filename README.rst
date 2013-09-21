@@ -37,6 +37,16 @@ Using this template
 You will be asked about your basic info (name, project name, etc.). This info will be used in your new project.
 
 
+Inspiration
+-----------
+
+- `Building Websites in Python with Flask <http://maximebf.com/blog/2012/10/building-websites-in-python-with-flask/>`_
+- `Structuring Flask Apps <http://charlesleifer.com/blog/structuring-flask-apps-a-how-to-for-those-coming-from-django/>`_
+- `Flask-Foundation <https://github.com/JackStouffer/Flask-Foundation>`_
+- `flask-basic-registration <https://github.com/mjhea0/flask-basic-registration>`_
+- `Flask Official Documentation <http://flask.pocoo.org/docs/>`_
+
+
 License
 -------
 BSD licensed.
