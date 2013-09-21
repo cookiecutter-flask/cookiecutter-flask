@@ -38,6 +38,10 @@ Using this template
 
 You will be asked about your basic info (name, project name, etc.). This info will be used in your new project.
 
+Blueprints? App factories?
+--------------------------
+
+If you prefer not to use blueprints or an application factory, check out the ``simple`` branch which has the older structure without these patterns. Note, however, only the ``master`` branch will be actively maintained.
 
 Inspiration
 -----------
@@ -53,4 +57,21 @@ Inspiration
 License
 -------
 BSD licensed.
+
+Changelog
+---------
+
+0.2.0 (09/21/2013)
+******************
+- Add manage.py script
+- Add Flask-Assets for CSS and JS bundling+minification
+- Use different configs for development and production environments, controlled by the MYFLASKAPP_ENV system environment variable
+- Use Blueprints and application factory pattern. The ``simple`` branch does not use these.
+
+0.1.0 (08/20/2013)
+******************
+- First iteration
+- Bootstrap 3 final
+- Working User model and registration
+
 
