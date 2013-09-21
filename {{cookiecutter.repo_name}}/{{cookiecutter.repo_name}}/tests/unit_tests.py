@@ -7,9 +7,9 @@ except ImportError:
     import sys
     print('nose required. Run "pip install nose".')
 
-from main import app
+from {{cookiecutter.repo_name}}.main import app
 
-class Test{{cookiecutter.project_name}}(unittest.TestCase):
+class Test{{cookiecutter.repo_name | capitalize}}(unittest.TestCase):
 
     def setUp(self):
         app.config['TESTING'] = True
