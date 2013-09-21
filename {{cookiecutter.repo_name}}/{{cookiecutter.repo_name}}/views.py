@@ -1,27 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from flask import render_template, session, request, flash, redirect, url_for
-from functools import wraps
 from .app import app, db
 from .models import User
 from .forms import RegisterForm, LoginForm
+from .utils import flash_errors, login_required
 from sqlalchemy.exc import IntegrityError
 
-def flash_errors(form):
-    for field, errors in form.errors.items():
-        for error in errors:
-            flash("Error in the {0} field - {1}"
-                    .format(getattr(form, field).label.text, error), 'error')
-
-def login_required(test):
-    @wraps(test)
-    def wrap(*args, **kwargs):
-        if 'logged_in' in session:
-            return test(*args, **kwargs)
-        else:
-            flash('You need to log in first.')
-            return redirect(url_for('home'))
-    return wrap
 
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -31,7 +16,7 @@ def home():
                                 password=request.form['password']).first()
         if u is None:
             error = 'Invalid username or password.'
-            flash(error, 'error')
+            flash(error, 'warning')
         else:
             session['logged_in'] = True
             session['username'] = u.username
