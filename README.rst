@@ -14,6 +14,7 @@ Features
 - Procfile for deploying to a PaaS (e.g. Heroku)
 - nose for testing
 - A simple ``manage.py`` script.
+- Easily switch between development and production environments through the APPNAME_ENV system  variable.
 
 Screenshots
 -----------
