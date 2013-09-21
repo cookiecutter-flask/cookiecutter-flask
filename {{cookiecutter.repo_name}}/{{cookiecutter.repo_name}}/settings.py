@@ -18,6 +18,3 @@ class DevConfig(Config):
     DB_PATH = os.path.join(Config.PROJECT_ROOT, DB_NAME)
     SQLALCHEMY_DATABASE_URI = "sqlite:///{0}".format(DB_PATH)
     SQLALCHEMY_ECHO = True
-
-
-

@@ -1,9 +1,16 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import os
 import sys
 import subprocess
 from flask.ext.script import Manager, Shell, Server
-from {{ cookiecutter.repo_name }} import models
-from {{ cookiecutter.repo_name }}.main import app, db
+from {{cookiecutter.repo_name }} import models
+from {{cookiecutter.repo_name }}.app import create_app
+from {{cookiecutter.repo_name}}.models import db
+
+env = os.environ.get("{{cookiecutter.repo_name | upper }}_ENV", 'prod')
+app = create_app("{{cookiecutter.repo_name}}.settings.{0}Config"
+                    .format(env.capitalize()), env)
 
 manager = Manager(app)
 TEST_CMD = "nosetests"

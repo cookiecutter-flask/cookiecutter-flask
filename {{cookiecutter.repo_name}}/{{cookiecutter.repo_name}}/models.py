@@ -3,7 +3,9 @@
 """
 {{cookiecutter.project_name}} models.
 """
-from .app import db
+from flask.ext.sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 class User(db.Model):
 
@@ -22,5 +24,3 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User "{username}">'.format(username=self.username)
-
-db.create_all()

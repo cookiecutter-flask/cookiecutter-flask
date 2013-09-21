@@ -8,7 +8,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="{{ url_for('home') }}">
+    <a class="navbar-brand" href="{{ url_for('public.home') }}">
 {% endraw %}
       {{cookiecutter.project_name}}
 {% raw %}
@@ -17,17 +17,17 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="{{ url_for('home') }}">Home</a></li>
-      <li><a href="{{ url_for('about') }}">About</a></li>
+      <li class="active"><a href="{{ url_for('public.home') }}">Home</a></li>
+      <li><a href="{{ url_for('public.about') }}">About</a></li>
     </ul>
     {% if session.logged_in %}
-    <a class="btn btn-default btn-sm navbar-btn navbar-right" href="{{ url_for('logout') }}">Log out</a>
+    <a class="btn btn-default btn-sm navbar-btn navbar-right" href="{{ url_for('public.logout') }}">Log out</a>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="{{ url_for('members') }}">Logged in as {{ session.username }}</a></li>
+      <li><a href="{{ url_for('member.members') }}">Logged in as {{ session.username }}</a></li>
     </ul>
     {% elif form %}
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="{{ url_for('register') }}">Create account</a></li>
+      <li><a href="{{ url_for('public.register') }}">Create account</a></li>
     </ul>
     <form method="POST" class="navbar-form form-inline navbar-right" action="" role="login">
       {{ form.hidden_tag() }}

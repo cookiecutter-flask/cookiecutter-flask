@@ -1,29 +1,20 @@
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-from flask import render_template, session, request, flash, redirect, url_for
-from functools import wraps
-from .app import app, db
-from .models import User
-from .forms import RegisterForm, LoginForm
+'''Public section, including homepage and signup.'''
+from flask import (Blueprint, request, render_template, flash, url_for,
+                    redirect, session)
 from sqlalchemy.exc import IntegrityError
 
-def flash_errors(form):
-    for field, errors in form.errors.items():
-        for error in errors:
-            flash("Error in the {0} field - {1}"
-                    .format(getattr(form, field).label.text, error), 'error')
+from {{cookiecutter.repo_name}}.models import User
+from {{cookiecutter.repo_name}}.forms import RegisterForm, LoginForm
+from {{cookiecutter.repo_name}}.utils import flash_errors
+from {{cookiecutter.repo_name}}.models import db
 
-def login_required(test):
-    @wraps(test)
-    def wrap(*args, **kwargs):
-        if 'logged_in' in session:
-            return test(*args, **kwargs)
-        else:
-            flash('You need to log in first.')
-            return redirect(url_for('home'))
-    return wrap
+blueprint = Blueprint('public', __name__,
+                        static_folder="../static",
+                        template_folder="../templates")
 
-@app.route("/", methods=["GET", "POST"])
+
+@blueprint.route("/", methods=["GET", "POST"])
 def home():
     form = LoginForm(request.form)
     if request.method == 'POST':
@@ -31,29 +22,22 @@ def home():
                                 password=request.form['password']).first()
         if u is None:
             error = 'Invalid username or password.'
-            flash(error, 'error')
+            flash(error, 'warning')
         else:
             session['logged_in'] = True
             session['username'] = u.username
             flash("You are logged in.", 'success')
-            return redirect(url_for("members"))
+            return redirect(url_for("member.members"))
     return render_template("home.html", form=form)
 
-
-@app.route("/members/")
-@login_required
-def members():
-    return render_template("members.html")
-
-
-@app.route('/logout/')
+@blueprint.route('/logout/')
 def logout():
     session.pop('logged_in', None)
     session.pop('username', None)
     flash('You are logged out.', 'info')
-    return redirect(url_for('home'))
+    return redirect(url_for('public.home'))
 
-@app.route("/register/", methods=['GET', 'POST'])
+@blueprint.route("/register/", methods=['GET', 'POST'])
 def register():
     form = RegisterForm(request.form, csrf_enabled=False)
     if form.validate_on_submit():
@@ -62,21 +46,19 @@ def register():
             db.session.add(new_user)
             db.session.commit()
             flash("Thank you for registering. You can now log in.", 'success')
-            return redirect(url_for('home'))
+            return redirect(url_for('public.home'))
         except IntegrityError as err:
             print(err)
-            flash("That username and/or email already exists. Try again.", 'error')
+            flash("That username and/or email already exists. Try again.", 'warning')
     else:
         flash_errors(form)
     return render_template('register.html', form=form)
 
-
-@app.route("/about/")
+@blueprint.route("/about/")
 def about():
     form = LoginForm(request.form)
     return render_template("about.html", form=form)
 
-
-@app.errorhandler(404)
+@blueprint.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html"), 404
