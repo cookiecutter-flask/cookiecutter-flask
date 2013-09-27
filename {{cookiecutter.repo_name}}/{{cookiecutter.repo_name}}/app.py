@@ -18,8 +18,7 @@ def create_app(config_object, env):
     :param env: A string, the current environment. Either "dev" or "prod"
     '''
     app = Flask(__name__)
-    app.config.from_object('{{cookiecutter.repo_name}}.settings.{env}Config'
-                            .format(env=env.capitalize()))
+    app.config.from_object(config_object)
     app.config['ENV'] = env
     # Initialize SQLAlchemy
     db.init_app(app)
