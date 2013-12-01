@@ -10,7 +10,7 @@ from {{cookiecutter.repo_name}}.models import db
 
 env = os.environ.get("{{cookiecutter.repo_name | upper }}_ENV", 'prod')
 app = create_app("{{cookiecutter.repo_name}}.settings.{0}Config"
-                    .format(env.capitalize()), env)
+                    .format(env.capitalize()))
 
 manager = Manager(app)
 TEST_CMD = "nosetests"

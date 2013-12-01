@@ -47,7 +47,6 @@ def register():
             flash("Thank you for registering. You can now log in.", 'success')
             return redirect(url_for('public.home'))
         except IntegrityError as err:
-            print(err)
             flash("That username and/or email already exists. Try again.", 'warning')
     else:
         flash_errors(form)

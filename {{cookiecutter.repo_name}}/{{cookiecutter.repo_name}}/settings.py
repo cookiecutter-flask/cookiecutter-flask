@@ -7,11 +7,13 @@ class Config(object):
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
 
 class ProdConfig(Config):
+    ENV = 'prod'
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/example'
     SQLALCHEMY_ECHO = False
 
 class DevConfig(Config):
+    ENV = 'dev'
     DEBUG = True
     DB_NAME = "dev.db"
     # Put the db file in project root

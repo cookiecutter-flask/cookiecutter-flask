@@ -13,7 +13,7 @@ class TestUser(TestCase):
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
 
     def create_app(self):
-        app = create_app(self, 'testing')
+        app = create_app(self)
         with app.app_context():
             db.create_all()
         return app

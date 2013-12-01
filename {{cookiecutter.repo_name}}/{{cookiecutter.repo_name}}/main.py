@@ -12,4 +12,4 @@ if __name__ == '__main__':
     # Get the environment setting from the system environment variable
     env = os.environ.get("{{cookiecutter.repo_name | upper}}_ENV", "prod")
     app = create_app("{{cookiecutter.repo_name}}.settings.{env}Config"
-                        .format(env=env.capitalize()), env)
+                        .format(env=env.capitalize()))
