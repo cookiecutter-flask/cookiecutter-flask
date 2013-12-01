@@ -3,6 +3,7 @@
 
 # Testing
 nose
+Flask-Testing
 
 # Management script
 Flask-Script

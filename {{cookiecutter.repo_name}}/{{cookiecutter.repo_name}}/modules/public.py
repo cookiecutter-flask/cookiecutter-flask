@@ -18,9 +18,8 @@ blueprint = Blueprint('public', __name__,
 def home():
     form = LoginForm(request.form)
     if request.method == 'POST':
-        u = User.query.filter_by(username=request.form['username'],
-                                password=request.form['password']).first()
-        if u is None:
+        u = User.query.filter_by(username=request.form['username']).first()
+        if u is None or not u.check_password(request.form['password']):
             error = 'Invalid username or password.'
             flash(error, 'warning')
         else:

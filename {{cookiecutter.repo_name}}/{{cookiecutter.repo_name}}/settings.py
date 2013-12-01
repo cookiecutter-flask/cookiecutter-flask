@@ -13,7 +13,7 @@ class ProdConfig(Config):
 
 class DevConfig(Config):
     DEBUG = True
-    DB_NAME = "test.db"
+    DB_NAME = "dev.db"
     # Put the db file in project root
     DB_PATH = os.path.join(Config.PROJECT_ROOT, DB_NAME)
     SQLALCHEMY_DATABASE_URI = "sqlite:///{0}".format(DB_PATH)

@@ -31,5 +31,4 @@ def create_app(config_object, env):
     from {{cookiecutter.repo_name}}.modules import public, member
     app.register_blueprint(public.blueprint)
     app.register_blueprint(member.blueprint)
-
     return app
