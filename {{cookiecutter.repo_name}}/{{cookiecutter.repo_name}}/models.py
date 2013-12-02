@@ -19,7 +19,8 @@ class User(db.Model):
     def __init__(self, username=None, email=None, password=None):
         self.username = username
         self.email = email
-        self.set_password(password)
+        if password:
+            self.set_password(password)
 
     def set_password(self, password):
         self.password = pwd_context.encrypt(password)
