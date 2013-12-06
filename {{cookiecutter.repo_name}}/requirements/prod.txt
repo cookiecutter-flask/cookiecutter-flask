@@ -1,4 +1,4 @@
-# Everything that needed in production
+# Everything needed in production
 
 # Flask
 Flask==0.10.1
@@ -25,4 +25,4 @@ cssmin>=0.1.4
 jsmin>=2.0.4
 
 # Auth
-passlib>=1.6.1
+Flask-Bcrypt>=0.5.2
