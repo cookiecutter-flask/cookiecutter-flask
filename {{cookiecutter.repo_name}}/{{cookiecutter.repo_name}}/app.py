@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
-import os
 from flask import Flask
-from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.assets import Environment
 from webassets.loaders import PythonLoader
 
 from {{ cookiecutter.repo_name }}.settings import ProdConfig
-from {{cookiecutter.repo_name}} import assets
+from {{cookiecutter.repo_name}}.assets import assets
 from {{cookiecutter.repo_name}}.database import db
 from {{cookiecutter.repo_name}} import public, user
 
-assets_env = Environment()
 
 def create_app(config_object=ProdConfig):
     '''An application factory, as explained here:
@@ -20,15 +17,14 @@ def create_app(config_object=ProdConfig):
     '''
     app = Flask(__name__)
     app.config.from_object(config_object)
-    # Initialize SQLAlchemy
-    db.init_app(app)
-    # Register asset bundles
-    assets_env.init_app(app)
-    assets_loader = PythonLoader(assets)
-    for name, bundle in assets_loader.load_bundles().iteritems():
-        assets_env.register(name, bundle)
+    register_extensions(app)
     register_blueprints(app)
     return app
+
+
+def register_extensions(app):
+    db.init_app(app)
+    assets.init_app(app)
 
 
 def register_blueprints(app):

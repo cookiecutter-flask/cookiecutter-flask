@@ -20,7 +20,7 @@
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
   <meta name="viewport" content="width=device-width">
 
-  {% assets "common_css" %}
+  {% assets "css_all" %}
     <link rel="stylesheet" href="{{ ASSET_URL }}">
   {% endassets %}
 
@@ -60,7 +60,7 @@
 {% include "_layouts/footer.html" %}
 
 <!-- JavaScript at the bottom for fast page loading -->
-{% assets "common_js" %}
+{% assets "js_all" %}
     <script type="text/javascript" src="{{ ASSET_URL }}"></script>
 {% endassets %}
 {% block js %}{% endblock %}
