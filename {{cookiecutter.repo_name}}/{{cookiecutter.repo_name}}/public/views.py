@@ -9,9 +9,7 @@ from {{cookiecutter.repo_name}}.public.forms import RegisterForm, LoginForm
 from {{cookiecutter.repo_name}}.utils import flash_errors
 from {{cookiecutter.repo_name}}.database import db
 
-blueprint = Blueprint('public', __name__,
-                        static_folder="../static",
-                        template_folder="../templates")
+blueprint = Blueprint('public', __name__, static_folder="../static")
 
 
 @blueprint.route("/", methods=["GET", "POST"])
@@ -27,7 +25,7 @@ def home():
             session['username'] = u.username
             flash("You are logged in.", 'success')
             return redirect(url_for("user.members"))
-    return render_template("home.html", form=form)
+    return render_template("public/home.html", form=form)
 
 @blueprint.route('/logout/')
 def logout():
@@ -50,7 +48,7 @@ def register():
             flash("That username and/or email already exists. Try again.", 'warning')
     else:
         flash_errors(form)
-    return render_template('register.html', form=form)
+    return render_template('public/register.html', form=form)
 
 @blueprint.route("/about/")
 def about():
