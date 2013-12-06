@@ -5,12 +5,14 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.assets import Environment
 from webassets.loaders import PythonLoader
 
+from {{ cookiecutter.repo_name }}.settings import ProdConfig
 from {{cookiecutter.repo_name}} import assets
-from {{cookiecutter.repo_name}}.models import db
+from {{cookiecutter.repo_name}}.database import db
+from {{cookiecutter.repo_name}} import public, user
 
 assets_env = Environment()
 
-def create_app(config_object):
+def create_app(config_object=ProdConfig):
     '''An application factory, as explained here:
         http://flask.pocoo.org/docs/patterns/appfactories/
 
@@ -25,8 +27,12 @@ def create_app(config_object):
     assets_loader = PythonLoader(assets)
     for name, bundle in assets_loader.load_bundles().iteritems():
         assets_env.register(name, bundle)
+    register_blueprints(app)
+    return app
+
+
+def register_blueprints(app):
     # Register blueprints
-    from {{cookiecutter.repo_name}}.modules import public, member
-    app.register_blueprint(public.blueprint)
-    app.register_blueprint(member.blueprint)
+    app.register_blueprint(public.views.blueprint)
+    app.register_blueprint(user.views.blueprint)
     return app

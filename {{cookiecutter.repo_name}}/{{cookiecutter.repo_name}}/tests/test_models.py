@@ -4,7 +4,8 @@ from nose.tools import *  # PEP8 asserts
 from flask.ext.testing import TestCase
 
 from {{ cookiecutter.repo_name }}.app import create_app
-from {{ cookiecutter.repo_name }}.models import User, db
+from {{ cookiecutter.repo_name }}.database import db
+from {{ cookiecutter.repo_name }}.user.models import User
 
 
 class TestUser(TestCase):

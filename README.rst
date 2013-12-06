@@ -12,7 +12,7 @@ Features
 - Flask-SQLAlchemy with basic User model
 - Flask-WTForms with login and registration forms
 - Procfile for deploying to a PaaS (e.g. Heroku)
-- nose for testing
+- Flask-Testing and nose for testing
 - A simple ``manage.py`` script.
 - CSS and JS minification using Flask-Assets
 - Easily switch between development and production environments through the MYFLASKAPP_ENV system  variable.
@@ -60,6 +60,13 @@ BSD licensed.
 
 Changelog
 ---------
+
+0.3.0
+*****
+
+- More "divisional" organization: each blueprint contains its own view, models, and forms in a directory. There is still a single directory for templates and static assets.
+- Use Flask-Bcrypt for password hashing.
+- Flask-Testing support.
 
 0.2.0 (09/21/2013)
 ******************

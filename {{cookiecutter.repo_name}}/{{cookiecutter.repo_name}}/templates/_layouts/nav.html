@@ -23,7 +23,7 @@
     {% if session.logged_in %}
     <a class="btn btn-default btn-sm navbar-btn navbar-right" href="{{ url_for('public.logout') }}">Log out</a>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="{{ url_for('member.members') }}">Logged in as {{ session.username }}</a></li>
+      <li><a href="{{ url_for('user.members') }}">Logged in as {{ session.username }}</a></li>
     </ul>
     {% elif form %}
     <ul class="nav navbar-nav navbar-right">

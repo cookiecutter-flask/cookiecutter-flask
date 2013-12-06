@@ -4,10 +4,10 @@ from flask import (Blueprint, request, render_template, flash, url_for,
                     redirect, session)
 from sqlalchemy.exc import IntegrityError
 
-from {{cookiecutter.repo_name}}.models import User
-from {{cookiecutter.repo_name}}.forms import RegisterForm, LoginForm
+from {{cookiecutter.repo_name}}.user.models import User
+from {{cookiecutter.repo_name}}.public.forms import RegisterForm, LoginForm
 from {{cookiecutter.repo_name}}.utils import flash_errors
-from {{cookiecutter.repo_name}}.models import db
+from {{cookiecutter.repo_name}}.database import db
 
 blueprint = Blueprint('public', __name__,
                         static_folder="../static",
@@ -26,7 +26,7 @@ def home():
             session['logged_in'] = True
             session['username'] = u.username
             flash("You are logged in.", 'success')
-            return redirect(url_for("member.members"))
+            return redirect(url_for("user.members"))
     return render_template("home.html", form=form)
 
 @blueprint.route('/logout/')
