@@ -5,6 +5,7 @@ class Config(object):
     SECRET_KEY = 'shhhh'
     APP_DIR = os.path.abspath(os.path.dirname(__file__))  # This directory
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
+    BCRYPT_LEVEL = 13
 
 class ProdConfig(Config):
     ENV = 'prod'

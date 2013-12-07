@@ -4,6 +4,7 @@
 # Testing
 nose
 Flask-Testing
+factory-boy>=2.2.1
 
 # Management script
 Flask-Script

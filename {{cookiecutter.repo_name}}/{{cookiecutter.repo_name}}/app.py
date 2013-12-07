@@ -3,7 +3,7 @@ from flask import Flask
 from flask.ext.assets import Environment
 from webassets.loaders import PythonLoader
 
-from {{ cookiecutter.repo_name }}.settings import ProdConfig
+from {{cookiecutter.repo_name}}.settings import ProdConfig
 from {{cookiecutter.repo_name}}.assets import assets
 from {{cookiecutter.repo_name}}.extensions import login_manager
 from {{cookiecutter.repo_name}}.database import db
