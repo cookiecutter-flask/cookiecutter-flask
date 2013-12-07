@@ -51,13 +51,10 @@ def register():
                         email=form.email.data,
                         password=form.password.data,
                         active=True)
-        try:
-            db.session.add(new_user)
-            db.session.commit()
-            flash("Thank you for registering. You can now log in.", 'success')
-            return redirect(url_for('public.home'))
-        except IntegrityError as err:
-            flash("That username and/or email already exists. Try again.", 'warning')
+        db.session.add(new_user)
+        db.session.commit()
+        flash("Thank you for registering. You can now log in.", 'success')
+        return redirect(url_for('public.home'))
     else:
         flash_errors(form)
     return render_template('public/register.html', form=form)
