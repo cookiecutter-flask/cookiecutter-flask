@@ -3,7 +3,6 @@
 from flask import (Blueprint, request, render_template, flash, url_for,
                     redirect, session)
 from flask.ext.login import login_user, login_required, logout_user
-from sqlalchemy.exc import IntegrityError
 
 from {{cookiecutter.repo_name}}.extensions import login_manager
 from {{cookiecutter.repo_name}}.user.models import User
@@ -16,10 +15,7 @@ blueprint = Blueprint('public', __name__, static_folder="../static")
 
 @login_manager.user_loader
 def load_user(id):
-    try:
-        return User.query.get(int(id))
-    except Exception:
-        return None
+    return User.get_by_id(int(id))
 
 
 @blueprint.route("/", methods=["GET", "POST"])

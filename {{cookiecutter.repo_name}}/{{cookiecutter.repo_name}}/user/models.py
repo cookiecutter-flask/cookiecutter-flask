@@ -3,14 +3,13 @@ import datetime as dt
 
 from flask.ext.login import UserMixin
 
-from {{cookiecutter.repo_name}}.database import db
+from {{cookiecutter.repo_name}}.database import db, CRUDMixin
 from {{cookiecutter.repo_name}}.extensions import bcrypt
 
 
-class User(UserMixin, db.Model):
+class User(UserMixin, CRUDMixin,  db.Model):
 
     __tablename__ = 'users'
-    id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(80), unique=True, nullable=False)
     password_hash = db.Column(db.String, nullable=False)
