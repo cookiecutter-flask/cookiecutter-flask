@@ -65,10 +65,11 @@ Changelog
 0.3.0
 *****
 
-- "Divisional" organization: each blueprint contains its own view, models, and forms in a directory. There is still a single directory for templates and static assets.
+- More modular organization: each blueprint contains its own view, models, and forms in a directory. There is still a single directory for templates and static assets.
 - Use Flask-Bcrypt for password hashing.
-- Flask-Testing support.
 - Flask-Login for authentication.
+- Simple test setup. Just create a subclass of ``DbTestCase``.
+- Flask-Testing support.
 - Use Factory-Boy for test factories.
 
 0.2.0 (09/21/2013)
