@@ -1,7 +1,5 @@
 from flask import Blueprint, render_template
-
-from {{cookiecutter.repo_name}}.utils import login_required
-
+from flask.ext.login import login_required
 
 blueprint = Blueprint("user", __name__, url_prefix='/users',
                         static_folder="../static")

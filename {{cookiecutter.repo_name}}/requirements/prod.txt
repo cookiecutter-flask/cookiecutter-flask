@@ -25,4 +25,5 @@ cssmin>=0.1.4
 jsmin>=2.0.4
 
 # Auth
+Flask-Login>=0.2.7
 Flask-Bcrypt>=0.5.2

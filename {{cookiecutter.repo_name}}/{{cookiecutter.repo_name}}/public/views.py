@@ -2,35 +2,44 @@
 '''Public section, including homepage and signup.'''
 from flask import (Blueprint, request, render_template, flash, url_for,
                     redirect, session)
+from flask.ext.login import login_user, login_required, logout_user
 from sqlalchemy.exc import IntegrityError
 
+from {{cookiecutter.repo_name}}.extensions import login_manager
 from {{cookiecutter.repo_name}}.user.models import User
-from {{cookiecutter.repo_name}}.public.forms import RegisterForm, LoginForm
+from {{cookiecutter.repo_name}}.public.forms import LoginForm
+from {{cookiecutter.repo_name}}.user.forms import RegisterForm
 from {{cookiecutter.repo_name}}.utils import flash_errors
 from {{cookiecutter.repo_name}}.database import db
 
 blueprint = Blueprint('public', __name__, static_folder="../static")
 
+@login_manager.user_loader
+def load_user(id):
+    try:
+        return User.query.get(int(id))
+    except Exception:
+        return None
+
 
 @blueprint.route("/", methods=["GET", "POST"])
 def home():
     form = LoginForm(request.form)
+    # Handle logging in
     if request.method == 'POST':
-        u = User.query.filter_by(username=request.form['username']).first()
-        if u is None or not u.check_password(request.form['password']):
-            error = 'Invalid username or password.'
-            flash(error, 'warning')
-        else:
-            session['logged_in'] = True
-            session['username'] = u.username
+        if form.validate_on_submit():
+            login_user(form.user)
             flash("You are logged in.", 'success')
-            return redirect(url_for("user.members"))
+            redirect_url = request.args.get("next") or url_for("user.members")
+            return redirect(redirect_url)
+        else:
+            flash_errors(form)
     return render_template("public/home.html", form=form)
 
 @blueprint.route('/logout/')
+@login_required
 def logout():
-    session.pop('logged_in', None)
-    session.pop('username', None)
+    logout_user()
     flash('You are logged out.', 'info')
     return redirect(url_for('public.home'))
 
@@ -38,7 +47,10 @@ def logout():
 def register():
     form = RegisterForm(request.form, csrf_enabled=False)
     if form.validate_on_submit():
-        new_user = User(form.username.data, form.email.data, form.password.data)
+        new_user = User(username=form.username.data,
+                        email=form.email.data,
+                        password=form.password.data,
+                        active=True)
         try:
             db.session.add(new_user)
             db.session.commit()
