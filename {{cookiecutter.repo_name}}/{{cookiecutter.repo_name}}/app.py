@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
-from flask.ext.assets import Environment
 from flask_debugtoolbar import DebugToolbarExtension
-from webassets.loaders import PythonLoader
 
 from {{cookiecutter.repo_name}}.settings import ProdConfig
 from {{cookiecutter.repo_name}}.assets import assets
-from {{cookiecutter.repo_name}}.extensions import db, login_manager
+from {{cookiecutter.repo_name}}.extensions import db, login_manager, migrate
 from {{cookiecutter.repo_name}} import public, user
 
 
@@ -28,6 +26,7 @@ def register_extensions(app):
     login_manager.init_app(app)
     assets.init_app(app)
     toolbar = DebugToolbarExtension(app)
+    migrate.init_app(app, db)
     return None
 
 

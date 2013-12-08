@@ -5,11 +5,21 @@ A Flask template for cookiecutter_.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
+Use it now
+----------
+::
+
+    $ pip install cookiecutter
+    $ cookiecutter https://github.com/sloria/cookiecutter-flask.git
+
+You will be asked about your basic info (name, project name, etc.). This info will be used in your new project.
+
 Features
 --------
 
 - Twitter Bootstrap 3 and starter templates
 - Flask-SQLAlchemy with basic User model
+- Easy database migrations with Flask-Migrate
 - Flask-WTForms with login and registration forms
 - Flask-Login for authentication
 - Procfile for deploying to a PaaS (e.g. Heroku)
@@ -30,19 +40,7 @@ Screenshots
     :target: https://dl.dropboxusercontent.com/u/1693233/github/cookiecutter-flask-02.png.png
     :alt: Registration form
 
-Using this template
--------------------
-::
 
-    $ pip install cookiecutter
-    $ cookiecutter https://github.com/sloria/cookiecutter-flask.git
-
-You will be asked about your basic info (name, project name, etc.). This info will be used in your new project.
-
-Blueprints? App factories?
---------------------------
-
-If you prefer not to use blueprints or an application factory, check out the ``simple`` branch which has the older structure without these patterns. Note, however, only the ``master`` branch will be actively maintained.
 
 Inspiration
 -----------
@@ -74,6 +72,7 @@ Changelog
 - Use Factory-Boy for test factories.
 - Use WebTest for functional testing.
 - Add Flask-Debugtoolbar.
+- Migrations using Flask-Migrate.
 
 0.2.0 (09/21/2013)
 ******************
