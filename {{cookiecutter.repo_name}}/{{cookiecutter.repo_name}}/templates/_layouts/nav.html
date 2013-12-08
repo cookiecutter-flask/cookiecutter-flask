@@ -29,7 +29,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a href="{{ url_for('public.register') }}">Create account</a></li>
     </ul>
-    <form method="POST" class="navbar-form form-inline navbar-right" action="" role="login">
+    <form id="loginForm" method="POST" class="navbar-form form-inline navbar-right" action="" role="login">
       {{ form.hidden_tag() }}
       <div class="form-group">
         {{ form.username(placeholder="Username", class_="form-control") }}

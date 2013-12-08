@@ -16,7 +16,7 @@ class TestUser(DbTestCase):
         assert_true(user.email)
         assert_true(user.created_at)
         assert_false(user.is_admin)
-        assert_false(user.active)
+        assert_true(user.active)
         assert_true(user.check_password("myprecious"))
 
     def test_check_password(self):

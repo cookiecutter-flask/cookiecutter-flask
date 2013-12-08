@@ -43,12 +43,10 @@ def logout():
 def register():
     form = RegisterForm(request.form, csrf_enabled=False)
     if form.validate_on_submit():
-        new_user = User(username=form.username.data,
+        new_user = User.create(username=form.username.data,
                         email=form.email.data,
                         password=form.password.data,
                         active=True)
-        db.session.add(new_user)
-        db.session.commit()
         flash("Thank you for registering. You can now log in.", 'success')
         return redirect(url_for('public.home'))
     else:
