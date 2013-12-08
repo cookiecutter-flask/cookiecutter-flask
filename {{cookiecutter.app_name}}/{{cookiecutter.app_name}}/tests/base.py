@@ -1,14 +1,8 @@
 # -*- coding: utf-8 -*-
 from flask.ext.testing import TestCase
-from {{ cookiecutter.app_name }}.settings import Config
+from {{ cookiecutter.app_name }}.settings import TestConfig
 from {{ cookiecutter.app_name }}.app import create_app
 from {{ cookiecutter.app_name }}.database import db
-
-
-class TestConfig(Config):
-    TESTING = True
-    DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite://'
 
 
 class DbTestCase(TestCase):
