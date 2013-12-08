@@ -12,16 +12,17 @@ Use it now
     $ pip install cookiecutter
     $ cookiecutter https://github.com/sloria/cookiecutter-flask.git
 
-You will be asked about your basic info (name, project name, etc.). This info will be used in your new project.
+You will be asked about your basic info (name, project name, app name, etc.). This info will be used in your new project.
 
 Features
 --------
 
-- Twitter Bootstrap 3 and starter templates
+- Twitter Bootstrap 3 and Fontawesome 4 with starter templates
 - Flask-SQLAlchemy with basic User model
 - Easy database migrations with Flask-Migrate
 - Flask-WTForms with login and registration forms
 - Flask-Login for authentication
+- Flask-Bcrypt for password hashing
 - Procfile for deploying to a PaaS (e.g. Heroku)
 - Flask-Testing, Flask-Webtest, nose, and Factory-Boy for testing (example tests included)
 - A simple ``manage.py`` script.
@@ -62,8 +63,8 @@ BSD licensed.
 Changelog
 ---------
 
-0.3.0
-*****
+0.3.0 (12/08/2013)
+******************
 
 - More modular organization: each blueprint contains its own view, models, and forms in a directory. There is still a single directory for templates and static assets.
 - Use Flask-Bcrypt for password hashing.
