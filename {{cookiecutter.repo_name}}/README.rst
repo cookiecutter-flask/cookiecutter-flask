@@ -17,6 +17,12 @@ Quickstart
     python manage.py server
 
 
+Deployment
+----------
+
+In your production environment, make sure the ``{{cookiecutter.repo_name|upper}}_ENV`` environment variable is set to ``"prod"``.
+
+
 Shell
 -----
 

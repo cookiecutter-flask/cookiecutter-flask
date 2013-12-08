@@ -4,12 +4,14 @@ import os
 import sys
 import subprocess
 from flask.ext.script import Manager, Shell, Server
-from {{cookiecutter.repo_name }}.app import create_app
-from {{cookiecutter.repo_name}}.settings import DevConfig
+from {{cookiecutter.repo_name}}.app import create_app
+from {{cookiecutter.repo_name}}.settings import DevConfig, ProdConfig
 from {{cookiecutter.repo_name}}.database import db
 
-
-app = create_app(DevConfig)
+if os.environ.get("{{cookiecutter.repo_name | upper}}_ENV") == 'prod':
+    app = create_app(ProdConfig)
+else:
+    app = create_app(DevConfig)
 
 manager = Manager(app)
 TEST_CMD = "nosetests"

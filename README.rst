@@ -16,6 +16,7 @@ Features
 - Flask-Testing, Flask-Webtest, nose, and Factory-Boy for testing
 - A simple ``manage.py`` script.
 - CSS and JS minification using Flask-Assets
+- Useful debug toolbar
 - Utilizes best practices: `Blueprints <http://flask.pocoo.org/docs/blueprints/>`_ and `Application Factory <http://flask.pocoo.org/docs/patterns/appfactories/>`_ patterns
 
 Screenshots
@@ -72,6 +73,7 @@ Changelog
 - Flask-Testing support.
 - Use Factory-Boy for test factories.
 - Use WebTest for functional testing.
+- Add Flask-Debugtoolbar.
 
 0.2.0 (09/21/2013)
 ******************
