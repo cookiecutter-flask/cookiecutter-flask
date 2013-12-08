@@ -3,8 +3,8 @@ import datetime as dt
 
 from flask.ext.login import UserMixin
 
-from {{cookiecutter.app_name}}.database import db, CRUDMixin
-from {{cookiecutter.app_name}}.extensions import bcrypt
+from myflaskapp.database import db, CRUDMixin
+from myflaskapp.extensions import bcrypt
 
 
 class User(UserMixin, CRUDMixin,  db.Model):
@@ -14,10 +14,13 @@ class User(UserMixin, CRUDMixin,  db.Model):
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String, nullable=False)  # The hashed password
     created_at = db.Column(db.DateTime(), nullable=False)
+    first_name = db.Column(db.String(30), nullable=True)
+    last_name = db.Column(db.String(30), nullable=True)
     active = db.Column(db.Boolean())
     is_admin = db.Column(db.Boolean())
 
     def __init__(self, username=None, email=None, password=None,
+                first_name=None, last_name=None,
                  active=False, is_admin=False):
         self.username = username
         self.email = email
@@ -26,12 +29,18 @@ class User(UserMixin, CRUDMixin,  db.Model):
         self.active = active
         self.is_admin = is_admin
         self.created_at = dt.datetime.utcnow()
+        self.first_name = first_name
+        self.last_name = last_name
 
     def set_password(self, password):
         self.password = bcrypt.generate_password_hash(password)
 
     def check_password(self, password):
         return bcrypt.check_password_hash(self.password, password)
+
+    @property
+    def full_name(self):
+        return "{0} {1}".format(self.first_name, self.last_name)
 
     def __repr__(self):
         return '<User "{username}">'.format(username=self.username)

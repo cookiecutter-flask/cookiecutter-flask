@@ -25,5 +25,9 @@ class TestUser(DbTestCase):
         assert_true(user.check_password('foobarbaz123'))
         assert_false(user.check_password("barfoobaz"))
 
+    def test_full_name(self):
+        user = UserFactory(first_name="Foo", last_name="Bar")
+        assert_equal(user.full_name, "Foo Bar")
+
 if __name__ == '__main__':
     unittest.main()

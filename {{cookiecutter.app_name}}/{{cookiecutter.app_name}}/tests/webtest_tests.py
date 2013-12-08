@@ -27,7 +27,7 @@ class TestLoggingIn(DbTestCase):
         form['username'] = self.user.username
         form['password'] = 'myprecious'
         # Submits
-        res = form.submit().follow()
+        res = form.submit().maybe_follow()
         assert_equal(res.status_code, 200)
 
     def test_sees_error_message_if_password_is_incorrect(self):
