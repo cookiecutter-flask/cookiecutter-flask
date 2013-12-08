@@ -9,6 +9,7 @@ class Config(object):
     BCRYPT_LEVEL = 13
     DEBUG_TB_ENABLED = False  # Disable Debug toolbar
     DEBUG_TB_INTERCEPT_REDIRECTS = False
+    CACHE_TYPE = "simple"  # Can be "memcached", "redis", etc.
 
 
 class ProdConfig(Config):
@@ -31,3 +32,4 @@ class DevConfig(Config):
     SQLALCHEMY_ECHO = True
     DEBUG_TB_ENABLED = True
     ASSETS_DEBUG = True  # Don't bundle/minify static assets
+    CACHE_TYPE = "simple"  # Can be "memcached", "redis", etc.

@@ -4,7 +4,8 @@ from flask_debugtoolbar import DebugToolbarExtension
 
 from {{cookiecutter.repo_name}}.settings import ProdConfig
 from {{cookiecutter.repo_name}}.assets import assets
-from {{cookiecutter.repo_name}}.extensions import db, login_manager, migrate
+from {{cookiecutter.repo_name}}.extensions import (db, login_manager, migrate,
+                                                    cache)
 from {{cookiecutter.repo_name}} import public, user
 
 
@@ -26,6 +27,7 @@ def register_extensions(app):
     login_manager.init_app(app)
     assets.init_app(app)
     toolbar = DebugToolbarExtension(app)
+    cache.init_app(app)
     migrate.init_app(app, db)
     return None
 
