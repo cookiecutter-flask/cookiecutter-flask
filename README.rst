@@ -76,6 +76,7 @@ Changelog
 - Migrations using Flask-Migrate.
 - Caching using Flask-Cache.
 - Add error page templates (404, 401, 500)
+- Add Font Awesome 4.0.3 for icons.
 
 0.2.0 (09/21/2013)
 ******************

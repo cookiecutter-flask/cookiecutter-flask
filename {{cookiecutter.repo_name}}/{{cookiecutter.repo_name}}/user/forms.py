@@ -14,7 +14,6 @@ class RegisterForm(Form):
     confirm = PasswordField('Verify password',
                 [DataRequired(), EqualTo('password', message='Passwords must match')])
 
-
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)
         self.user = None

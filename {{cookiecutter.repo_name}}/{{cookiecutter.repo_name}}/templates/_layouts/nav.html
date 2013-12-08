@@ -27,7 +27,7 @@
         <li>
             <p class="navbar-text"><a class="navbar-link" href="{{ url_for('user.members') }}">Logged in as {{ current_user.username }}</a></p>
         </li>
-        <li><a class="navbar-link" href="{{ url_for('public.logout') }}">Log out</a></li>
+        <li><a class="navbar-link" href="{{ url_for('public.logout') }}"><i class="fa fa-sign-out"></i></a></li>
 
     </ul>
     {% elif form %}
