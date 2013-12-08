@@ -57,7 +57,3 @@ def register():
 def about():
     form = LoginForm(request.form)
     return render_template("public/about.html", form=form)
-
-@blueprint.errorhandler(404)
-def page_not_found(e):
-    return render_template("404.html"), 404
