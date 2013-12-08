@@ -56,7 +56,7 @@ def register():
 @blueprint.route("/about/")
 def about():
     form = LoginForm(request.form)
-    return render_template("about.html", form=form)
+    return render_template("public/about.html", form=form)
 
 @blueprint.errorhandler(404)
 def page_not_found(e):
