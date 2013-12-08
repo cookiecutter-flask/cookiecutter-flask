@@ -31,7 +31,7 @@
 <body class="{% block body_class %}{% endblock %}">
 {% block body %}
 {% with form=form  %}
-{% include "_layouts/nav.html" %}
+{% include "nav.html" %}
 {% endwith %}
 
 <header>{% block header %}{% endblock %}</header>
@@ -58,7 +58,7 @@
 
 </div><!-- end container -->
 
-{% include "_layouts/footer.html" %}
+{% include "footer.html" %}
 
 <!-- JavaScript at the bottom for fast page loading -->
 {% assets "js_all" %}

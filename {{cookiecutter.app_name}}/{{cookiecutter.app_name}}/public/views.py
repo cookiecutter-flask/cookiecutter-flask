@@ -4,12 +4,12 @@ from flask import (Blueprint, request, render_template, flash, url_for,
                     redirect, session)
 from flask.ext.login import login_user, login_required, logout_user
 
-from {{cookiecutter.repo_name}}.extensions import login_manager
-from {{cookiecutter.repo_name}}.user.models import User
-from {{cookiecutter.repo_name}}.public.forms import LoginForm
-from {{cookiecutter.repo_name}}.user.forms import RegisterForm
-from {{cookiecutter.repo_name}}.utils import flash_errors
-from {{cookiecutter.repo_name}}.database import db
+from {{cookiecutter.app_name}}.extensions import login_manager
+from {{cookiecutter.app_name}}.user.models import User
+from {{cookiecutter.app_name}}.public.forms import LoginForm
+from {{cookiecutter.app_name}}.user.forms import RegisterForm
+from {{cookiecutter.app_name}}.utils import flash_errors
+from {{cookiecutter.app_name}}.database import db
 
 blueprint = Blueprint('public', __name__, static_folder="../static")
 

@@ -6,11 +6,11 @@ import subprocess
 from flask.ext.script import Manager, Shell, Server
 from flask.ext.migrate import MigrateCommand
 
-from {{cookiecutter.repo_name}}.app import create_app
-from {{cookiecutter.repo_name}}.settings import DevConfig, ProdConfig
-from {{cookiecutter.repo_name}}.database import db
+from {{cookiecutter.app_name}}.app import create_app
+from {{cookiecutter.app_name}}.settings import DevConfig, ProdConfig
+from {{cookiecutter.app_name}}.database import db
 
-if os.environ.get("{{cookiecutter.repo_name | upper}}_ENV") == 'prod':
+if os.environ.get("{{cookiecutter.app_name | upper}}_ENV") == 'prod':
     app = create_app(ProdConfig)
 else:
     app = create_app(DevConfig)

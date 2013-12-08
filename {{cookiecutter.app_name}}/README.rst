@@ -10,8 +10,8 @@ Quickstart
 
 ::
 
-    git clone https://github.com/{{cookiecutter.github_username}}/{{ cookiecutter.repo_name }}
-    cd {{cookiecutter.repo_name}}
+    git clone https://github.com/{{cookiecutter.github_username}}/{{ cookiecutter.app_name }}
+    cd {{cookiecutter.app_name}}
     pip install -r requirements/dev.txt
     python manage.py db init
     python manage.py db migrate
@@ -23,7 +23,7 @@ Quickstart
 Deployment
 ----------
 
-In your production environment, make sure the ``{{cookiecutter.repo_name|upper}}_ENV`` environment variable is set to ``"prod"``.
+In your production environment, make sure the ``{{cookiecutter.app_name|upper}}_ENV`` environment variable is set to ``"prod"``.
 
 
 Shell

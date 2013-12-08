@@ -2,8 +2,8 @@
 import unittest
 from nose.tools import *  # PEP8 asserts
 
-from {{ cookiecutter.repo_name }}.database import db
-from {{ cookiecutter.repo_name }}.user.models import User
+from {{ cookiecutter.app_name }}.database import db
+from {{ cookiecutter.app_name }}.user.models import User
 from .base import DbTestCase
 from .factories import UserFactory
 

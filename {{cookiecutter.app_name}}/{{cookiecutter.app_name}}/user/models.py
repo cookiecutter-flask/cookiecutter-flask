@@ -3,8 +3,8 @@ import datetime as dt
 
 from flask.ext.login import UserMixin
 
-from {{cookiecutter.repo_name}}.database import db, CRUDMixin
-from {{cookiecutter.repo_name}}.extensions import bcrypt
+from {{cookiecutter.app_name}}.database import db, CRUDMixin
+from {{cookiecutter.app_name}}.extensions import bcrypt
 
 
 class User(UserMixin, CRUDMixin,  db.Model):

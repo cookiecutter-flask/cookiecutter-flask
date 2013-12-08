@@ -3,7 +3,7 @@
 	"email": "sloria1@gmail.com",
 	"github_username": "sloria",
 	"project_name": "My Flask App",
-	"repo_name": "myflaskapp",
+	"app_name": "myflaskapp",
 	"project_short_description": "A flasky app.",
 	"year": "2013"
 }

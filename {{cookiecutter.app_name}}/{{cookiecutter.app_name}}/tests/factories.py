@@ -2,8 +2,8 @@
 from factory import Sequence, PostGenerationMethodCall
 from factory.alchemy import SQLAlchemyModelFactory
 
-from {{cookiecutter.repo_name}}.user.models import User
-from {{cookiecutter.repo_name}}.database import db
+from {{cookiecutter.app_name}}.user.models import User
+from {{cookiecutter.app_name}}.database import db
 
 
 class UserFactory(SQLAlchemyModelFactory):

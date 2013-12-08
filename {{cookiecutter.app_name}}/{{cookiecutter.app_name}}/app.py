@@ -3,11 +3,11 @@
 from flask import Flask, render_template
 from flask_debugtoolbar import DebugToolbarExtension
 
-from {{cookiecutter.repo_name}}.settings import ProdConfig
-from {{cookiecutter.repo_name}}.assets import assets
-from {{cookiecutter.repo_name}}.extensions import (db, login_manager, migrate,
+from {{cookiecutter.app_name}}.settings import ProdConfig
+from {{cookiecutter.app_name}}.assets import assets
+from {{cookiecutter.app_name}}.extensions import (db, login_manager, migrate,
                                                     cache)
-from {{cookiecutter.repo_name}} import public, user
+from {{cookiecutter.app_name}} import public, user
 
 
 def create_app(config_object=ProdConfig):

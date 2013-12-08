@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from flask.ext.testing import TestCase
-from {{ cookiecutter.repo_name }}.settings import Config
-from {{ cookiecutter.repo_name }}.app import create_app
-from {{ cookiecutter.repo_name }}.database import db
+from {{ cookiecutter.app_name }}.settings import Config
+from {{ cookiecutter.app_name }}.app import create_app
+from {{ cookiecutter.app_name }}.database import db
 
 
 class TestConfig(Config):
