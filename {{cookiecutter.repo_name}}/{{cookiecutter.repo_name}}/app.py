@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from flask import Flask
+'''The app module, containing the app factory function.'''
+from flask import Flask, render_template
 from flask_debugtoolbar import DebugToolbarExtension
 
 from {{cookiecutter.repo_name}}.settings import ProdConfig
@@ -19,6 +20,7 @@ def create_app(config_object=ProdConfig):
     app.config.from_object(config_object)
     register_extensions(app)
     register_blueprints(app)
+    register_errorhandlers(app)
     return app
 
 
@@ -35,4 +37,12 @@ def register_extensions(app):
 def register_blueprints(app):
     app.register_blueprint(public.views.blueprint)
     app.register_blueprint(user.views.blueprint)
+    return None
+
+
+def register_errorhandlers(app):
+    def render_error(error):
+        return render_template("{0}.html".format(error.code)), error.code
+    for errcode in [401, 404, 500]:
+        app.errorhandler(errcode)(render_error)
     return None
