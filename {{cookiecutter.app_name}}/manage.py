@@ -31,11 +31,6 @@ def test():
     status = subprocess.call(TEST_CMD, shell=True)
     sys.exit(status)
 
-@manager.command
-def createdb():
-    '''Create a database from the tables defined in models.py.'''
-    db.create_all()
-
 manager.add_command("server", Server())
 manager.add_command("shell", Shell(make_context=_make_context))
 manager.add_command('db', MigrateCommand)
