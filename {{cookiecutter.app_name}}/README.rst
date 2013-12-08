@@ -33,7 +33,7 @@ To open the interactive shell, run ::
 
     python manage.py shell
 
-By default, you will have access to ``app`` and ``db``.
+By default, you will have access to ``app``, ``db``, and the ``User`` model.
 
 
 Running Tests

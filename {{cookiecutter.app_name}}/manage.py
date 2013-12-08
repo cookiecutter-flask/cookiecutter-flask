@@ -7,6 +7,7 @@ from flask.ext.script import Manager, Shell, Server
 from flask.ext.migrate import MigrateCommand
 
 from {{cookiecutter.app_name}}.app import create_app
+from {{cookiecutter.app_name}}.user.models import User
 from {{cookiecutter.app_name}}.settings import DevConfig, ProdConfig
 from {{cookiecutter.app_name}}.database import db
 
@@ -20,9 +21,9 @@ TEST_CMD = "nosetests"
 
 def _make_context():
     '''Return context dict for a shell session so you can access
-    app and db by default.
+    app, db, and the User model by default.
     '''
-    return {'app': app, 'db': db}
+    return {'app': app, 'db': db, 'User': User}
 
 @manager.command
 def test():
