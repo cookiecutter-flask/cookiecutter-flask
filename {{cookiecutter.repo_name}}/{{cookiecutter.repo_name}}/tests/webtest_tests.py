@@ -96,7 +96,7 @@ class TestRegistering(DbTestCase):
         user.save()
         # Goes to registration page
         res = self.w.get(url_for("public.register"))
-        # Fills out form, but
+        # Fills out form, but username is already registered
         form = res.forms["registerForm"]
         form['username'] = user.username
         form['email'] = 'foo@bar.com'

@@ -13,7 +13,7 @@ Features
 - Flask-WTForms with login and registration forms
 - Flask-Login for authentication
 - Procfile for deploying to a PaaS (e.g. Heroku)
-- Flask-Testing, nose, and Factory-Boy for testing
+- Flask-Testing, Flask-Webtest, nose, and Factory-Boy for testing
 - A simple ``manage.py`` script.
 - CSS and JS minification using Flask-Assets
 - Utilizes best practices: `Blueprints <http://flask.pocoo.org/docs/blueprints/>`_ and `Application Factory <http://flask.pocoo.org/docs/patterns/appfactories/>`_ patterns
@@ -71,6 +71,7 @@ Changelog
 - Simple test setup. Just create a subclass of ``DbTestCase``.
 - Flask-Testing support.
 - Use Factory-Boy for test factories.
+- Use WebTest for functional testing.
 
 0.2.0 (09/21/2013)
 ******************
