@@ -30,6 +30,22 @@ class TestLoggingIn(DbTestCase):
         res = form.submit().maybe_follow()
         assert_equal(res.status_code, 200)
 
+    def _login(self, username, password):
+        res = self.w.get("/")
+        # Fills out login form in navbar
+        form = res.forms['loginForm']
+        form['username'] = username
+        form['password'] = password
+        # Submits
+        res = form.submit().maybe_follow()
+        return res
+
+    def test_sees_alert_on_log_out(self):
+        res = self._login(self.user.username, 'myprecious')
+        res = self.w.get(url_for('public.logout')).maybe_follow()
+        # sees alert
+        assert_in('You are logged out.', res)
+
     def test_sees_error_message_if_password_is_incorrect(self):
         # Goes to homepage
         res = self.w.get("/")
