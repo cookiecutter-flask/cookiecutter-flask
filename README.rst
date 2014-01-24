@@ -17,7 +17,7 @@ You will be asked about your basic info (name, project name, app name, etc.). Th
 Features
 --------
 
-- Twitter Bootstrap 3 and Fontawesome 4 with starter templates
+- Bootstrap 3 and Font Awesome 4 with starter templates
 - Flask-SQLAlchemy with basic User model
 - Easy database migrations with Flask-Migrate
 - Flask-WTForms with login and registration forms
