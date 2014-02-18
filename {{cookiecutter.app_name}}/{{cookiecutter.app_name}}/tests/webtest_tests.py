@@ -27,7 +27,7 @@ class TestLoggingIn(DbTestCase):
         form['username'] = self.user.username
         form['password'] = 'myprecious'
         # Submits
-        res = form.submit().maybe_follow()
+        res = form.submit().follow()
         assert_equal(res.status_code, 200)
 
     def _login(self, username, password):
@@ -37,12 +37,12 @@ class TestLoggingIn(DbTestCase):
         form['username'] = username
         form['password'] = password
         # Submits
-        res = form.submit().maybe_follow()
+        res = form.submit().follow()
         return res
 
     def test_sees_alert_on_log_out(self):
         res = self._login(self.user.username, 'myprecious')
-        res = self.w.get(url_for('public.logout')).maybe_follow()
+        res = self.w.get(url_for('public.logout')).follow()
         # sees alert
         assert_in('You are logged out.', res)
 
@@ -88,7 +88,7 @@ class TestRegistering(DbTestCase):
         form['password'] = 'secret'
         form['confirm'] = 'secret'
         # Submits
-        res = form.submit().maybe_follow()
+        res = form.submit().follow()
         assert_equal(res.status_code, 200)
         # A new user was created
         assert_equal(len(User.query.all()), 1)
