@@ -64,8 +64,8 @@ BSD licensed.
 Changelog
 ---------
 
-0.3.1
-*****
+0.3.1 (02/20/2014)
+******************
 
 - Update default year in cookiecutter.json. Thanks @Omeryl
 - Correct testing of redirects in webtests. Thanks @Widdershin
