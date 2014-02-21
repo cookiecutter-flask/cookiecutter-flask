@@ -27,6 +27,7 @@ Features
 - Flask-Testing, Flask-Webtest, nose, and Factory-Boy for testing (example tests included)
 - A simple ``manage.py`` script.
 - CSS and JS minification using Flask-Assets
+- Optional bower support for frontend package management
 - Caching using Flask-Cache
 - Useful debug toolbar
 - Utilizes best practices: `Blueprints <http://flask.pocoo.org/docs/blueprints/>`_ and `Application Factory <http://flask.pocoo.org/docs/patterns/appfactories/>`_ patterns
@@ -69,6 +70,9 @@ Changelog
 - Update default year in cookiecutter.json. Thanks @Omeryl
 - Correct testing of redirects in webtests. Thanks @Widdershin
 - Fix POST action in nav form. Thanks @Widdershin.
+- Update Bootstrap (3.1.1) and jQuery (2.1.0)
+- Optional support for bower.
+- Minified assets aren't used in dev environment.
 
 
 0.3.0 (12/08/2013)
