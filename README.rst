@@ -63,6 +63,14 @@ BSD licensed.
 Changelog
 ---------
 
+0.3.1
+*****
+
+- Update default year in cookiecutter.json. Thanks @Omeryl
+- Correct testing of redirects in webtests. Thanks @Widdershin
+- Fix POST action in nav form. Thanks @Widdershin.
+
+
 0.3.0 (12/08/2013)
 ******************
 
