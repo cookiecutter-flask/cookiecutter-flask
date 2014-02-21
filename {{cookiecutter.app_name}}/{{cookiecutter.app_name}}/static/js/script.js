@@ -1,5 +1,5 @@
-(function() {
+(function($, window) {
 
 
 
-}).call(this);
+}).call(this, jQuery, window);
