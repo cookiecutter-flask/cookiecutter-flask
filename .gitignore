@@ -6,7 +6,6 @@
 # Packages
 *.egg
 *.egg-info
-dist
 build
 eggs
 parts
@@ -26,7 +25,7 @@ pip-log.txt
 .tox
 nosetests.xml
 
-# Translations
+# si
 *.mo
 
 # Mr Developer
@@ -45,3 +44,4 @@ docs/_build
 output/
 
 myflaskapp/
+bower_components
