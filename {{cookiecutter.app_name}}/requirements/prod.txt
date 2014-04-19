@@ -8,8 +8,8 @@ Jinja2==2.7
 itsdangerous==0.23
 
 # Database
-Flask-SQLAlchemy==1.0
-SQLAlchemy==0.8.3
+-e git://github.com/mitsuhiko/flask-sqlalchemy.git#egg=flask-sqlalchemy
+SQLAlchemy==0.9.4
 
 # Migrations
 Flask-Migrate>=1.0.0
