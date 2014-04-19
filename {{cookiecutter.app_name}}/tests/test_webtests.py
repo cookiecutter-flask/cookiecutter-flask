@@ -3,64 +3,58 @@
 
 See: http://webtest.readthedocs.org/
 '''
+import pytest
 from flask import url_for
-from flask.ext.webtest import TestApp
-from nose.tools import *  # PEP8 asserts
 
-from ..user.models import User
+
+from {{cookiecutter.app_name}}.user.models import User
 from .base import DbTestCase
 from .factories import UserFactory
 
+@pytest.fixture
+def user(db):
+    return UserFactory(password='myprecious')
 
-class TestLoggingIn(DbTestCase):
+class TestLoggingIn:
 
-    def setUp(self):
-        self.w = TestApp(self.app)
-        self.user = UserFactory(password="myprecious")
-        self.user.save()
-
-    def test_can_log_in(self):
+    def test_can_log_in_returns_200(self, user, testapp):
         # Goes to homepage
-        res = self.w.get("/")
+        res = testapp.get("/")
         # Fills out login form in navbar
         form = res.forms['loginForm']
-        form['username'] = self.user.username
+        form['username'] = user.username
         form['password'] = 'myprecious'
         # Submits
-        res = form.submit().follow()
-        assert_equal(res.status_code, 200)
+        res = form.submit()
+        assert res.status_code == 200
 
-    def _login(self, username, password):
-        res = self.w.get("/")
+    def test_sees_alert_on_log_out(self, user, testapp):
+        res = testapp.get("/")
         # Fills out login form in navbar
         form = res.forms['loginForm']
-        form['username'] = username
-        form['password'] = password
+        form['username'] = user.username
+        form['password'] = 'myprecious'
         # Submits
-        res = form.submit().follow()
-        return res
-
-    def test_sees_alert_on_log_out(self):
-        res = self._login(self.user.username, 'myprecious')
-        res = self.w.get(url_for('public.logout')).follow()
+        res = form.submit()
+        res = testapp.get(url_for('public.logout')).follow()
         # sees alert
-        assert_in('You are logged out.', res)
+        assert 'You are logged out.' in res
 
-    def test_sees_error_message_if_password_is_incorrect(self):
+    def test_sees_error_message_if_password_is_incorrect(self, user, testapp):
         # Goes to homepage
-        res = self.w.get("/")
+        res = testapp.get("/")
         # Fills out login form, password incorrect
         form = res.forms['loginForm']
-        form['username'] = self.user.username
+        form['username'] = user.username
         form['password'] = 'wrong'
         # Submits
         res = form.submit()
         # sees error
-        assert_in("Invalid password", res)
+        assert "Invalid password" in res
 
-    def test_sees_error_message_if_username_doesnt_exist(self):
+    def test_sees_error_message_if_username_doesnt_exist(self, user, testapp):
         # Goes to homepage
-        res = self.w.get("/")
+        res = testapp.get("/")
         # Fills out login form, password incorrect
         form = res.forms['loginForm']
         form['username'] = 'unknown'
@@ -68,17 +62,15 @@ class TestLoggingIn(DbTestCase):
         # Submits
         res = form.submit()
         # sees error
-        assert_in("Unknown user", res)
+        assert "Unknown user" in res
 
 
-class TestRegistering(DbTestCase):
+class TestRegistering:
 
-    def setUp(self):
-        self.w = TestApp(self.app)
-
-    def test_can_register(self):
+    def test_can_register(self, user, testapp):
+        old_count = len(User.query.all())
         # Goes to homepage
-        res = self.w.get("/")
+        res = testapp.get("/")
         # Clicks Create Account button
         res = res.click("Create account")
         # Fills out the form
@@ -89,13 +81,13 @@ class TestRegistering(DbTestCase):
         form['confirm'] = 'secret'
         # Submits
         res = form.submit().follow()
-        assert_equal(res.status_code, 200)
+        assert res.status_code == 200
         # A new user was created
-        assert_equal(len(User.query.all()), 1)
+        assert len(User.query.all()) == old_count + 1
 
-    def test_sees_error_message_if_passwords_dont_match(self):
+    def test_sees_error_message_if_passwords_dont_match(self, user, testapp):
         # Goes to registration page
-        res = self.w.get(url_for("public.register"))
+        res = testapp.get(url_for("public.register"))
         # Fills out form, but passwords don't match
         form = res.forms["registerForm"]
         form['username'] = 'foobar'
@@ -105,13 +97,13 @@ class TestRegistering(DbTestCase):
         # Submits
         res = form.submit()
         # sees error message
-        assert_in("Passwords must match", res)
+        assert "Passwords must match" in res
 
-    def test_sees_error_message_if_user_already_registered(self):
+    def test_sees_error_message_if_user_already_registered(self, user, testapp):
         user = UserFactory(active=True)  # A registered user
         user.save()
         # Goes to registration page
-        res = self.w.get(url_for("public.register"))
+        res = testapp.get(url_for("public.register"))
         # Fills out form, but username is already registered
         form = res.forms["registerForm"]
         form['username'] = user.username
@@ -121,4 +113,4 @@ class TestRegistering(DbTestCase):
         # Submits
         res = form.submit()
         # sees error
-        assert_in("Username already registered", res)
+        assert "Username already registered" in res

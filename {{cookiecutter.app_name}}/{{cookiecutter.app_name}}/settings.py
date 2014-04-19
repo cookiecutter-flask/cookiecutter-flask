@@ -9,7 +9,7 @@ class Config(object):
     BCRYPT_LEVEL = 13
     DEBUG_TB_ENABLED = False  # Disable Debug toolbar
     DEBUG_TB_INTERCEPT_REDIRECTS = False
-    CACHE_TYPE = "simple"  # Can be "memcached", "redis", etc.
+    CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
 
 
 class ProdConfig(Config):
