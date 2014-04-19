@@ -11,7 +11,6 @@ from {{cookiecutter.app_name}}.database import (
     Column,
     BcryptType,
 )
-from {{cookiecutter.app_name}}.extensions import bcrypt
 
 
 class Role(CRUDMixin, db.Model):
@@ -19,6 +18,9 @@ class Role(CRUDMixin, db.Model):
     name = Column(db.String(80), unique=True, nullable=False)
     user_id = ReferenceCol('users', nullable=True)
     user = relationship('User', backref='roles')
+
+    def __init__(self, name, **kwargs):
+        db.Model.__init__(self, name=name, **kwargs)
 
 class User(UserMixin, CRUDMixin,  db.Model):
 
