@@ -10,6 +10,13 @@ from .factories import UserFactory
 @pytest.mark.usefixtures('db')
 class TestUser:
 
+    def test_get_by_id(self):
+        user = User('foo', 'foo@bar.com')
+        user.save()
+
+        retrieved = User.get_by_id(user.id)
+        assert retrieved == user
+
     def test_created_at_defaults_to_datetime(self):
         user = User(username='foo', email='foo@bar.com')
         user.save()

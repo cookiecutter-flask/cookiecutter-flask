@@ -5,15 +5,16 @@ from flask.ext.login import UserMixin
 
 from {{cookiecutter.app_name}}.extensions import bcrypt
 from {{cookiecutter.app_name}}.database import (
+    Column,
     db,
-    CRUDMixin,
+    Model,
     ReferenceCol,
     relationship,
-    Column,
+    SurrogatePK,
 )
 
 
-class Role(CRUDMixin, db.Model):
+class Role(SurrogatePK, Model):
     __tablename__ = 'roles'
     name = Column(db.String(80), unique=True, nullable=False)
     user_id = ReferenceCol('users', nullable=True)
@@ -22,7 +23,7 @@ class Role(CRUDMixin, db.Model):
     def __init__(self, name, **kwargs):
         db.Model.__init__(self, name=name, **kwargs)
 
-class User(UserMixin, CRUDMixin,  db.Model):
+class User(UserMixin, SurrogatePK, Model):
 
     __tablename__ = 'users'
     username = Column(db.String(80), unique=True, nullable=False)
