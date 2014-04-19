@@ -3,9 +3,8 @@
 utilities.
 """
 from sqlalchemy.orm import relationship
-from sqlalchemy.types import TypeDecorator
 
-from .extensions import db, bcrypt
+from .extensions import db
 
 Column = db.Column
 relationship = relationship
@@ -51,56 +50,10 @@ class CRUDMixin(object):
         db.session.delete(self)
         return commit and db.session.commit()
 
-# From Mike Bayer's "atmcraft" example app
+# From Mike Bayer's "Building the app" talk
 # https://speakerdeck.com/zzzeek/building-the-app
 def ReferenceCol(tablename, nullable=False, **kwargs):
     """Column that adds primary key foreign key reference."""
     return db.Column(
         db.ForeignKey("{0}.id".format(tablename)),
         nullable=nullable, **kwargs)
-
-
-class Password(str):
-    """Coerce a string to a bcrypt password.
-
-    Rationale: for an easy string comparison,
-    so we can say ``some_password == 'hello123'``
-
-    .. seealso::
-
-        https://pypi.python.org/pypi/bcrypt/
-
-    """
-
-    def __new__(cls, value, crypt=True):
-        if value is None:
-            return None
-        if isinstance(value, unicode):
-            value = value.encode('utf-8')
-        if crypt:
-            value = bcrypt.generate_password_hash(value)
-        return str.__new__(cls, value)
-
-    def __eq__(self, other):
-        if other and not isinstance(other, Password):
-            return bcrypt.check_password_hash(self, other)
-        return str.__eq__(self, other)
-
-    def __ne__(self, other):
-        return not self.__eq__(other)
-
-
-class BcryptType(TypeDecorator):
-    """Coerce strings to bcrypted Password objects for the database.
-    """
-    impl = db.String(128)
-
-    def process_bind_param(self, value, dialect):
-        return Password(value)
-
-    def process_result_value(self, value, dialect):
-        # already crypted, so don't crypt again
-        return Password(value, crypt=False)
-
-    def __repr__(self):
-        return "BcryptType()"

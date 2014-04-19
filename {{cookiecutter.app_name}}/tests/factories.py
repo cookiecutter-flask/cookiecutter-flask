@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from factory import Sequence
+from factory import Sequence, PostGenerationMethodCall
 from factory.alchemy import SQLAlchemyModelFactory
 
 from {{cookiecutter.app_name}}.user.models import User
@@ -24,7 +24,6 @@ class UserFactory(BaseFactory):
 
     username = Sequence(lambda n: "user{0}".format(n))
     email = Sequence(lambda n: "user{0}@example.com".format(n))
-    password = 'example'
+    password = PostGenerationMethodCall('set_password', 'example')
     active = True
 
-ALL_FACTORIES = [UserFactory]

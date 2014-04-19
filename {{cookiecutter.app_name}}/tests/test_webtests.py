@@ -8,7 +8,6 @@ from flask import url_for
 
 
 from {{cookiecutter.app_name}}.user.models import User
-from .base import DbTestCase
 from .factories import UserFactory
 
 @pytest.fixture

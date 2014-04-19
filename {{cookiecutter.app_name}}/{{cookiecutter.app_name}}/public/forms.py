@@ -22,7 +22,7 @@ class LoginForm(Form):
             self.username.errors.append("Unknown username")
             return False
 
-        if self.user != self.password.data:
+        if not self.user.check_password(self.password.data):
             self.password.errors.append("Invalid password")
             return False
 
