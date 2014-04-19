@@ -9,6 +9,7 @@ from {{ cookiecutter.app_name }}.settings import TestConfig
 from {{cookiecutter.app_name}}.app import create_app
 from {{cookiecutter.app_name}}.database import db as _db
 
+from .factories import UserFactory
 
 @pytest.yield_fixture(scope='function')
 def app():
@@ -34,3 +35,8 @@ def db(app):
     yield _db
 
     _db.drop_all()
+
+
+@pytest.fixture
+def user(db):
+    return UserFactory()

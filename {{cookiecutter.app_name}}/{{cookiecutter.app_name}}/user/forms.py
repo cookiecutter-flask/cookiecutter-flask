@@ -30,6 +30,4 @@ class RegisterForm(Form):
         if user:
             self.email.errors.append("Email already registered")
             return False
-
-        self.user = user
         return True
