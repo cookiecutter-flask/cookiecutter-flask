@@ -87,8 +87,6 @@ class Password(str):
         return str.__eq__(self, other)
 
     def __ne__(self, other):
-        if other and not isinstance(other, Password):
-            return bcrypt.check_password_hash(self, other)
         return not self.__eq__(other)
 
 
