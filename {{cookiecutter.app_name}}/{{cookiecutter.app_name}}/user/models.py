@@ -3,9 +3,20 @@ import datetime as dt
 
 from flask.ext.login import UserMixin
 
-from {{cookiecutter.app_name}}.database import db, CRUDMixin
+from {{cookiecutter.app_name}}.database import (
+    db,
+    CRUDMixin,
+    ReferenceCol,
+    relationship,
+)
 from {{cookiecutter.app_name}}.extensions import bcrypt
 
+
+class Role(CRUDMixin, db.Model):
+    __tablename__ = 'roles'
+    name = db.Column(db.String(80), unique=True, nullable=False)
+    user_id = ReferenceCol('users', nullable=True)
+    user = relationship('User', backref='roles')
 
 class User(UserMixin, CRUDMixin,  db.Model):
 
@@ -18,6 +29,7 @@ class User(UserMixin, CRUDMixin,  db.Model):
     last_name = db.Column(db.String(30), nullable=True)
     active = db.Column(db.Boolean())
     is_admin = db.Column(db.Boolean())
+
 
     def __init__(self, username=None, email=None, password=None,
                 first_name=None, last_name=None,

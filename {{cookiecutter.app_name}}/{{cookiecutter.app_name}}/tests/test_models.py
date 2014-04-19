@@ -3,7 +3,7 @@ import unittest
 from nose.tools import *  # PEP8 asserts
 
 from {{ cookiecutter.app_name }}.database import db
-from {{ cookiecutter.app_name }}.user.models import User
+from {{ cookiecutter.app_name }}.user.models import User, Role
 from .base import DbTestCase
 from .factories import UserFactory
 
@@ -28,6 +28,14 @@ class TestUser(DbTestCase):
     def test_full_name(self):
         user = UserFactory(first_name="Foo", last_name="Bar")
         assert_equal(user.full_name, "Foo Bar")
+
+    def test_roles(self):
+        role = Role(name='admin')
+        role.save()
+        u = UserFactory()
+        u.roles.append(role)
+        u.save()
+        assert_in(role, u.roles)
 
 if __name__ == '__main__':
     unittest.main()
