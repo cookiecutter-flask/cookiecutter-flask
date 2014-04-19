@@ -6,14 +6,14 @@ class Config(object):
     SECRET_KEY = 'shhhh'
     APP_DIR = os.path.abspath(os.path.dirname(__file__))  # This directory
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
-    BCRYPT_LEVEL = 13
+    BCRYPT_LOG_ROUNDS = 13
     DEBUG_TB_ENABLED = False  # Disable Debug toolbar
     DEBUG_TB_INTERCEPT_REDIRECTS = False
     CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
 
 
 class ProdConfig(Config):
-    '''Production configuration.'''
+    """Production configuration."""
     ENV = 'prod'
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/example'
@@ -21,20 +21,20 @@ class ProdConfig(Config):
 
 
 class DevConfig(Config):
-    '''Development configuration.'''
+    """Development configuration."""
     ENV = 'dev'
     DEBUG = True
-    DB_NAME = "dev.db"
+    DB_NAME = 'dev.db'
     # Put the db file in project root
     DB_PATH = os.path.join(Config.PROJECT_ROOT, DB_NAME)
-    SQLALCHEMY_DATABASE_URI = "sqlite:///{0}".format(DB_PATH)
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///{0}'.format(DB_PATH)
     DEBUG_TB_ENABLED = True
     ASSETS_DEBUG = True  # Don't bundle/minify static assets
-    CACHE_TYPE = "simple"  # Can be "memcached", "redis", etc.
+    CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
 
 
 class TestConfig(Config):
     TESTING = True
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
-    BCRYPT_LEVEL = 1
+    BCRYPT_LOG_ROUNDS = 1  # For faster tests
