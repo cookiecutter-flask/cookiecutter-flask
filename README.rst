@@ -24,7 +24,7 @@ Features
 - Flask-Login for authentication
 - Flask-Bcrypt for password hashing
 - Procfile for deploying to a PaaS (e.g. Heroku)
-- Flask-Testing, Flask-Webtest, nose, and Factory-Boy for testing (example tests included)
+- pytest and Factory-Boy for testing (example tests included)
 - A simple ``manage.py`` script.
 - CSS and JS minification using Flask-Assets
 - Optional bower support for frontend package management
@@ -59,10 +59,24 @@ Inspiration
 
 License
 -------
+
 BSD licensed.
 
 Changelog
 ---------
+
+0.4.0 (04/19/2014)
+******************
+
+- Add ReferenceCol for less verbose foreign key columns.
+- Add SurrogatePK mixin for adding integer primary key to a model.
+- Add base Model class that has CRUD convenience methods.
+- Fix setting BCrypt encryption complexity. Tests are much faster.
+- Add Role model to show ReferenceCol usage.
+- Switch to pytest.
+- Upgrade all out-of-date requirements.
+- More test examples.
+- Remove "year" from cookiecutter.json (just change LICENSE if necessary).
 
 0.3.2 (02/26/2014)
 ******************
