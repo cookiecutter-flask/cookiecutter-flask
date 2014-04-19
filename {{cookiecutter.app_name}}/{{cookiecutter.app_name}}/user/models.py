@@ -26,7 +26,7 @@ class User(UserMixin, CRUDMixin,  db.Model):
     username = Column(db.String(80), unique=True, nullable=False)
     email = Column(db.String(80), unique=True, nullable=False)
     password = Column(BcryptType, nullable=True)
-    created_at = Column(db.DateTime, nullable=False)
+    created_at = Column(db.DateTime, nullable=False, default=dt.datetime.utcnow)
     first_name = Column(db.String(30), nullable=True)
     last_name = Column(db.String(30), nullable=True)
     active = Column(db.Boolean(), default=False)
@@ -34,12 +34,10 @@ class User(UserMixin, CRUDMixin,  db.Model):
 
     def __init__(self, username, email, **kwargs):
         db.Model.__init__(self, username=username, email=email, **kwargs)
-        if not self.created_at:
-            self.created_at = dt.datetime.utcnow()
 
     @property
     def full_name(self):
         return "{0} {1}".format(self.first_name, self.last_name)
 
     def __repr__(self):
-        return '<User "{username}">'.format(username=self.username)
+        return '<User {username!r}>'.format(username=self.username)
