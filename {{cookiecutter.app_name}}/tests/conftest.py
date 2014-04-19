@@ -10,7 +10,7 @@ from {{cookiecutter.app_name}}.app import create_app
 from {{cookiecutter.app_name}}.database import db as _db
 
 
-@pytest.yield_fixture(scope='session')
+@pytest.yield_fixture(scope='function')
 def app():
     _app = create_app(TestConfig)
     ctx = _app.test_request_context()

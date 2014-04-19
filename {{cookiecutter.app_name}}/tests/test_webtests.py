@@ -24,7 +24,7 @@ class TestLoggingIn:
         form['username'] = user.username
         form['password'] = 'myprecious'
         # Submits
-        res = form.submit()
+        res = form.submit().follow()
         assert res.status_code == 200
 
     def test_sees_alert_on_log_out(self, user, testapp):
@@ -34,7 +34,7 @@ class TestLoggingIn:
         form['username'] = user.username
         form['password'] = 'myprecious'
         # Submits
-        res = form.submit()
+        res = form.submit().follow()
         res = testapp.get(url_for('public.logout')).follow()
         # sees alert
         assert 'You are logged out.' in res
