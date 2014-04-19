@@ -9,4 +9,4 @@ factory-boy>=2.2.1
 Flask-Script
 
 # Debug toolbar
-Flask-DebugToolbar
+Flask-DebugToolbar==0.9.0

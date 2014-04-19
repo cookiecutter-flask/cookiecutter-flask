@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 '''The app module, containing the app factory function.'''
 from flask import Flask, render_template
-from flask_debugtoolbar import DebugToolbarExtension
 
 from {{cookiecutter.app_name}}.settings import ProdConfig
 from {{cookiecutter.app_name}}.assets import assets
@@ -11,6 +10,7 @@ from {{cookiecutter.app_name}}.extensions import (
     db,
     login_manager,
     migrate,
+    debug_toolbar,
 )
 from {{cookiecutter.app_name}} import public, user
 
@@ -30,13 +30,13 @@ def create_app(config_object=ProdConfig):
 
 
 def register_extensions(app):
+    assets.init_app(app)
+    bcrypt.init_app(app)
+    cache.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)
-    assets.init_app(app)
-    toolbar = DebugToolbarExtension(app)
-    cache.init_app(app)
+    debug_toolbar.init_app(app)
     migrate.init_app(app, db)
-    bcrypt.init_app(app)
     return None
 
 
