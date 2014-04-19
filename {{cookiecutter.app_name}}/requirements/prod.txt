@@ -2,20 +2,20 @@
 
 # Flask
 Flask==0.10.1
-MarkupSafe==0.18
+MarkupSafe==0.21
 Werkzeug==0.9.4
-Jinja2==2.7
-itsdangerous==0.23
+Jinja2==2.7.2
+itsdangerous==0.24
 
 # Database
--e git://github.com/mitsuhiko/flask-sqlalchemy.git#egg=flask-sqlalchemy
+Flask-SQLAlchemy==1.0
 SQLAlchemy==0.9.4
 
 # Migrations
 Flask-Migrate>=1.0.0
 
 # Forms
-Flask-WTF==0.9.3
+Flask-WTF==0.9.5
 WTForms==1.0.5
 
 # Deployment
