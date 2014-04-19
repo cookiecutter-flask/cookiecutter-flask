@@ -17,7 +17,7 @@ else:
     app = create_app(DevConfig)
 
 manager = Manager(app)
-TEST_CMD = "nosetests"
+TEST_CMD = "py.test"
 
 def _make_context():
     '''Return context dict for a shell session so you can access
