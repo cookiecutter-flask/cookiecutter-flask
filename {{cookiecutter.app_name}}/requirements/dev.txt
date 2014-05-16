@@ -6,7 +6,7 @@ pytest
 factory-boy>=2.2.1
 
 # Management script
-Flask-Script
+Flask-Script==0.6.6
 
 # Debug toolbar
 Flask-DebugToolbar==0.9.0
