@@ -3,6 +3,7 @@
 
 # Testing
 pytest
+webtest
 factory-boy>=2.2.1
 
 # Management script
