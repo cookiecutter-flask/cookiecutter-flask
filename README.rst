@@ -65,6 +65,13 @@ BSD licensed.
 Changelog
 ---------
 
+0.4.1 (06/07/2014)
+******************
+
+- Update stale requirements (Werkzeug 0.9.6, WTForms 2.0)
+- Fix unmatched div tag in home.html (thanks `@level09 <https://github.com/level09>`_ )
+
+
 0.4.0 (04/19/2014)
 ******************
 
