@@ -9,10 +9,10 @@ itsdangerous==0.24
 
 # Database
 Flask-SQLAlchemy==1.0
-SQLAlchemy==0.9.4
+SQLAlchemy==0.9.6
 
 # Migrations
-Flask-Migrate>=1.0.0
+Flask-Migrate==1.2.0
 
 # Forms
 Flask-WTF==0.9.5
@@ -23,13 +23,13 @@ gunicorn>=17.5
 wsgiref>=0.1.2
 
 # Assets
-Flask-Assets>=0.8
+Flask-Assets==0.9
 cssmin>=0.1.4
 jsmin>=2.0.4
 
 # Auth
-Flask-Login>=0.2.7
-Flask-Bcrypt>=0.5.2
+Flask-Login==0.2.11
+Flask-Bcrypt==0.6.0
 
 # Caching
 Flask-Cache>=0.12
