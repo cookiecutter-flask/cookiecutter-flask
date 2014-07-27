@@ -65,6 +65,12 @@ BSD licensed.
 Changelog
 ---------
 
+0.4.2 (07/27/2014)
+******************
+
+- Update factories to factory-boy >= 2.4.0 syntax.
+- Update stale requirements.
+
 0.4.1 (06/07/2014)
 ******************
 
