@@ -6,11 +6,6 @@ from {{cookiecutter.app_name}}.user.models import User
 from {{cookiecutter.app_name}}.database import db
 
 
-class BaseFactory(SQLAlchemyModelFactory):
-    class Meta:
-        sqlalchemy_session = db.session
-
-
 class UserFactory(SQLAlchemyModelFactory):
     class Meta:
         model = User
