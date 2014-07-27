@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-'''Functional tests using WebTest.
+"""Functional tests using WebTest.
 
 See: http://webtest.readthedocs.org/
-'''
+"""
 import pytest
 from flask import url_for
 
@@ -10,9 +10,6 @@ from flask import url_for
 from {{cookiecutter.app_name}}.user.models import User
 from .factories import UserFactory
 
-@pytest.fixture
-def user(db):
-    return UserFactory(password='myprecious')
 
 class TestLoggingIn:
 
