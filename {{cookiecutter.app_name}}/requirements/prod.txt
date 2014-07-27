@@ -20,7 +20,6 @@ WTForms==2.0
 
 # Deployment
 gunicorn>=17.5
-wsgiref>=0.1.2
 
 # Assets
 Flask-Assets==0.10
