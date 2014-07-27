@@ -4,7 +4,7 @@
 # Testing
 pytest
 webtest
-factory-boy>=2.2.1
+factory-boy==2.4.0
 
 # Management script
 Flask-Script

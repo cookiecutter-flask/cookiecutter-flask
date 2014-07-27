@@ -2,14 +2,14 @@
 
 # Flask
 Flask==0.10.1
-MarkupSafe==0.21
+MarkupSafe==0.23
 Werkzeug==0.9.6
 Jinja2==2.7.3
 itsdangerous==0.24
 
 # Database
 Flask-SQLAlchemy==1.0
-SQLAlchemy==0.9.6
+SQLAlchemy==0.9.7
 
 # Migrations
 Flask-Migrate==1.2.0
@@ -23,7 +23,7 @@ gunicorn>=17.5
 wsgiref>=0.1.2
 
 # Assets
-Flask-Assets==0.9
+Flask-Assets==0.10
 cssmin>=0.1.4
 jsmin>=2.0.4
 
