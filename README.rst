@@ -65,6 +65,13 @@ BSD licensed.
 Changelog
 ---------
 
+0.4.3 (07/27/2014)
+******************
+
+- Add ``BaseFactory`` class.
+- Add compat.py module.
+- Tests pass on Python 3.
+
 0.4.2 (07/27/2014)
 ******************
 
