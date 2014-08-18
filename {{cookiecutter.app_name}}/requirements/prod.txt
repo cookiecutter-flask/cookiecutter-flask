@@ -32,3 +32,6 @@ Flask-Bcrypt==0.6.0
 
 # Caching
 Flask-Cache>=0.12
+
+# Mailing
+Flask-Mail
