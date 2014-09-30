@@ -1,7 +1,7 @@
 {
   "name": "{{cookiecutter.app_name}}",
   "dependencies": {
-    "bootstrap": ">=3.1.1",
-    "jQuery": ">=1.9.0"
+    "bootstrap": "~3.2.0",
+    "jQuery": "~2.1.0"
   }
 }
