@@ -8,15 +8,15 @@ Jinja2==2.7.3
 itsdangerous==0.24
 
 # Database
-Flask-SQLAlchemy==1.0
+Flask-SQLAlchemy==2.0
 SQLAlchemy==0.9.7
 
 # Migrations
 Flask-Migrate==1.2.0
 
 # Forms
-Flask-WTF==0.9.5
-WTForms==2.0
+Flask-WTF==0.10.2
+WTForms==2.0.1
 
 # Deployment
 gunicorn>=17.5
