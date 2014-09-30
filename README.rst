@@ -65,6 +65,12 @@ BSD licensed.
 Changelog
 ---------
 
+0.5.0 (09/29/2014)
+******************
+
+- Fix .travis.yml.
+- Update stale requirements (Flask-WTF, WTForms, Flask-SQLAlchemy, jquery, Bootstrap)
+
 0.4.3 (07/27/2014)
 ******************
 
