@@ -2,6 +2,7 @@
 -r prod.txt
 
 # Testing
+py
 pytest
 webtest
 factory-boy==2.4.1

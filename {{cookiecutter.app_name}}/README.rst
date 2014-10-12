@@ -12,7 +12,7 @@ First, set your app's secret key as an environment variable. For example, exampl
 
 .. code-block:: bash
 
-    export {{cookiecutter.app_name | upper}}_SECRET = 'something-really-secret'
+    export {{cookiecutter.app_name | upper}}_SECRET='something-really-secret'
 
 
 Then run the following commands to bootstrap your environment.
