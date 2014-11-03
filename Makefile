@@ -11,6 +11,7 @@ test: $(COOKIE)
 	cd $(COOKIE); pip install -r requirements/dev.txt
 	cd $(COOKIE); coverage run --source $(COOKIE) manage.py test
 	cd $(COOKIE); coverage report -m
+	cd $(COOKIE); coveralls
 
 $(COOKIE): Makefile cookiecutter.json $(COOKIE_CRUMBS)
 	cookiecutter . --no-input
