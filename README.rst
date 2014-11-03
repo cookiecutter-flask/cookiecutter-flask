@@ -8,6 +8,11 @@ A Flask template for cookiecutter_.
 .. image:: https://travis-ci.org/sloria/cookiecutter-flask.svg
     :target: https://travis-ci.org/sloria/cookiecutter-flask
     :alt: Build Status
+.. image:: https://coveralls.io/repos/sloria/cookiecutter-flask/badge.png
+    :target: https://coveralls.io/r/sloria/cookiecutter-flask
+    :alt: Coverage Status
+
+
 
 Use it now
 ----------
