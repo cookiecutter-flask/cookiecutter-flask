@@ -9,7 +9,8 @@ all: test
 .PHONY: test
 test: $(COOKIE)
 	cd $(COOKIE); pip install -r requirements/dev.txt
-	cd $(COOKIE); python manage.py test
+	cd $(COOKIE); coverage run --source $(COOKIE) manage.py test
+	cd $(COOKIE); coverage report -m
 
 $(COOKIE): Makefile cookiecutter.json $(COOKIE_CRUMBS)
 	cookiecutter . --no-input

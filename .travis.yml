@@ -4,6 +4,8 @@ python:
   - 3.3
   - 3.4
 install:
-  - pip install cookiecutter
+  - pip install cookiecutter coveralls
 script:
   - make
+after_success:
+  - coveralls
