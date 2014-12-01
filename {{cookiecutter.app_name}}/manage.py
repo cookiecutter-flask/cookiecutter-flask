@@ -16,8 +16,10 @@ if os.environ.get("{{cookiecutter.app_name | upper}}_ENV") == 'prod':
 else:
     app = create_app(DevConfig)
 
+HERE = os.path.abspath(os.path.dirname(__file__))
+TEST_PATH = os.path.join(HERE, 'tests')
+
 manager = Manager(app)
-TEST_CMD = "py.test tests"
 
 def _make_context():
     """Return context dict for a shell session so you can access
@@ -29,7 +31,7 @@ def _make_context():
 def test():
     """Run the tests."""
     import pytest
-    exit_code = pytest.main(['tests', '--verbose'])
+    exit_code = pytest.main([TEST_PATH, '--verbose'])
     return exit_code
 
 manager.add_command('server', Server())
