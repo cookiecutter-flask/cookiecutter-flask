@@ -70,6 +70,12 @@ BSD licensed.
 Changelog
 ---------
 
+0.6.0 (12/01/2014)
+******************
+
+- Test the cookiecutter on Travis. Thanks @joshfriend.
+- Update stale requirements (Flask-WTF, Flask-Migrate, Flask-DebugToolbar)
+
 0.5.0 (09/29/2014)
 ******************
 
