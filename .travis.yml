@@ -4,6 +4,7 @@ python:
   - 3.3
   - 3.4
 install:
+  - pip install cookiecutter
   - pip install invoke==0.9.0
 script:
   - invoke test
