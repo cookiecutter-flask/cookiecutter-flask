@@ -4,6 +4,6 @@ python:
   - 3.3
   - 3.4
 install:
-  - pip install cookiecutter coveralls
+  - pip install invoke==0.9.0
 script:
-  - make
+  - invoke test
