@@ -1,9 +1,8 @@
-web:
-  build: .
-  ports:
-    - 8000:8000
-  links:
-    - db
+dbdata:
+  image: postgres:9.3
+  command: true
+  volumes:
+   - /var/lib/postgresql/data
 
 db:
   image: postgres:9.3
@@ -12,8 +11,9 @@ db:
   volumes_from:
    - dbdata
 
-dbdata:
-  image: postgres:9.3
-  command: true
-  volumes:
-   - /var/lib/postgresql/data
+web:
+  build: .
+  ports:
+    - 8000:8000
+  links:
+    - db

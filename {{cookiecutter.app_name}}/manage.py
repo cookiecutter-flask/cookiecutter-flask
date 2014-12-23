@@ -38,6 +38,7 @@ def test():
 def create_all():
     """Create all db tables"""
     db.create_all()
+    return 0
 
 manager.add_command('server', Server())
 manager.add_command('shell', Shell(make_context=_make_context))
