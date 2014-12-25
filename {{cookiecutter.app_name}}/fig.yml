@@ -1,0 +1,19 @@
+dbdata:
+  image: postgres:9.3
+  command: true
+  volumes:
+   - /var/lib/postgresql/data
+
+db:
+  image: postgres:9.3
+  ports:
+    - "5432:5432"
+  volumes_from:
+   - dbdata
+
+web:
+  build: .
+  ports:
+    - 8000:8000
+  links:
+    - db

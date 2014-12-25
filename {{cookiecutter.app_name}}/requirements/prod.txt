@@ -35,3 +35,9 @@ Flask-Cache>=0.13.1
 
 # Debug toolbar
 Flask-DebugToolbar==0.9.1
+
+# Database driver
+psycopg2==2.5.4
+
+# Management script
+Flask-Script
