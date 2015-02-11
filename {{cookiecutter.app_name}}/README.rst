@@ -26,7 +26,10 @@ Then run the following commands to bootstrap your environment.
     python manage.py server
     
 You will see a pretty Welcome screen.
+
 If you have already installed your database.
+
+::
 
     python manage.py db init
     python manage.py db migrate
