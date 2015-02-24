@@ -12,7 +12,7 @@ First, set your app's secret key as an environment variable. For example, exampl
 
 .. code-block:: bash
 
-    export {{cookiecutter.app_name | upper}}_SECRET = 'something-really-secret'
+    export {{cookiecutter.app_name | upper}}_SECRET='something-really-secret'
 
 
 Then run the following commands to bootstrap your environment.
@@ -23,6 +23,14 @@ Then run the following commands to bootstrap your environment.
     git clone https://github.com/{{cookiecutter.github_username}}/{{ cookiecutter.app_name }}
     cd {{cookiecutter.app_name}}
     pip install -r requirements/dev.txt
+    python manage.py server
+
+You will see a pretty welcome screen.
+
+Once you have installed your DBMS, run the following to create your app's database tables and perform the initial migration:
+
+::
+
     python manage.py db init
     python manage.py db migrate
     python manage.py db upgrade

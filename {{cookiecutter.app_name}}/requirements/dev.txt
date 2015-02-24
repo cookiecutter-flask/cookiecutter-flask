@@ -8,6 +8,3 @@ factory-boy==2.4.1
 
 # Management script
 Flask-Script
-
-# Debug toolbar
-Flask-DebugToolbar==0.9.1
