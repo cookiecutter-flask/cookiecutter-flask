@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime as dt
 
-from flask.ext.login import UserMixin
+from flask_login import UserMixin
 
 from {{cookiecutter.app_name}}.extensions import bcrypt
 from {{cookiecutter.app_name}}.database import (

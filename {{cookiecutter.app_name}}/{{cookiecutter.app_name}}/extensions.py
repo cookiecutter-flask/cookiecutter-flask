@@ -3,20 +3,20 @@
 in app.py
 """
 
-from flask.ext.bcrypt import Bcrypt
+from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt()
 
-from flask.ext.login import LoginManager
+from flask_login import LoginManager
 login_manager = LoginManager()
 
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
-from flask.ext.migrate import Migrate
+from flask_migrate import Migrate
 migrate = Migrate()
 
-from flask.ext.cache import Cache
+from flask_cache import Cache
 cache = Cache()
 
-from flask.ext.debugtoolbar import DebugToolbarExtension
+from flask_debugtoolbar import DebugToolbarExtension
 debug_toolbar = DebugToolbarExtension()

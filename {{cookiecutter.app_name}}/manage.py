@@ -3,8 +3,8 @@
 import os
 import sys
 import subprocess
-from flask.ext.script import Manager, Shell, Server
-from flask.ext.migrate import MigrateCommand
+from flask_script import Manager, Shell, Server
+from flask_migrate import MigrateCommand
 
 from {{cookiecutter.app_name}}.app import create_app
 from {{cookiecutter.app_name}}.user.models import User

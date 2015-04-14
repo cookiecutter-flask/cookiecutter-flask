@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask.ext.assets import Bundle, Environment
+from flask_assets import Bundle, Environment
 
 css = Bundle(
     "libs/bootstrap/dist/css/bootstrap.css",
