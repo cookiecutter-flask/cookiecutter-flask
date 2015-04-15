@@ -70,6 +70,12 @@ BSD licensed.
 Changelog
 ---------
 
+0.7.0 (04/14/2015)
+******************
+
+- Update extension import style to flask_* as per `mitsuhiko/flask#1135 <https://github.com/mitsuhiko/flask/issues/1135>`_
+- Update stale requirements (Werkzeug, Flask-WTF, WTForms, Flask-Bcrypt, Flask-DebugToolbar, Flask-Migrate, Bootstrap, jQuery). Thanks @bsmithgall for notifying me of the critical patch to Flask-Migrate.
+
 0.6.0 (12/01/2014)
 ******************
 
