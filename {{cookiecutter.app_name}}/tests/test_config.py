@@ -2,6 +2,7 @@
 from {{cookiecutter.app_name}}.app import create_app
 from {{cookiecutter.app_name}}.settings import ProdConfig, DevConfig
 
+
 def test_production_config():
     app = create_app(ProdConfig)
     assert app.config['ENV'] == 'prod'

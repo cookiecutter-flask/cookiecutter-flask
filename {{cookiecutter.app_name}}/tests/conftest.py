@@ -11,6 +11,7 @@ from {{cookiecutter.app_name}}.database import db as _db
 
 from .factories import UserFactory
 
+
 @pytest.yield_fixture(scope='function')
 def app():
     _app = create_app(TestConfig)
@@ -21,10 +22,12 @@ def app():
 
     ctx.pop()
 
+
 @pytest.fixture(scope='session')
 def testapp(app):
     """A Webtest app."""
     return TestApp(app)
+
 
 @pytest.yield_fixture(scope='function')
 def db(app):

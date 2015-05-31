@@ -3,6 +3,7 @@ import os
 
 os_env = os.environ
 
+
 class Config(object):
     SECRET_KEY = os_env.get('{{cookiecutter.app_name | upper}}_SECRET', 'secret-key')  # TODO: Change me
     APP_DIR = os.path.abspath(os.path.dirname(__file__))  # This directory
