@@ -5,6 +5,7 @@ from factory.alchemy import SQLAlchemyModelFactory
 from {{cookiecutter.app_name}}.user.models import User
 from {{cookiecutter.app_name}}.database import db
 
+
 class BaseFactory(SQLAlchemyModelFactory):
 
     class Meta:
@@ -20,4 +21,3 @@ class UserFactory(BaseFactory):
 
     class Meta:
         model = User
-

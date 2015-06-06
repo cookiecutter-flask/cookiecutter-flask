@@ -7,6 +7,7 @@ import pytest
 from {{ cookiecutter.app_name }}.user.models import User, Role
 from .factories import UserFactory
 
+
 @pytest.mark.usefixtures('db')
 class TestUser:
 

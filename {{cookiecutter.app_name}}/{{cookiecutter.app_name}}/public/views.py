@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-'''Public section, including homepage and signup.'''
+"""Public section, including homepage and signup."""
 from flask import (Blueprint, request, render_template, flash, url_for,
                     redirect, session)
 from flask.ext.login import login_user, login_required, logout_user
@@ -12,6 +12,7 @@ from {{cookiecutter.app_name}}.utils import flash_errors
 from {{cookiecutter.app_name}}.database import db
 
 blueprint = Blueprint('public', __name__, static_folder="../static")
+
 
 @login_manager.user_loader
 def load_user(id):
@@ -32,12 +33,14 @@ def home():
             flash_errors(form)
     return render_template("public/home.html", form=form)
 
+
 @blueprint.route('/logout/')
 @login_required
 def logout():
     logout_user()
     flash('You are logged out.', 'info')
     return redirect(url_for('public.home'))
+
 
 @blueprint.route("/register/", methods=['GET', 'POST'])
 def register():
@@ -52,6 +55,7 @@ def register():
     else:
         flash_errors(form)
     return render_template('public/register.html', form=form)
+
 
 @blueprint.route("/about/")
 def about():

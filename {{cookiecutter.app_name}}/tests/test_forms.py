@@ -5,6 +5,7 @@ from {{cookiecutter.app_name}}.public.forms import LoginForm
 from {{cookiecutter.app_name}}.user.forms import RegisterForm
 from .factories import UserFactory
 
+
 class TestRegisterForm:
 
     def test_validate_user_already_registered(self, user):
