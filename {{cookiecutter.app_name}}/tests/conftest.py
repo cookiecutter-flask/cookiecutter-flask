@@ -21,7 +21,7 @@ def app():
 
     ctx.pop()
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope='function')
 def testapp(app):
     """A Webtest app."""
     return TestApp(app)
