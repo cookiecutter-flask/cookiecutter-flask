@@ -44,3 +44,7 @@ docs/_build
 
 # Virtualenvs
 env/
+.venv
+
+# PyCharm
+.idea/
