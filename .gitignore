@@ -45,6 +45,3 @@ output/
 
 myflaskapp/
 bower_components
-
-# PyCharm
-.idea/
