@@ -14,7 +14,7 @@ from {{cookiecutter.app_name}}.database import db
 from {{cookiecutter.app_name}}.settings import DevConfig, ProdConfig
 from {{cookiecutter.app_name}}.user.models import User
 
-if os.environ.get('MYFLASKAPP_ENV') == 'prod':
+if os.environ.get('{{cookiecutter.app_name | upper}}_ENV') == 'prod':
     app = create_app(ProdConfig)
 else:
     app = create_app(DevConfig)
