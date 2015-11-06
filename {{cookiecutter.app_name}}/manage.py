@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""Management script."""
 import os
-from flask_script import Manager, Shell, Server
+from subprocess import call
+
+from flask_script import Manager, Shell, Server, Command
 from flask_script.commands import Clean, ShowUrls
 from flask_migrate import MigrateCommand
 
@@ -10,7 +13,7 @@ from {{cookiecutter.app_name}}.user.models import User
 from {{cookiecutter.app_name}}.settings import DevConfig, ProdConfig
 from {{cookiecutter.app_name}}.database import db
 
-if os.environ.get("{{cookiecutter.app_name | upper}}_ENV") == 'prod':
+if os.environ.get('{{cookiecutter.app_name | upper}}_ENV') == 'prod':
     app = create_app(ProdConfig)
 else:
     app = create_app(DevConfig)
@@ -22,9 +25,7 @@ manager = Manager(app)
 
 
 def _make_context():
-    """Return context dict for a shell session so you can access
-    app, db, and the User model by default.
-    """
+    """Return context dict for a shell session so you can access app, db, and the User model by default."""
     return {'app': app, 'db': db, 'User': User}
 
 
@@ -36,11 +37,29 @@ def test():
     return exit_code
 
 
+class Lint(Command):
+    """Lint and check code style."""
+
+    def run(self):
+        """Run command."""
+        skip = ['requirements']
+        files = [name for name in next(os.walk('.'))[1] if not name.startswith('.') and name not in skip]
+
+        command_line = ['isort', '-rc'] + files
+        print('Fixing import order: %s' % ' '.join(command_line))
+        call(command_line)
+
+        command_line = ['flake8'] + files
+        print('Checking code style: %s' % ' '.join(command_line))
+        exit(call(command_line))
+
+
 manager.add_command('server', Server())
 manager.add_command('shell', Shell(make_context=_make_context))
 manager.add_command('db', MigrateCommand)
-manager.add_command("urls", ShowUrls())
-manager.add_command("clean", Clean())
+manager.add_command('urls', ShowUrls())
+manager.add_command('clean', Clean())
+manager.add_command('lint', Lint())
 
 if __name__ == '__main__':
     manager.run()
