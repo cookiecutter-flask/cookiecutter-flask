@@ -2,18 +2,19 @@
 # -*- coding: utf-8 -*-
 """Management script."""
 import os
+from glob import glob
 from subprocess import call
 
-from flask_script import Manager, Shell, Server, Command
-from flask_script.commands import Clean, ShowUrls
 from flask_migrate import MigrateCommand
+from flask_script import Command, Manager, Option, Server, Shell
+from flask_script.commands import Clean, ShowUrls
 
 from {{cookiecutter.app_name}}.app import create_app
-from {{cookiecutter.app_name}}.user.models import User
-from {{cookiecutter.app_name}}.settings import DevConfig, ProdConfig
 from {{cookiecutter.app_name}}.database import db
+from {{cookiecutter.app_name}}.settings import DevConfig, ProdConfig
+from {{cookiecutter.app_name}}.user.models import User
 
-if os.environ.get('{{cookiecutter.app_name | upper}}_ENV') == 'prod':
+if os.environ.get('MYFLASKAPP_ENV') == 'prod':
     app = create_app(ProdConfig)
 else:
     app = create_app(DevConfig)
@@ -40,16 +41,29 @@ def test():
 class Lint(Command):
     """Lint and check code style."""
 
-    def run(self):
+    def get_options(self):
+        """Command line options."""
+        return (
+            Option('-f', '--fix',
+                   action='store_true',
+                   dest='fix_imports',
+                   default=False,
+                   help='Fix imports before linting'),
+        )
+
+    def run(self, fix_imports):
         """Run command."""
         skip = ['requirements']
-        files = [name for name in next(os.walk('.'))[1] if not name.startswith('.') and name not in skip]
+        root_files = glob('*.py')
+        root_directories = [name for name in next(os.walk('.'))[1] if not name.startswith('.')]
+        arguments = [arg for arg in root_files + root_directories if arg not in skip]
 
-        command_line = ['isort', '-rc'] + files
-        print('Fixing import order: %s' % ' '.join(command_line))
-        call(command_line)
+        if fix_imports:
+            command_line = ['isort', '-rc'] + arguments
+            print('Fixing import order: %s' % ' '.join(command_line))
+            call(command_line)
 
-        command_line = ['flake8'] + files
+        command_line = ['flake8'] + arguments
         print('Checking code style: %s' % ' '.join(command_line))
         exit(call(command_line))
 

@@ -7,11 +7,11 @@ import sys
 PY2 = int(sys.version[0]) == 2
 
 if PY2:
-    text_type = unicode
+    text_type = unicode  # noqa
     binary_type = str
-    string_types = (str, unicode)
-    unicode = unicode
-    basestring = basestring
+    string_types = (str, unicode)  # noqa
+    unicode = unicode  # noqa
+    basestring = basestring  # noqa
 else:
     text_type = str
     binary_type = bytes
