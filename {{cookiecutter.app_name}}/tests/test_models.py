@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# pylint: disable=no-self-use,no-member,invalid-name
 """Model unit tests."""
 import datetime as dt
 
@@ -61,7 +62,7 @@ class TestUser:
         """Add a role to a user."""
         role = Role(name='admin')
         role.save()
-        u = UserFactory()
-        u.roles.append(role)
-        u.save()
-        assert role in u.roles
+        user = UserFactory()
+        user.roles.append(role)
+        user.save()
+        assert role in user.roles

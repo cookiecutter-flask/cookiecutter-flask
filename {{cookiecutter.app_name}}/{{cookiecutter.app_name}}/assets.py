@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# pylint: disable=invalid-name
 """Application assets."""
 from flask_assets import Bundle, Environment
 

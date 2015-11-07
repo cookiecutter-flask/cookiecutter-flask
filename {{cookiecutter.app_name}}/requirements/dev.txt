@@ -20,3 +20,4 @@ flake8-isort==0.2
 flake8-quotes==0.1.1
 isort==4.2.2
 pep8-naming==0.3.3
+pylint==1.4.4

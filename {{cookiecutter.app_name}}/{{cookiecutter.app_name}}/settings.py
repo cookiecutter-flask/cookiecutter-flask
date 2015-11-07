@@ -2,13 +2,11 @@
 """Application configuration."""
 import os
 
-os_env = os.environ
-
 
 class Config(object):
     """Base configuration."""
 
-    SECRET_KEY = os_env.get('{{cookiecutter.app_name | upper}}_SECRET', 'secret-key')  # TODO: Change me
+    SECRET_KEY = os.environ.get('{{cookiecutter.app_name | upper}}_SECRET', 'secret-key')  # TODO: Change me
     APP_DIR = os.path.abspath(os.path.dirname(__file__))  # This directory
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
     BCRYPT_LOG_ROUNDS = 13

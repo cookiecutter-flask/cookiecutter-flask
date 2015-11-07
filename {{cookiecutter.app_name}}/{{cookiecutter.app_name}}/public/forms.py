@@ -24,7 +24,7 @@ class LoginForm(Form):
         if not initial_validation:
             return False
 
-        self.user = User.query.filter_by(username=self.username.data).first()
+        self.user = User.query.filter_by(username=self.username.data).first()  # pylint: disable=no-member
         if not self.user:
             self.username.errors.append('Unknown username')
             return False
