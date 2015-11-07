@@ -57,7 +57,7 @@ class Lint(Command):
         def execute_tool(description, *args):
             """Execute a checking tool with its arguments."""
             command_line = list(args) + files_and_directories
-            print('%s: %s' % (description, ' '.join(command_line)))
+            print('{}: {}'.format(description, ' '.join(command_line)))
             rv = call(command_line)
             if rv is not 0:
                 exit(rv)
