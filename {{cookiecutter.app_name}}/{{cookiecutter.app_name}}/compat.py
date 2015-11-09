@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# pylint: disable=invalid-name,used-before-assignment
 """Python 2/3 compatibility module."""
 import sys
 

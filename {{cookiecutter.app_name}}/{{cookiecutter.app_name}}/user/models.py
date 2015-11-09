@@ -4,7 +4,7 @@ import datetime as dt
 
 from flask_login import UserMixin
 
-from {{cookiecutter.app_name}}.database import Column, Model, ReferenceCol, SurrogatePK, db, relationship
+from {{cookiecutter.app_name}}.database import Column, Model, reference_col, SurrogatePK, db, relationship
 from {{cookiecutter.app_name}}.extensions import bcrypt
 
 
@@ -13,7 +13,7 @@ class Role(SurrogatePK, Model):
 
     __tablename__ = 'roles'
     name = Column(db.String(80), unique=True, nullable=False)
-    user_id = ReferenceCol('users', nullable=True)
+    user_id = reference_col('users', nullable=True)
     user = relationship('User', backref='roles')
 
     def __init__(self, name, **kwargs):

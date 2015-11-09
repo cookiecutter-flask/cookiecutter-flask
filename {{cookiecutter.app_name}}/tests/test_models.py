@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# pylint: disable=no-self-use,no-member,invalid-name
 """Model unit tests."""
 import datetime as dt
 

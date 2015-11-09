@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# pylint: disable=no-self-use,no-member,invalid-name,unused-argument
 """Test forms."""
 
 from {{cookiecutter.app_name}}.public.forms import LoginForm

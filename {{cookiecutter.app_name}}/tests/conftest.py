@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# pylint: disable=redefined-outer-name
 """Defines fixtures available to all tests."""
 
 import pytest

@@ -6,8 +6,8 @@ from .compat import basestring
 from .extensions import db
 
 # Alias common SQLAlchemy names
-Column = db.Column   # pylint: disable=invalid-name
-relationship = relationship   # pylint: disable=invalid-name
+Column = db.Column
+relationship = relationship
 
 
 class CRUDMixin(object):
@@ -60,16 +60,16 @@ class SurrogatePK(object):
                 (isinstance(record_id, basestring) and record_id.isdigit(),
                  isinstance(record_id, (int, float))),
         ):
-            return cls.query.get(int(record_id))  # pylint: disable=no-member
+            return cls.query.get(int(record_id))
         return None
 
 
-def ReferenceCol(tablename, nullable=False, pk_name='id', **kwargs):  # noqa # pylint: disable=invalid-name
+def reference_col(tablename, nullable=False, pk_name='id', **kwargs):
     """Column that adds primary key foreign key reference.
 
     Usage: ::
 
-        category_id = ReferenceCol('category')
+        category_id = reference_col('category')
         category = relationship('Category', backref='categories')
     """
     return db.Column(

@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# pylint: disable=no-self-use,no-member,invalid-name,unused-argument
 """Functional tests using WebTest.
 
 See: http://webtest.readthedocs.org/
