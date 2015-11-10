@@ -70,6 +70,15 @@ BSD licensed.
 Changelog
 ---------
 
+0.8.0 (11/09/2015)
+******************
+
+- Update stale requirements.
+- Add ``lint``, ``clean``, and ``urls`` management commands.
+- Add isort.
+
+Thanks @andreoliw for these contributions.
+
 0.7.0 (04/14/2015)
 ******************
 
