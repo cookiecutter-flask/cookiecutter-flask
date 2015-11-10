@@ -1,11 +1,9 @@
 # Config file for automatic testing at travis-ci.org
-
+sudo: false  # http://docs.travis-ci.com/user/migrating-from-legacy/
 language: python
-
 python:
-  - "3.3"
-  - "2.7"
-
+  - 2.7
+  - 3.3
+  - 3.4
 install: pip install -r requirements/dev.txt
-
 script: py.test tests
