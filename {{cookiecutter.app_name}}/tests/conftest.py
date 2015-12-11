@@ -38,6 +38,8 @@ def db(app):
 
     yield _db
 
+    # Explicitly close DB connection
+    _db.session.close()
     _db.drop_all()
 
 
