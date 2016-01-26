@@ -5,7 +5,7 @@ import os
 from glob import glob
 from subprocess import call
 
-from flask_migrate import MigrateCommand
+from flask_migrate import Migrate, MigrateCommand
 from flask_script import Command, Manager, Option, Server, Shell
 from flask_script.commands import Clean, ShowUrls
 
@@ -20,6 +20,7 @@ TEST_PATH = os.path.join(HERE, 'tests')
 
 app = create_app(CONFIG)
 manager = Manager(app)
+migrate = Migrate(app, db)
 
 
 def _make_context():
