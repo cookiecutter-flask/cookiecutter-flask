@@ -23,6 +23,7 @@ Then run the following commands to bootstrap your environment.
     git clone https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
     cd {{cookiecutter.app_name}}
     pip install -r requirements/dev.txt
+    bower install
     python manage.py server
 
 You will see a pretty welcome screen.
