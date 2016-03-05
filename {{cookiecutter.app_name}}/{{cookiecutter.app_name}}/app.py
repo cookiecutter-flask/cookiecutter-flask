@@ -4,7 +4,7 @@ from flask import Flask, render_template
 
 from {{cookiecutter.app_name}} import public, user
 from {{cookiecutter.app_name}}.assets import assets
-from {{cookiecutter.app_name}}.extensions import bcrypt, cache, db, debug_toolbar, login_manager, migrate
+from {{cookiecutter.app_name}}.extensions import bcrypt, cache, db, debug_toolbar, csrf_protect, login_manager, migrate
 from {{cookiecutter.app_name}}.settings import ProdConfig
 
 
@@ -27,6 +27,7 @@ def register_extensions(app):
     bcrypt.init_app(app)
     cache.init_app(app)
     db.init_app(app)
+    csrf_protect.init_app(app)
     login_manager.init_app(app)
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
