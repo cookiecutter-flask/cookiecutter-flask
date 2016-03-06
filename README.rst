@@ -70,6 +70,14 @@ BSD licensed.
 Changelog
 ---------
 
+0.9.0 (03/06/2016)
+******************
+
+- Update stale requirements.
+- Add CSRF protection.
+- Run ``lint`` commmand on Travis builds.
+- Test against Python 3.5.
+
 0.8.0 (11/09/2015)
 ******************
 
