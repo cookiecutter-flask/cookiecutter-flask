@@ -5,5 +5,7 @@ python:
   - 2.7
   - 3.3
   - 3.4
+  - 3.5
 install: pip install -r requirements/dev.txt
-script: py.test tests
+before_script: python manage.py lint
+script: python manage.py test
