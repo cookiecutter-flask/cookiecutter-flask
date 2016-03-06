@@ -1,26 +1,26 @@
 # Everything needed in production
 
-setuptools==18.5
-wheel==0.26.0
+setuptools==20.2.2
+wheel==0.29.0
 
 # Flask
 Flask==0.10.1
 MarkupSafe==0.23
-Werkzeug==0.10.4
+Werkzeug==0.11.4
 Jinja2==2.8
 itsdangerous==0.24
 
 # Database
 Flask-SQLAlchemy==2.1
-SQLAlchemy==1.0.9
 psycopg2==2.6.1
+SQLAlchemy==1.0.12
 
 # Migrations
-Flask-Migrate==1.6.0
+Flask-Migrate==1.8.0
 
 # Forms
 Flask-WTF==0.12
-WTForms==2.0.2
+WTForms==2.1
 
 # Deployment
 gunicorn>=19.1.1
