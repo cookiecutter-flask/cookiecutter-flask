@@ -22,11 +22,11 @@ class ProdConfig(Config):
 
     ENV = 'prod'
     DEBUG = False
-    {% if cookiecutter.use_docker == 'y' %}
+    {%- if cookiecutter.use_docker == 'y' -%}
     SQLALCHEMY_DATABASE_URI = 'postgresql://{{cookiecutter.app_name}}:#DOCKER_POSTGRES_PASS#@postgres/{{cookiecutter.app_name}}'
     {% else %}
     SQLALCHEMY_DATABASE_URI = 'postgresql://localhost/example'  # TODO: Change me
-    {% endif %}
+    {%- endif %}
     DEBUG_TB_ENABLED = False  # Disable Debug toolbar
 
 
@@ -35,14 +35,14 @@ class DevConfig(Config):
 
     ENV = 'dev'
     DEBUG = True
-    {% if cookiecutter.use_docker == 'y' %}
+    {%- if cookiecutter.use_docker == 'y' -%}
     SQLALCHEMY_DATABASE_URI = 'postgresql://{{cookiecutter.app_name}}:#DOCKER_POSTGRES_PASS#@postgres/{{cookiecutter.app_name}}'
     {% else %}
     DB_NAME = 'dev.db'
     # Put the db file in project root
     DB_PATH = os.path.join(Config.PROJECT_ROOT, DB_NAME)
     SQLALCHEMY_DATABASE_URI = 'sqlite:///{0}'.format(DB_PATH)
-    {% endif %}
+    {%- endif %}
     DEBUG_TB_ENABLED = True
     ASSETS_DEBUG = True  # Don't bundle/minify static assets
     CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
