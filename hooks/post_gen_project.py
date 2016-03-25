@@ -40,7 +40,6 @@ def get_random_string(
 def set_random_string(filepaths, string_to_replace="#RANDOM_STRING#", **random_kwargs):
     # Generate a SECRET_KEY that matches the Django standard
     random_string = get_random_string(**random_kwargs)
-    print("setting random in", filepaths)
     for path in filepaths:
         with open(path, 'r') as f:
             data = f.read()
