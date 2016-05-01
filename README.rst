@@ -37,6 +37,15 @@ Features
 - Useful debug toolbar
 - Utilizes best practices: `Blueprints <http://flask.pocoo.org/docs/blueprints/>`_ and `Application Factory <http://flask.pocoo.org/docs/patterns/appfactories/>`_ patterns
 
+Docker Support
+--------------
+
+The template comes with (optional) docker-compose support for dev and prod.
+
+During development, run::
+
+    docker-compose -f dev.yml up
+
 Screenshots
 -----------
 

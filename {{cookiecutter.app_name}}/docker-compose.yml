@@ -1,0 +1,35 @@
+version: "2"
+
+volumes:
+  postgres_data:
+    driver: local
+
+  postgres_backup:
+    driver: local
+
+services:
+
+  postgres:
+    build: dockerfiles/postgres
+    environment:
+      - POSTGRES_USER={{cookiecutter.app_name}}
+      - POSTGRES_PASSWORD=#DOCKER_POSTGRES_PASS#
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - postgres_backup:/backups
+
+  flask:
+    build:
+      context: .
+      dockerfile: dockerfiles/flask/Dockerfile
+    command: "gunicorn {{cookiecutter.app_name}}.app:create_app() -b 0.0.0.0:5000 -w 3"
+    user: flask
+    depends_on:
+      - postgres
+
+  nginx:
+    build: dockerfiles/nginx
+    depends_on:
+      - flask
+    ports:
+      - "80:80"

@@ -1,0 +1,29 @@
+version: "2"
+
+volumes:
+  postgres_data_dev:
+    driver: local
+
+  postgres_backup_dev:
+    driver: local
+
+services:
+
+  postgres:
+    build: dockerfiles/postgres
+    environment:
+      - POSTGRES_USER={{cookiecutter.app_name}}
+      - POSGTES_PASSWORD=#DOCKER_POSTGRES_PASS#
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+      - postgres_backup_dev:/backups
+
+  flask:
+    build:
+      context: .
+      dockerfile: dockerfiles/flask/Dockerfile-dev
+    volumes:
+      - .:/app
+    command: "python manage.py server"
+    ports:
+      - "5000:5000"
