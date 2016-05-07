@@ -4,7 +4,7 @@ from flask_wtf import Form
 from wtforms import PasswordField, StringField
 from wtforms.validators import DataRequired
 
-from {{cookiecutter.app_name}}.user.models import User
+from {{cookiecutter.app_name}}.main.models import User
 
 
 class LoginForm(Form):

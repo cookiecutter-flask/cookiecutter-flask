@@ -12,7 +12,7 @@ from flask_script.commands import Clean, ShowUrls
 from {{cookiecutter.app_name}}.app import create_app
 from {{cookiecutter.app_name}}.database import db
 from {{cookiecutter.app_name}}.settings import DevConfig, ProdConfig
-from {{cookiecutter.app_name}}.user.models import User
+from {{cookiecutter.app_name}}.main.models import User
 
 CONFIG = ProdConfig if os.environ.get('{{cookiecutter.app_name | upper}}_ENV') == 'prod' else DevConfig
 HERE = os.path.abspath(os.path.dirname(__file__))

@@ -2,7 +2,7 @@
 """Test forms."""
 
 from {{cookiecutter.app_name}}.public.forms import LoginForm
-from {{cookiecutter.app_name}}.user.forms import RegisterForm
+from {{cookiecutter.app_name}}.main.forms import RegisterForm
 
 
 class TestRegisterForm:

@@ -39,3 +39,5 @@ Flask-Cache>=0.13.1
 
 # Debug toolbar
 Flask-DebugToolbar==0.10.0
+
+Flask-Admin

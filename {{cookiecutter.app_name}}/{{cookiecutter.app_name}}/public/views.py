@@ -5,8 +5,8 @@ from flask_login import login_required, login_user, logout_user
 
 from {{cookiecutter.app_name}}.extensions import login_manager
 from {{cookiecutter.app_name}}.public.forms import LoginForm
-from {{cookiecutter.app_name}}.user.forms import RegisterForm
-from {{cookiecutter.app_name}}.user.models import User
+from {{cookiecutter.app_name}}.main.forms import RegisterForm
+from {{cookiecutter.app_name}}.main.models import User
 from {{cookiecutter.app_name}}.utils import flash_errors
 
 blueprint = Blueprint('public', __name__, static_folder='../static')
@@ -27,7 +27,7 @@ def home():
         if form.validate_on_submit():
             login_user(form.user)
             flash('You are logged in.', 'success')
-            redirect_url = request.args.get('next') or url_for('user.members')
+            redirect_url = request.args.get('next') or url_for('main.members')
             return redirect(redirect_url)
         else:
             flash_errors(form)

@@ -1,0 +1,61 @@
+{% raw %}
+{% extends 'admin/base.html' %}
+
+{%  block head %}
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width">
+    {%  block head_css %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='libs/font-awesome4/css/font-awesome.min.css') }}">
+        {% assets "css_all" %}
+            <link rel="stylesheet" href="{{ ASSET_URL }}">
+        {% endassets %}
+    {% endblock %}
+{% endblock %}
+
+{% block page_body %}
+    <div class="container">
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#admin-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          {% block brand %}
+          <a class="navbar-brand" href="#">{{ admin_view.admin.name }}</a>
+          {% endblock %}
+        </div>
+        <!-- navbar content -->
+        <div class="collapse navbar-collapse" id="admin-navbar-collapse">
+          {% block main_menu %}
+          <ul class="nav navbar-nav">
+            {{ layout.menu() }}
+          </ul>
+          {% endblock %}
+
+          {% block menu_links %}
+          <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <p class="navbar-text"><a class="navbar-link" href="{{ url_for('main.members') }}">Logged in as {{ current_user.username }}</a></p>
+              </li>
+              <li><a class="navbar-link" href="{{ url_for('public.logout') }}"><i class="fa fa-sign-out"></i></a></li>
+          </ul>
+          {% endblock %}
+          {% block access_control %}
+          {% endblock %}
+        </div>
+      </nav>
+
+      {% block messages %}
+      {{ layout.messages() }}
+      {% endblock %}
+
+      {# store the jinja2 context for form_rules rendering logic #}
+      {% set render_ctx = h.resolve_ctx() %}
+
+      {% block body %}{% endblock %}
+    </div>
+{% endblock %}
+{% endraw %}
