@@ -2,10 +2,12 @@
 """The app module, containing the app factory function."""
 from flask import Flask, render_template
 
-from {{cookiecutter.app_name}} import public, user
+from {{cookiecutter.app_name}} import public, main
 from {{cookiecutter.app_name}}.assets import assets
-from {{cookiecutter.app_name}}.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate
+from {{cookiecutter.app_name}}.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate, admin
 from {{cookiecutter.app_name}}.settings import ProdConfig
+from main.views import SiteConfigView, UserModelView
+from main.models import User
 
 
 def create_app(config_object=ProdConfig):
@@ -16,6 +18,10 @@ def create_app(config_object=ProdConfig):
     app = Flask(__name__)
     app.config.from_object(config_object)
     register_extensions(app)
+
+    admin.add_view(SiteConfigView(name='Settings'))
+    admin.add_view(UserModelView(User, db.session, category='Models'))
+
     register_blueprints(app)
     register_errorhandlers(app)
     return app
@@ -31,13 +37,14 @@ def register_extensions(app):
     login_manager.init_app(app)
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
+    admin.init_app(app)
     return None
 
 
 def register_blueprints(app):
     """Register Flask blueprints."""
     app.register_blueprint(public.views.blueprint)
-    app.register_blueprint(user.views.blueprint)
+    app.register_blueprint(main.views.blueprint)
     return None
 
 
