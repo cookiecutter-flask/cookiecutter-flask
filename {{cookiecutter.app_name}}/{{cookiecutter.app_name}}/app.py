@@ -9,6 +9,9 @@ from {{cookiecutter.app_name}}.settings import ProdConfig
 from main.views import SiteConfigView, UserModelView
 from main.models import User
 
+admin.add_view(SiteConfigView(name='Settings'))
+admin.add_view(UserModelView(User, db.session, category='Models'))
+
 
 def create_app(config_object=ProdConfig):
     """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
@@ -18,10 +21,6 @@ def create_app(config_object=ProdConfig):
     app = Flask(__name__)
     app.config.from_object(config_object)
     register_extensions(app)
-
-    admin.add_view(SiteConfigView(name='Settings'))
-    admin.add_view(UserModelView(User, db.session, category='Models'))
-
     register_blueprints(app)
     register_errorhandlers(app)
     return app
