@@ -12,6 +12,8 @@ with open(os.path.join(HERE, 'cookiecutter.json'), 'r') as fp:
     COOKIECUTTER_SETTINGS = json.load(fp)
 # Match default value of app_name from cookiecutter.json
 COOKIE = os.path.join(HERE, COOKIECUTTER_SETTINGS['app_name'])
+APPDIR = os.path.join(COOKIE, COOKIECUTTER_SETTINGS['app_name'])
+AUTOAPP = os.path.join(APPDIR, 'autoapp.py')
 REQUIREMENTS = os.path.join(COOKIE, 'requirements', 'dev.txt')
 
 
@@ -32,7 +34,7 @@ def clean():
 
 
 def _run_manage_command(command):
-    run('FLASK_APP="autoapp" flask {0}'.format(command), echo=True)
+    run('FLASK_APP={0} flask {1}'.format(AUTOAPP, command), echo=True)
 
 
 @task(pre=[clean, build])
