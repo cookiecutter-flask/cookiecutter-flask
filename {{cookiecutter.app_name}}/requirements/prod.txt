@@ -4,11 +4,12 @@ setuptools==20.2.2
 wheel==0.29.0
 
 # Flask
-Flask==0.10.1
+Flask==0.11.1
 MarkupSafe==0.23
 Werkzeug==0.11.4
 Jinja2==2.8
 itsdangerous==0.24
+click>=5.0
 
 # Database
 Flask-SQLAlchemy==2.1
@@ -16,7 +17,7 @@ psycopg2==2.6.1
 SQLAlchemy==1.0.12
 
 # Migrations
-Flask-Migrate==1.8.0
+Flask-Migrate==2.0.0
 
 # Forms
 Flask-WTF==0.12
@@ -26,7 +27,7 @@ WTForms==2.1
 gunicorn>=19.1.1
 
 # Assets
-Flask-Assets==0.11
+Flask-Assets==0.12
 cssmin>=0.2.0
 jsmin>=2.0.11
 
@@ -35,7 +36,7 @@ Flask-Login==0.3.2
 Flask-Bcrypt==0.7.1
 
 # Caching
-Flask-Cache>=0.13.1
+Flask-Caching>=1.0.0
 
 # Debug toolbar
 Flask-DebugToolbar==0.10.0

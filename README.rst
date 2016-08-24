@@ -30,7 +30,7 @@ Features
 - Flask-Bcrypt for password hashing
 - Procfile for deploying to a PaaS (e.g. Heroku)
 - pytest and Factory-Boy for testing (example tests included)
-- A simple ``manage.py`` script.
+- Flask's Click CLI configured with simple commands
 - CSS and JS minification using Flask-Assets
 - Optional bower support for frontend package management
 - Caching using Flask-Cache
@@ -69,6 +69,12 @@ BSD licensed.
 
 Changelog
 ---------
+
+0.10.0 (08/24/2016)
+*******************
+
+- Update to Flask 0.11.
+- Use Click instead of Flask-Script for CLI commands.
 
 0.9.0 (03/06/2016)
 ******************

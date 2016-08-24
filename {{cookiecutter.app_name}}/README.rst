@@ -42,6 +42,10 @@ Once you have installed your DBMS, run the following to create your app's databa
 Deployment
 ----------
 
+Before running shell commands, set the ``FLASK_APP`` environment variable ::
+
+    export FLASK_APP="{{cookiecutter.app_name}}.autoapp"
+
 In your production environment, make sure the ``{{cookiecutter.app_name|upper}}_ENV`` environment variable is set to ``"prod"``.
 
 
@@ -50,9 +54,9 @@ Shell
 
 To open the interactive shell, run ::
 
-    python manage.py shell
+    flask shell
 
-By default, you will have access to ``app``, ``db``, and the ``User`` model.
+By default, you will have access to ``app``, ``db``, ``g``, and the ``User`` model.
 
 
 Running Tests
@@ -60,7 +64,7 @@ Running Tests
 
 To run all tests, run ::
 
-    python manage.py test
+    flask test
 
 
 Migrations
@@ -69,13 +73,13 @@ Migrations
 Whenever a database migration needs to be made. Run the following commands:
 ::
 
-    python manage.py db migrate
+    flask db migrate
 
 This will generate a new migration script. Then run:
 ::
 
-    python manage.py db upgrade
+    flask db upgrade
 
 To apply the migration.
 
-For a full migration command reference, run ``python manage.py db --help``.
+For a full migration command reference, run ``flask db --help``.

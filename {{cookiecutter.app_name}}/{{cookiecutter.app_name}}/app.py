@@ -18,6 +18,8 @@ def create_app(config_object=ProdConfig):
     register_extensions(app)
     register_blueprints(app)
     register_errorhandlers(app)
+    register_shellcontext(app)
+    register_commands(app)
     return app
 
 
@@ -51,3 +53,18 @@ def register_errorhandlers(app):
     for errcode in [401, 404, 500]:
         app.errorhandler(errcode)(render_error)
     return None
+
+
+def register_shellcontext(app):
+    """Register shell context objects."""
+    def shell_context():
+        """Shell context objects."""
+        return {
+            'db': db}
+
+    app.shell_context_processor(shell_context)
+
+
+def register_commands(app):
+    """Register Click commands."""
+    app.cli.add_command(cli.test_command)

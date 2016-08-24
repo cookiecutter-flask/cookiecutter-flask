@@ -6,9 +6,6 @@ pytest==2.9.0
 WebTest==2.0.20
 factory-boy==2.6.1
 
-# Management script
-Flask-Script==2.0.5
-
 # Lint and code style
 flake8==2.5.4
 flake8-blind-except==0.1.0
