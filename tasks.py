@@ -40,5 +40,6 @@ def test():
     """Run lint commands and tests."""
     run('pip install -r {0} --ignore-installed'.format(REQUIREMENTS), echo=True)
     os.chdir(COOKIE)
+    run('pwd', echo=True)
     #_run_manage_command('lint')
     _run_manage_command('test')
