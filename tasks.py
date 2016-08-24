@@ -32,7 +32,7 @@ def clean():
 
 
 def _run_manage_command(command):
-    run('python {0} {1}'.format(os.path.join(COOKIE, 'manage.py'), command), echo=True)
+    run('FLASK_APP="{0}.autoapp" flask {1}'.format(COOKIECUTTER_SETTINGS['app_name'], command), echo=True)
 
 
 @task(pre=[clean, build])
