@@ -7,6 +7,7 @@ import shutil
 
 from invoke import task, run
 
+ENVPATH = '/usr/bin/env'
 HERE = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(HERE, 'cookiecutter.json'), 'r') as fp:
     COOKIECUTTER_SETTINGS = json.load(fp)
@@ -32,7 +33,10 @@ def clean():
 
 
 def _run_manage_command(command):
-    run('FLASK_APP="{0}.autoapp" flask {1}'.format(COOKIECUTTER_SETTINGS['app_name'], command), echo=True)
+    run(
+        'FLASK_APP="{0}.autoapp" {1} flask {2}'.format(
+            COOKIECUTTER_SETTINGS['app_name'], ENVPATH, command),
+        echo=True)
 
 
 @task(pre=[clean, build])
