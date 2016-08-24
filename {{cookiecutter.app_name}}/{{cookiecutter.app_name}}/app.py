@@ -2,7 +2,7 @@
 """The app module, containing the app factory function."""
 from flask import Flask, render_template
 
-from {{cookiecutter.app_name}} import public, user
+from {{cookiecutter.app_name}} import cli, public, user
 from {{cookiecutter.app_name}}.assets import assets
 from {{cookiecutter.app_name}}.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate
 from {{cookiecutter.app_name}}.settings import ProdConfig
@@ -60,7 +60,8 @@ def register_shellcontext(app):
     def shell_context():
         """Shell context objects."""
         return {
-            'db': db}
+            'db': db,
+            'User': user.models.User}
 
     app.shell_context_processor(shell_context)
 
