@@ -7,7 +7,6 @@ import shutil
 
 from invoke import task, run
 
-ENVPATH = '/usr/bin/env'
 HERE = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(HERE, 'cookiecutter.json'), 'r') as fp:
     COOKIECUTTER_SETTINGS = json.load(fp)
@@ -33,10 +32,7 @@ def clean():
 
 
 def _run_manage_command(command):
-    run(
-        'FLASK_APP="{0}.autoapp" {1} flask {2}'.format(
-            COOKIECUTTER_SETTINGS['app_name'], ENVPATH, command),
-        echo=True)
+    run('FLASK_APP="autoapp" flask {0}'.format(command), echo=True)
 
 
 @task(pre=[clean, build])
@@ -44,6 +40,5 @@ def test():
     """Run lint commands and tests."""
     run('pip install -r {0} --ignore-installed'.format(REQUIREMENTS), echo=True)
     os.chdir(COOKIE)
-    run('pwd', echo=True)
     #_run_manage_command('lint')
     _run_manage_command('test')
