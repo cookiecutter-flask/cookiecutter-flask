@@ -70,3 +70,5 @@ def register_commands(app):
     """Register Click commands."""
     app.cli.add_command(cli.test)
     app.cli.add_command(cli.lint)
+    app.cli.add_command(cli.clean)
+    app.cli.add_command(cli.urls)
