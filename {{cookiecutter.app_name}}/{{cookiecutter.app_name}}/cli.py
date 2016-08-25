@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """Click commands."""
+import os
+from glob import glob
+from subprocess import call
+
 import click
 from flask.cli import with_appcontext
-from glob import glob
-import os
-from subprocess import call
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.join(HERE, os.pardir)
