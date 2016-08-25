@@ -68,4 +68,5 @@ def register_shellcontext(app):
 
 def register_commands(app):
     """Register Click commands."""
-    app.cli.add_command(cli.test_command)
+    app.cli.add_command(cli.test)
+    app.cli.add_command(cli.lint)
