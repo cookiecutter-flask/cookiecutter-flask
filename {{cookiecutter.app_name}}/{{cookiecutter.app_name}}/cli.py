@@ -18,7 +18,9 @@ TEST_PATH = os.path.join(PROJECT_ROOT, 'tests')
 def test():
     """Run the tests."""
     import pytest
-    pytest.main([TEST_PATH, '--verbose'])
+    rv = pytest.main([TEST_PATH, '--verbose'])
+    if rv is not 0:
+        exit(rv)
 
 
 @click.command()
