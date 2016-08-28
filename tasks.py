@@ -12,8 +12,7 @@ with open(os.path.join(HERE, 'cookiecutter.json'), 'r') as fp:
     COOKIECUTTER_SETTINGS = json.load(fp)
 # Match default value of app_name from cookiecutter.json
 COOKIE = os.path.join(HERE, COOKIECUTTER_SETTINGS['app_name'])
-APPDIR = os.path.join(COOKIE, COOKIECUTTER_SETTINGS['app_name'])
-AUTOAPP = os.path.join(APPDIR, 'autoapp.py')
+AUTOAPP = os.path.join(COOKIE, 'autoapp.py')
 REQUIREMENTS = os.path.join(COOKIE, 'requirements', 'dev.txt')
 
 
