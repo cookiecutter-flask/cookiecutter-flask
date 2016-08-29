@@ -8,6 +8,6 @@ python:
   - 3.5
 install:
   - pip install cookiecutter
-  - pip install invoke==0.12.2
+  - pip install invoke==0.13.0
 script:
   - invoke test

@@ -5,7 +5,7 @@ import os
 import json
 import shutil
 
-from invoke import task, run
+from invoke import task
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(HERE, 'cookiecutter.json'), 'r') as fp:
@@ -17,13 +17,13 @@ REQUIREMENTS = os.path.join(COOKIE, 'requirements', 'dev.txt')
 
 
 @task
-def build():
+def build(ctx):
     """Build the cookiecutter."""
-    run('cookiecutter {0} --no-input'.format(HERE))
+    ctx.run('cookiecutter {0} --no-input'.format(HERE))
 
 
 @task
-def clean():
+def clean(ctx):
     """Clean out generated cookiecutter."""
     if os.path.exists(COOKIE):
         shutil.rmtree(COOKIE)
@@ -32,14 +32,15 @@ def clean():
         print('App directory does not exist. Skipping.')
 
 
-def _run_manage_command(command):
-    run('FLASK_APP={0} flask {1}'.format(AUTOAPP, command), echo=True)
+def _run_flask_command(ctx, command):
+    ctx.run('FLASK_APP={0} flask {1}'.format(AUTOAPP, command), echo=True)
 
 
 @task(pre=[clean, build])
-def test():
+def test(ctx):
     """Run lint commands and tests."""
-    run('pip install -r {0} --ignore-installed'.format(REQUIREMENTS), echo=True)
+    ctx.run('pip install -r {0} --ignore-installed'.format(REQUIREMENTS),
+            echo=True)
     os.chdir(COOKIE)
-    _run_manage_command('lint')
-    _run_manage_command('test')
+    _run_flask_command('lint')
+    _run_flask_command('test')
