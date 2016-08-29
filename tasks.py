@@ -42,5 +42,5 @@ def test(ctx):
     ctx.run('pip install -r {0} --ignore-installed'.format(REQUIREMENTS),
             echo=True)
     os.chdir(COOKIE)
-    _run_flask_command('lint')
-    _run_flask_command('test')
+    _run_flask_command(ctx, 'lint')
+    _run_flask_command(ctx, 'test')
