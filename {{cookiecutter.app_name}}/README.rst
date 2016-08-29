@@ -49,7 +49,7 @@ To open the interactive shell, run ::
 
     flask shell
 
-By default, you will have access to ``app``, ``db``, ``g``, and the ``User`` model.
+By default, you will have access to the flask ``app``.
 
 
 Running Tests

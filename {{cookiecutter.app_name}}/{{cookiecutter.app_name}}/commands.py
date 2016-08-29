@@ -19,8 +19,7 @@ def test():
     """Run the tests."""
     import pytest
     rv = pytest.main([TEST_PATH, '--verbose'])
-    if rv is not 0:
-        exit(rv)
+    exit(rv)
 
 
 @click.command()
@@ -40,7 +39,7 @@ def lint(fix_imports):
         command_line = list(args) + files_and_directories
         click.echo('{}: {}'.format(description, ' '.join(command_line)))
         rv = call(command_line)
-        if rv is not 0:
+        if rv != 0:
             exit(rv)
 
     if fix_imports:
