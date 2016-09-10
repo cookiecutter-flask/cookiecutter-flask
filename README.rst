@@ -70,7 +70,7 @@ BSD licensed.
 Changelog
 ---------
 
-0.10.2 (09/10/2016)
+0.11.0 (09/10/2016)
 *******************
 
 - Use the FLASK_DEBUG system environment variable, instead of MYFLASKAPP_ENV, to control different configs for development and production environments
