@@ -1,8 +1,5 @@
 # Everything needed in production
 
-setuptools==20.2.2
-wheel==0.29.0
-
 # Flask
 Flask==0.11.1
 MarkupSafe==0.23
