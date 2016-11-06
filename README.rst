@@ -70,6 +70,13 @@ BSD licensed.
 Changelog
 ---------
 
+0.11.1 (11/06/2016)
+*******************
+
+- Correctly pass first parameter to ``Flask`` according to the 0.11 `docs <http://flask.pocoo.org/docs/0.11/api/#application-object>`. Thanks `aliavni <https://github.com/aliavni>`.
+- Remove setuptools and wheel as dependencies to fix deployment on Heroku. Thanks `Cabalist <https://github.com/Cabalist>`.
+- Make User.password a Binary field for compatibility with new versions of bcrypt. Thanks again `Cabalist <https://github.com/Cabalist>`.
+
 0.11.0 (09/10/2016)
 *******************
 
