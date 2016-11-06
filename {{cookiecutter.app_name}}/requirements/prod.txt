@@ -17,7 +17,7 @@ SQLAlchemy==1.1.3
 Flask-Migrate==2.0.0
 
 # Forms
-Flask-WTF==0.12
+Flask-WTF==0.13.1
 WTForms==2.1
 
 # Deployment
