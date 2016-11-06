@@ -14,4 +14,4 @@ flake8-docstrings==1.0.2
 flake8-isort==2.0.1
 flake8-quotes==0.8.1
 isort==4.2.5
-pep8-naming==0.3.3
+pep8-naming==0.4.1
