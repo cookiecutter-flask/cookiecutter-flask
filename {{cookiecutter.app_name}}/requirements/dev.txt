@@ -7,7 +7,7 @@ WebTest==2.0.23
 factory-boy==2.7.0
 
 # Lint and code style
-flake8==3.0.4
+flake8==3.2.0
 flake8-blind-except==0.1.1
 flake8-debugger==1.4.0
 flake8-docstrings==1.0.2
