@@ -1,7 +1,7 @@
 # Everything needed in production
 
 # Flask
-Flask==0.11.1
+Flask==0.12
 MarkupSafe==0.23
 Werkzeug==0.11.11
 Jinja2==2.8
