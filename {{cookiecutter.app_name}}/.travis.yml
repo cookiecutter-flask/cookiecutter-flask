@@ -3,9 +3,9 @@ sudo: false  # http://docs.travis-ci.com/user/migrating-from-legacy/
 language: python
 python:
   - 2.7
-  - 3.3
   - 3.4
   - 3.5
+  - 3.6
 install: pip install -r requirements/dev.txt
 before_script: flask lint
 script: flask test

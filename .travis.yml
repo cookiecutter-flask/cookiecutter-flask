@@ -3,11 +3,11 @@ sudo: false  # http://docs.travis-ci.com/user/migrating-from-legacy/
 language: python
 python:
   - 2.7
-  - 3.3
   - 3.4
   - 3.5
+  - 3.6
 install:
   - pip install cookiecutter
-  - pip install invoke==0.13.0
+  - pip install invoke==0.14.0
 script:
   - invoke test
