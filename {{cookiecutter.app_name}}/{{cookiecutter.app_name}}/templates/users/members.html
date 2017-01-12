@@ -1,7 +1,7 @@
 {% raw %}
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Welcome {{ session.username }}</h1>
+    <h1>Welcome {{ current_user.username }}</h1>
     <h3>This is the members-only page.</h3>
 {% endblock %}
 {% endraw%}
