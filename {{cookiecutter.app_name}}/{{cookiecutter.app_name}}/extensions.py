@@ -6,10 +6,10 @@ from flask_debugtoolbar import DebugToolbarExtension
 from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
-from flask_wtf.csrf import CsrfProtect
+from flask_wtf.csrf import CSRFProtect
 
 bcrypt = Bcrypt()
-csrf_protect = CsrfProtect()
+csrf_protect = CSRFProtect()
 login_manager = LoginManager()
 db = SQLAlchemy()
 migrate = Migrate()
