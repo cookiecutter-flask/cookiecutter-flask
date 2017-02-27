@@ -9,7 +9,7 @@ itsdangerous==0.24
 click>=5.0
 
 # Database
-Flask-SQLAlchemy==2.1
+Flask-SQLAlchemy==2.2
 psycopg2==2.6.2
 SQLAlchemy==1.1.5
 
