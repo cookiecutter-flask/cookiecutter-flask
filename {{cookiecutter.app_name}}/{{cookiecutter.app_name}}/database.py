@@ -7,7 +7,7 @@ from .extensions import db
 
 # Alias common SQLAlchemy names
 Column = db.Column
-relationship = relationship
+relationship = db.relationship
 
 
 class CRUDMixin(object):
