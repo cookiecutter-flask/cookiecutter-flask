@@ -46,7 +46,7 @@ def logout():
 @blueprint.route('/register/', methods=['GET', 'POST'])
 def register():
     """Register new user."""
-    form = RegisterForm(request.form, csrf_enabled=False)
+    form = RegisterForm(request.form)
     if form.validate_on_submit():
         User.create(username=form.username.data, email=form.email.data, password=form.password.data, active=True)
         flash('Thank you for registering. You can now log in.', 'success')
