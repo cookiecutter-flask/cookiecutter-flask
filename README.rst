@@ -61,6 +61,10 @@ Inspiration
 - `flask-basic-registration <https://github.com/mjhea0/flask-basic-registration>`_ by `@mjhea0 <https://github.com/mjhea0>`_
 - `Flask Official Documentation <http://flask.pocoo.org/docs/>`_
 
+Similar projects
+----------------
+
+- `tony/cookiecutter-flask-pythonic <https://github.com/tony/cookiecutter-flask-pythonic>`_ by `@tony <https://github.com/tony>`_.
 
 License
 -------
