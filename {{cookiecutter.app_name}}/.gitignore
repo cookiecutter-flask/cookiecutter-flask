@@ -44,3 +44,10 @@ docs/_build
 
 # Virtualenvs
 env/
+venv/
+
+#Pycharm
+.idea/
+
+#migrations
+migrations/
