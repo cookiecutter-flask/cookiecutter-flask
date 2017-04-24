@@ -19,6 +19,10 @@ Use it now
 
 You will be asked about your basic info (name, project name, app name, etc.). This info will be used in your new project.
 
+To create the app, run the following in the root directory:
+    $ export FLASK_APP=autoapp.py
+    $ python -m flask run
+
 Features
 --------
 
