@@ -10,7 +10,7 @@ factory-boy==2.8.1
 flake8==3.3.0
 flake8-blind-except==0.1.1
 flake8-debugger==1.4.0
-flake8-docstrings==1.0.3
+flake8-docstrings==1.1.0
 flake8-isort==2.2
 flake8-quotes==0.9.0
 isort==4.2.5
