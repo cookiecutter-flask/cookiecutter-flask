@@ -12,6 +12,6 @@ flake8-blind-except==0.1.1
 flake8-debugger==1.4.0
 flake8-docstrings==1.1.0
 flake8-isort==2.2.1
-flake8-quotes==0.10.1
+flake8-quotes==0.11.0
 isort==4.2.5
 pep8-naming==0.4.1
