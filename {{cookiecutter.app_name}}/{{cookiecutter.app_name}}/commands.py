@@ -73,7 +73,6 @@ def urls(url, order):
     Borrowed from Flask-Script, converted to use Click.
     """
     rows = []
-    column_length = 0
     column_headers = ('Rule', 'Endpoint', 'Arguments')
 
     if url:
