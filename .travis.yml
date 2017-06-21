@@ -6,6 +6,8 @@ python:
   - 3.4
   - 3.5
   - 3.6
+node_js:
+  - 6
 install:
   - pip install cookiecutter
   - pip install invoke==0.14.0
