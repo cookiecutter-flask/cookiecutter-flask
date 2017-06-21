@@ -19,11 +19,11 @@ module.exports = {
   // configuration
   context: __dirname,
   entry: {
-    main_js: './js/main',
+    main_js: './assets/js/main',
     main_css: [
       './node_modules/font-awesome/css/font-awesome.css',
       './node_modules/bootstrap/dist/css/bootstrap.css',
-      './css/style.css'
+      './assets/css/style.css'
     ]
   },
   output: {
