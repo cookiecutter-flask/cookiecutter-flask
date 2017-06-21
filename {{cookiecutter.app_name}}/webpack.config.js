@@ -33,7 +33,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.css']
   },
-  devtool: debug ? '#inline-sourcemap' : null,
+  devtool: debug ? '#inline-sourcemap' : false,
   devServer: {
     headers: { 'Access-Control-Allow-Origin': '*' }
   },
