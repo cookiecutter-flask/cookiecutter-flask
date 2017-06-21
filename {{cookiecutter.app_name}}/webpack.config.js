@@ -13,6 +13,8 @@ const debug = (process.env.NODE_ENV !== 'prod');
 // Development asset host (webpack dev server)
 const publicHost = debug ? 'http://localhost:2992' : '';
 
+const rootAssetPath = './assets/';
+
 module.exports = {
   // configuration
   context: __dirname,
@@ -25,8 +27,8 @@ module.exports = {
     ]
   },
   output: {
-    path: __dirname + '/{{cookiecutter.app_name}}/static/assets',
-    publicPath: publicHost + '/static/assets/',
+    path: __dirname + '/{{cookiecutter.app_name}}/static/build',
+    publicPath: publicHost + '/static/build/',
     filename: '[name].[hash].js',
     chunkFilename: '[id].[hash].js'
   },
@@ -43,7 +45,7 @@ module.exports = {
       { test: /\.less$/, loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader!less-loader' }) },
       { test: /\.css$/, loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader' }) },
       { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
-      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' },
+      { test: /\.(ttf|eot|svg|ico)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader?context=' + rootAssetPath + '&name=[path][name].[hash].[ext]' },
       { test: /\.(png|jpe?g|gif|ico)(\?\S*)?$/, loader: 'url-loader?limit=100000' },
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', query: { presets: ['es2015'], cacheDirectory: true } },
     ]
@@ -53,13 +55,9 @@ module.exports = {
     new webpack.ProvidePlugin({ $: 'jquery',
                                 jQuery: 'jquery' }),
     new ManifestRevisionPlugin(__dirname + '/{{cookiecutter.app_name}}/webpack/manifest.json', {
-      rootAssetPath: './{{cookiecutter.app_name}}/static',
-      ignorePaths: ['assets']
+      rootAssetPath,
+      ignorePaths: ['/js', '/css']
     }),
-    // add a webpack step to copy static files into place if needed
-    //new CopyWebpackPlugin([
-    //  { from: '{{cookiecutter.app_name}}/static/img', to: `${__dirname}/{{cookiecutter.app_name}}/static/build/img` },
-    //]),
   ].concat(debug ? [] : [
     // production webpack plugins go here
   ])
