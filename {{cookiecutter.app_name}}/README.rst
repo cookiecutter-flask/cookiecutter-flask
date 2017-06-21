@@ -26,8 +26,9 @@ Then run the following commands to bootstrap your environment ::
     git clone https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
     cd {{cookiecutter.app_name}}
     pip install -r requirements/dev.txt
-    bower install
-    flask run
+    npm install
+    npm start  # run the webpack dev server
+    flask run  # run the flask server
 
 You will see a pretty welcome screen.
 
@@ -42,6 +43,12 @@ database tables and perform the initial migration ::
 
 Deployment
 ----------
+
+To deploy::
+
+    export FLASK_DEBUG=0
+    npm run build
+    flask run
 
 In your production environment, make sure the ``FLASK_DEBUG`` environment
 variable is unset or is set to ``0``, so that ``ProdConfig`` is used.
