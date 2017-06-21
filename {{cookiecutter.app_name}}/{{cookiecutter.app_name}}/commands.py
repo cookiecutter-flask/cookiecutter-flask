@@ -27,7 +27,7 @@ def test():
               help='Fix imports using isort, before linting')
 def lint(fix_imports):
     """Lint and check code style with flake8 and isort."""
-    skip = ['requirements']
+    skip = ['node_modules', 'requirements']
     root_files = glob('*.py')
     root_directories = [
         name for name in next(os.walk('.'))[1] if not name.startswith('.')]
