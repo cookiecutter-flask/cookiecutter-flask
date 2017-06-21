@@ -4,7 +4,6 @@ const webpack = require('webpack');
  * Webpack Plugins
  */
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ManifestRevisionPlugin = require('manifest-revision-webpack-plugin');
 
 // take debug mode from the environment
