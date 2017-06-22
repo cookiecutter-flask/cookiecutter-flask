@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=prod ./node_modules/.bin/webpack --progress --colors",
+    "build": "NODE_ENV=prod ./node_modules/.bin/webpack --progress --colors -p",
     "start": "./node_modules/.bin/webpack-dev-server --port 2992 --hot --inline",
     "lint": "eslint \"assets/js/*.js\""
   },
