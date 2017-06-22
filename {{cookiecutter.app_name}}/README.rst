@@ -48,7 +48,7 @@ get copied into something like
 ``static/build/img/favicon.fec40b1d14528bf9179da3b6b78079ad.ico``.
 You can then put this line into your header::
 
-    <link rel="shortcut icon" href="{{asset_url_for('img/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ "{{" }}asset_url_for('img/favicon.ico') {{ "}}" }}">
 
 to refer to it inside your HTML page.  If all of your assets are
 managed this way, you can ask Flask to tell web browsers that they
