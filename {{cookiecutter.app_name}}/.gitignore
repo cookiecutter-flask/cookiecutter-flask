@@ -49,5 +49,5 @@ env/
 /node_modules/
 
 # webpack-built files
-/{{cookiecutter.app_name}}/static/assets/
+/{{cookiecutter.app_name}}/static/build/
 /{{cookiecutter.app_name}}/webpack/manifest.json
