@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=prod ./node_modules/.bin/webpack --progress --colors",
     "start": "./node_modules/.bin/webpack-dev-server --port 2992 --hot --inline",
-    "lint": "eslint \"js/*.js\""
+    "lint": "eslint \"assets/js/*.js\""
   },
   "repository": {
     "type": "git",
