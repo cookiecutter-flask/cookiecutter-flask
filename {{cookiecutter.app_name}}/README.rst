@@ -15,22 +15,21 @@ add the following to ``.bashrc`` or ``.bash_profile``.
 
     export {{cookiecutter.app_name | upper}}_SECRET='something-really-secret'
 
-Before running shell commands, set the ``FLASK_APP`` and ``FLASK_DEBUG``
-environment variables ::
-
-    export FLASK_APP=/path/to/autoapp.py
-    export FLASK_DEBUG=1
-
-Then run the following commands to bootstrap your environment ::
+Run the following commands to bootstrap your environment ::
 
     git clone https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
     cd {{cookiecutter.app_name}}
     pip install -r requirements/dev.txt
     npm install
-    npm start  # run the webpack dev server
-    flask run  # run the flask server
+    npm start  # run the webpack dev server and flask server using concurrently
 
 You will see a pretty welcome screen.
+
+In general, before running shell commands, set the ``FLASK_APP`` and
+``FLASK_DEBUG`` environment variables ::
+
+    export FLASK_APP=/path/to/autoapp.py
+    export FLASK_DEBUG=1
 
 Once you have installed your DBMS, run the following to create your app's
 database tables and perform the initial migration ::
@@ -38,7 +37,7 @@ database tables and perform the initial migration ::
     flask db init
     flask db migrate
     flask db upgrade
-    flask run
+    npm start
 
 
 Deployment
@@ -47,8 +46,8 @@ Deployment
 To deploy::
 
     export FLASK_DEBUG=0
-    npm run build
-    flask run
+    npm run build   # build assets with webpack
+    flask run       # start the flask server
 
 In your production environment, make sure the ``FLASK_DEBUG`` environment
 variable is unset or is set to ``0``, so that ``ProdConfig`` is used.
