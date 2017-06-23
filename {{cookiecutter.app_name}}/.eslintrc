@@ -15,6 +15,7 @@
   },
   "globals": {
     "__dirname": true,
-    "jQuery": true
+    "jQuery": true,
+    "$": true
   }
 }
