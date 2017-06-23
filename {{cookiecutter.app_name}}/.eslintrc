@@ -14,6 +14,7 @@
     "node": true
   },
   "globals": {
-    "__dirname": true
+    "__dirname": true,
+    "jQuery": true
   }
 }
