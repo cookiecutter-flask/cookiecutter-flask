@@ -50,6 +50,7 @@ def test(ctx):
     """Run lint commands and tests."""
     ctx.run('pip install -r {0} --ignore-installed'.format(REQUIREMENTS),
             echo=True)
+    _run_npm_command(ctx, 'run lint')
     os.chdir(COOKIE)
     _run_flask_command(ctx, 'lint')
     _run_flask_command(ctx, 'test')
