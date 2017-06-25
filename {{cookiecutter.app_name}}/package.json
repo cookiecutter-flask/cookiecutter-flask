@@ -2,12 +2,7 @@
   "name": "{{cookiecutter.app_name}}",
   "version": "1.0.0",
   "description": "{{cookiecutter.project_short_description}}",
-  "main": "js/main.js",
-  "directories": {
-    "test": "tests"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress --colors -p",
     "start": "./node_modules/.bin/concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-dev-server\" \"npm run flask-server\"",
     "webpack-dev-server": "NODE_ENV=debug ./node_modules/.bin/webpack-dev-server --port 2992 --hot --inline",
