@@ -70,6 +70,13 @@ BSD licensed.
 Changelog
 ---------
 
+0.13.0 (06/25/2017)
+*******************
+
+- Use webpack for building front-end assets. Front-end dependencies are
+  installed with NPM. Remove Flask-Assets and bower.json. Thanks
+  `@wroberts <https://github.com/wroberts>`_.
+
 0.12.0 (11/06/2016)
 *******************
 
