@@ -8,6 +8,13 @@ python:
   - 3.4
   - 3.5
   - 3.6
-install: pip install -r requirements/dev.txt
-before_script: flask lint
+install:
+  - pip install -r requirements/dev.txt
+  - nvm install 6.10
+  - nvm use 6.10
+  - npm install
+before_script:
+  - npm run lint
+  - npm run build
+  - flask lint
 script: flask test

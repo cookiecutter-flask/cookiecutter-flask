@@ -23,10 +23,8 @@ WTForms==2.1
 # Deployment
 gunicorn>=19.1.1
 
-# Assets
-Flask-Assets==0.12
-cssmin>=0.2.0
-jsmin>=2.0.11
+# Webpack
+flask-webpack==0.1.0
 
 # Auth
 Flask-Login==0.4.0

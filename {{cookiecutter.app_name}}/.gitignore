@@ -44,3 +44,10 @@ docs/_build
 
 # Virtualenvs
 env/
+
+# npm
+/node_modules/
+
+# webpack-built files
+/{{cookiecutter.app_name}}/static/build/
+/{{cookiecutter.app_name}}/webpack/manifest.json

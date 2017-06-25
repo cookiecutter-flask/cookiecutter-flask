@@ -1,0 +1,54 @@
+{
+  "name": "{{cookiecutter.app_name}}",
+  "version": "1.0.0",
+  "description": "{{cookiecutter.project_short_description}}",
+  "main": "js/main.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress --colors -p",
+    "start": "./node_modules/.bin/concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-dev-server\" \"npm run flask-server\"",
+    "webpack-dev-server": "NODE_ENV=debug ./node_modules/.bin/webpack-dev-server --port 2992 --hot --inline",
+    "flask-server": "FLASK_APP=$PWD/autoapp.py FLASK_DEBUG=1 flask run",
+    "lint": "eslint \"assets/js/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}.git"
+  },
+  "author": "{{cookiecutter.full_name}}",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}/issues"
+  },
+  "homepage": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "concurrently": "^3.5.0",
+    "css-loader": "^0.28.4",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.3.0",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2",
+    "font-awesome-webpack": "0.0.5-beta.2",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
+    "manifest-revision-webpack-plugin": "^0.4.0",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}

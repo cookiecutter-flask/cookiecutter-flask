@@ -17,10 +17,18 @@ AUTOAPP = os.path.join(COOKIE, 'autoapp.py')
 REQUIREMENTS = os.path.join(COOKIE, 'requirements', 'dev.txt')
 
 
+def _run_npm_command(ctx, command):
+    os.chdir(COOKIE)
+    ctx.run('npm {0}'.format(command), echo=True)
+    os.chdir(HERE)
+
+
 @task
 def build(ctx):
     """Build the cookiecutter."""
     ctx.run('cookiecutter {0} --no-input'.format(HERE))
+    _run_npm_command(ctx, 'install')
+    _run_npm_command(ctx, 'run build')
 
 
 @task
@@ -42,6 +50,7 @@ def test(ctx):
     """Run lint commands and tests."""
     ctx.run('pip install -r {0} --ignore-installed'.format(REQUIREMENTS),
             echo=True)
+    _run_npm_command(ctx, 'run lint')
     os.chdir(COOKIE)
     _run_flask_command(ctx, 'lint')
     _run_flask_command(ctx, 'test')
