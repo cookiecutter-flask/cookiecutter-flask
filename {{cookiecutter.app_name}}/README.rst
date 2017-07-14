@@ -39,7 +39,6 @@ database tables and perform the initial migration ::
     flask db upgrade
     npm start
 
-
 Deployment
 ----------
 
@@ -108,3 +107,11 @@ should cache all your assets forever by including the following line
 in your ``settings.py``::
 
     SEND_FILE_MAX_AGE_DEFAULT = 31556926  # one year
+
+FAQ
+---
+
+- Dev server listen on a specific IP(running code in a VM)
+
+  - in the app root directory edit package.json
+  - look for ``npm run flask-server`` and add ``-- -h A.B.C.D``  to the string
