@@ -1,8 +1,11 @@
 {
-	"full_name": "Steven Loria",
-	"email": "sloria1@gmail.com",
-	"github_username": "sloria",
-	"project_name": "My Flask App",
-	"app_name": "myflaskapp",
-	"project_short_description": "A flasky app."
+    "full_name": "Steven Loria",
+    "email": "sloria1@gmail.com",
+    "github_username": "sloria",
+    "project_name": "My Flask App",
+    "app_name": "myflaskapp",
+    "project_short_description": "A flasky app.",
+    "flask_ip": "127.0.0.1",
+    "flask_port": "5000"
+    
 }
