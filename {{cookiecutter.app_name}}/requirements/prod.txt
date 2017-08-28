@@ -14,7 +14,7 @@ psycopg2==2.7.3.1
 SQLAlchemy==1.1.13
 
 # Migrations
-Flask-Migrate==2.1.0
+Flask-Migrate==2.1.1
 
 # Forms
 Flask-WTF==0.14.2
