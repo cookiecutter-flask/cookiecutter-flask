@@ -28,7 +28,7 @@ You will see a pretty welcome screen.
 In general, before running shell commands, set the ``FLASK_APP`` and
 ``FLASK_DEBUG`` environment variables ::
 
-    export FLASK_APP=/path/to/autoapp.py
+    export FLASK_APP=autoapp.py
     export FLASK_DEBUG=1
 
 Once you have installed your DBMS, run the following to create your app's
