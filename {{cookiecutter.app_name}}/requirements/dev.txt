@@ -3,7 +3,7 @@
 
 # Testing
 pytest==3.2.3
-WebTest==2.0.28
+WebTest==2.0.29
 factory-boy==2.9.2
 
 # Lint and code style
