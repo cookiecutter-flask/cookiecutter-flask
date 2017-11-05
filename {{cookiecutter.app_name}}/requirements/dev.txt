@@ -9,7 +9,7 @@ factory-boy==2.9.2
 # Lint and code style
 flake8==3.5.0
 flake8-blind-except==0.1.1
-flake8-debugger==1.4.0
+flake8-debugger==3.0.0
 flake8-docstrings==1.1.0
 flake8-isort==2.2.2
 flake8-quotes==0.12.0
