@@ -27,7 +27,7 @@ gunicorn>=19.1.1
 flask-webpack==0.1.0
 
 # Auth
-Flask-Login==0.4.0
+Flask-Login==0.4.1
 Flask-Bcrypt==0.7.1
 
 # Caching
