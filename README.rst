@@ -40,12 +40,10 @@ Features
 Screenshots
 -----------
 
-.. image:: https://dl.dropboxusercontent.com/u/1693233/github/cookiecutter-flask-01.png
-    :target: https://dl.dropboxusercontent.com/u/1693233/github/cookiecutter-flask-01.png
+.. image:: https://user-images.githubusercontent.com/2379650/35603073-7f5b78c2-0609-11e8-8fa8-7c6cce27fed6.png
     :alt: Home page
 
-.. image:: https://dl.dropboxusercontent.com/u/1693233/github/cookiecutter-flask-02.png.png
-    :target: https://dl.dropboxusercontent.com/u/1693233/github/cookiecutter-flask-02.png.png
+.. image:: https://user-images.githubusercontent.com/2379650/35603086-936a30e2-0609-11e8-8f63-a4c844310aab.png
     :alt: Registration form
 
 
