@@ -15,6 +15,7 @@
   },
   "author": "{{cookiecutter.full_name}}",
   "license": "BSD-3-Clause",
+  "engines": { "node" : ">=4" },
   "bugs": {
     "url": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}/issues"
   },
