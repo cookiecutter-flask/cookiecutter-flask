@@ -44,5 +44,6 @@ app:
   expose:
     - ${APP_PORT}
   volumes:
-    - ./logs/flaskapp/:/app/restapp/logs/
+    - {{cookiecutter.repo_name}}-data:/data
+    - "./docker/app/config:/config"
   command: ["/app/start_gunicorn.sh"]
