@@ -1,7 +1,7 @@
 version: '3'
 
 volumes:
-  {{cookiecutter.repo_name}}-data:
+  {{cookiecutter.app_name}}-data:
     driver: local
 
 services:
@@ -15,7 +15,7 @@ services:
     expose:
       - ${APP_PORT}
     volumes:
-      - {{cookiecutter.repo_name}}-data:/data
+      - {{cookiecutter.app_name}}-data:/data
       - "./docker/app/config:/config"
     command: ["/run.sh"]
 
@@ -31,14 +31,14 @@ services:
     ports:
       - ${APP_PORT}:${APP_PORT}
     volumes:
-      - {{cookiecutter.repo_name}}-data:/data
+      - {{cookiecutter.app_name}}-data:/data
     command: ["/run.sh"]
 
     postgres:
       build:
         dockerfile: ./docker/postgres/Dockerfile
       volumes:
-        - {{cookiecutter.repo_name}}-data:/data
+        - {{cookiecutter.app_name}}-data:/data
       logging:
         options:
           max-size: "5m"
