@@ -7,4 +7,4 @@ echo "Waiting for postgres..."
 
 echo "PostgreSQL started"
 
-gunicorn --config restapp/config/gunicorn.py "restapp.app:create_app()"
+gunicorn --config /config/gunicorn.py "{{cookiecutter.app_name}}.app:create_app()"
