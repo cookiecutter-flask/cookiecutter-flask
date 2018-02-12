@@ -1,0 +1,48 @@
+version: '3'
+
+volumes:
+  {{cookiecutter.repo_name}}-data:
+    driver: local
+
+services:
+  postgres:
+    build:
+      dockerfile: ./docker/postgres/Dockerfile
+    volumes:
+      - {{cookiecutter.repo_name}}-data:/data
+      - "./docker/postgres/config:/config"
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "1"
+    env_file: ./docker/postgres/.env
+    ports:
+        - "5433:5432"
+
+nginx:
+  build:
+    dockerfile: ./docker/nginx/Dockerfile
+  env_file:
+    - ./docker/app/.env
+  depends_on:
+    - app
+  environment:
+    - NGINX_PORT=${APP_PORT}
+  ports:
+    - ${APP_PORT}:${APP_PORT}
+  volumes:
+    - {{cookiecutter.repo_name}}-data:/data
+  command: ["/entrypoint.sh"]
+
+app:
+  build:
+    dockerfile: ./docker/app/Dockerfile
+  depends_on:
+    - postgres
+  env_file:
+    - ./docker/app/.env
+  expose:
+    - ${APP_PORT}
+  volumes:
+    - ./logs/flaskapp/:/app/restapp/logs/
+  command: ["/app/start_gunicorn.sh"]
