@@ -14,7 +14,7 @@ class Config(object):
     DEBUG_TB_INTERCEPT_REDIRECTS = False
     CACHE_TYPE = 'simple'  # Can be "memcached", "redis", etc.
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    WEBPACK_MANIFEST_PATH = 'webpack/manifest.json'
+    WEBPACK_MANIFEST_PATH = os.path.join(APP_DIR, 'webpack/manifest.json')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://{user}:{passwd}@/{db_name}?host={host}'.format(
         user=os.environ['POSTGRES_USER'],
         passwd=os.environ['POSTGRES_PASSWORD'],
@@ -28,6 +28,7 @@ class ProdConfig(Config):
 
     ENV = 'prod'
     DEBUG = False
+
 
 class DevConfig(Config):
     """Development configuration."""
