@@ -6,5 +6,4 @@ COPY ./requirements /{{cookiecutter.app_name}}/requirements
 RUN pip install -r /{{cookiecutter.app_name}}/requirements/prod.txt
 
 COPY ./{{cookiecutter.app_name}} /{{cookiecutter.app_name}}
-COPY ./docker/app/entrypoint/* /
-
+COPY ./docker/app/entrypoint /

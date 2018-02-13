@@ -1,6 +1,10 @@
 import os
 
 LOGS_DIR = '/data/logs'
+
+if not os.path.exists(LOGS_DIR):
+    os.makedirs(LOGS_DIR)
+
 bind = '0.0.0.0:{}'.format(os.environ.get('APP_PORT', 5000))
 workers = 4
 reload = True

@@ -4,5 +4,7 @@
 	"github_username": "sloria",
 	"project_name": "My Flask App",
 	"app_name": "myflaskapp",
+	"app_secret": "superAppSecret",
+	"db_password": "superSecretPassword",
 	"project_short_description": "A flasky app."
 }

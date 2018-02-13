@@ -7,23 +7,28 @@ volumes:
 services:
   app:
     build:
+      context: .
       dockerfile: ./docker/app/Dockerfile
     depends_on:
       - postgres
     env_file:
-      - ./docker/app/.env
+      - .env
     expose:
       - ${APP_PORT}
     volumes:
       - {{cookiecutter.app_name}}-data:/data
-      - "./docker/app/config:/config"
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "1"
     command: ["/run.sh"]
 
   nginx:
     build:
+      context: .
       dockerfile: ./docker/nginx/Dockerfile
     env_file:
-      - ./docker/app/.env
+      - .env
     depends_on:
       - app
     environment:
@@ -32,17 +37,22 @@ services:
       - ${APP_PORT}:${APP_PORT}
     volumes:
       - {{cookiecutter.app_name}}-data:/data
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "1"
     command: ["/run.sh"]
 
-    postgres:
-      build:
-        dockerfile: ./docker/postgres/Dockerfile
-      volumes:
-        - {{cookiecutter.app_name}}-data:/data
-      logging:
-        options:
-          max-size: "5m"
-          max-file: "1"
-      env_file: ./docker/postgres/.env
-      ports:
-          - "5433:5432"
+  postgres:
+    build:
+      context: .
+      dockerfile: ./docker/postgres/Dockerfile
+    volumes:
+      - {{cookiecutter.app_name}}-data:/data
+    env_file: .env
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "1"
+    ports:
+        - "5433:5432"

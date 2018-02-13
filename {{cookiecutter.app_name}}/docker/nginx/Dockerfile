@@ -1,3 +1,3 @@
 FROM nginx:stable
 
-COPY ./docker/nginx/entrypoint/* /
+COPY ./docker/nginx/entrypoint /
