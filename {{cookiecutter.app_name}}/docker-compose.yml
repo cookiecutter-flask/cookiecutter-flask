@@ -8,7 +8,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: ./docker/app/Dockerfile
+      dockerfile: ./app/Dockerfile
     depends_on:
       - postgres
     env_file:
@@ -21,12 +21,12 @@ services:
       options:
         max-size: "5m"
         max-file: "1"
-    command: ["/run.sh"]
+    command: ["/app/run.sh"]
 
   nginx:
     build:
       context: .
-      dockerfile: ./docker/nginx/Dockerfile
+      dockerfile: ./nginx/Dockerfile
     env_file:
       - .env
     depends_on:
@@ -46,7 +46,7 @@ services:
   postgres:
     build:
       context: .
-      dockerfile: ./docker/postgres/Dockerfile
+      dockerfile: ./postgres/Dockerfile
     volumes:
       - {{cookiecutter.app_name}}-data:/data
     env_file: .env
