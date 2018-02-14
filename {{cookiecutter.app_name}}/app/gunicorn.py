@@ -1,3 +1,4 @@
+"""Settings for Gunicorn WSGI."""
 import os
 
 LOGS_DIR = '/data/logs'

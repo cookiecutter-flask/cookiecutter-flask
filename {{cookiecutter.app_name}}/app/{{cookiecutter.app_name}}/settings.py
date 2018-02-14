@@ -6,7 +6,7 @@ import os
 class Config(object):
     """Base configuration."""
 
-    SECRET_KEY = os.environ.get('APP_SECRET')
+    SECRET_KEY = os.environ.get('APP_SECRET', 'fakeSecretKey')
     APP_DIR = os.path.abspath(os.path.dirname(__file__))  # This directory
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
     BCRYPT_LOG_ROUNDS = 13
@@ -16,10 +16,10 @@ class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     WEBPACK_MANIFEST_PATH = os.path.join(APP_DIR, 'webpack/manifest.json')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://{user}:{passwd}@/{db_name}?host={host}'.format(
-        user=os.environ['POSTGRES_USER'],
-        passwd=os.environ['POSTGRES_PASSWORD'],
-        db_name=os.environ['POSTGRES_DB'],
-        host=os.environ['POSTGRES_HOST']
+        user=os.environ.get('POSTGRES_USER', 'fakePostgresUser'),
+        passwd=os.environ.get('POSTGRES_PASSWORD', 'fakePassword'),
+        db_name=os.environ.get('POSTGRES_DB', 'fakeDB'),
+        host=os.environ.get('POSTGRES_HOST', 'fakeDbHost')
     )
 
 
@@ -47,3 +47,4 @@ class TestConfig(Config):
     DEBUG = True
     BCRYPT_LOG_ROUNDS = 4  # For faster tests; needs at least 4 to avoid "ValueError: Invalid rounds"
     WTF_CSRF_ENABLED = False  # Allows form testing
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'
