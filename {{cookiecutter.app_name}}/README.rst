@@ -48,7 +48,8 @@ To deploy to Production::
 
 .. code-block:: bash
     cd {{cookiecutter.app_name}}
-    docker-compose -f docker-compose.yml -f docker-compose-prod.yaml --build -d
+    docker-compose -f docker-compose.yml -f docker-compose-prod.yaml build
+    docker-compose -f docker-compose.yml -f docker-compose-prod.yaml up -d
 
 
 Shell
