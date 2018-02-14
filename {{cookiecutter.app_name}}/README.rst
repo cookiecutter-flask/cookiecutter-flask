@@ -19,46 +19,44 @@ Run the following commands to bootstrap your environment ::
 
     git clone https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
     cd {{cookiecutter.app_name}}
-    pip install -r requirements/dev.txt
-    npm install
-    npm start  # run the webpack dev server and flask server using concurrently
+    docker-compose up --build -d
 
-You will see a pretty welcome screen.
+You will see a pretty welcome screen if you go to your browser at localhost:5000
 
-In general, before running shell commands, set the ``FLASK_APP`` and
-``FLASK_DEBUG`` environment variables ::
 
-    export FLASK_APP=autoapp.py
-    export FLASK_DEBUG=1
-
-Once you have installed your DBMS, run the following to create your app's
+Your database is already created by the automation, run the following to create your app's
 database tables and perform the initial migration ::
 
-    flask db init
-    flask db migrate
-    flask db upgrade
-    npm start
+.. code-block:: bash
+
+    docker exec myflaskapp_app_1 flask db init
+    docker exec myflaskapp_app_1 flask db migrate
+    docker exec myflaskapp_app_1 flask db upgrade
+
+Where myflaskapp_app_1 is the name of the app container created, or you can check the name of your
+container name by following the following:
+
+.. code-block:: bash
+
+    docker ps
 
 
 Deployment
 ----------
 
-To deploy::
+To deploy to Production::
 
-    export FLASK_DEBUG=0
-    npm run build   # build assets with webpack
-    flask run       # start the flask server
-
-In your production environment, make sure the ``FLASK_DEBUG`` environment
-variable is unset or is set to ``0``, so that ``ProdConfig`` is used.
+.. code-block:: bash
+    cd {{cookiecutter.app_name}}
+    docker-compose -f docker-compose.yml -f docker-compose-prod.yaml --build -d
 
 
 Shell
 -----
 
-To open the interactive shell, run ::
+To open the interactive shell from the host machine, run ::
 
-    flask shell
+    docker exec -it myflaskapp_app_1 flask shell
 
 By default, you will have access to the flask ``app``.
 
@@ -68,7 +66,7 @@ Running Tests
 
 To run all tests, run ::
 
-    flask test
+    docker exec -it myflaskapp_app_1 flask test
 
 
 Migrations
@@ -76,11 +74,11 @@ Migrations
 
 Whenever a database migration needs to be made. Run the following commands ::
 
-    flask db migrate
+    docker exec -it myflaskapp_app_1 flask db migrate
 
 This will generate a new migration script. Then run ::
 
-    flask db upgrade
+    docker exec -it myflaskapp_app_1 flask db upgrade
 
 To apply the migration.
 
