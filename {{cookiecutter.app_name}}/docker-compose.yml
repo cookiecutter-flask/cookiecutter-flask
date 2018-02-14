@@ -13,8 +13,6 @@ services:
       - postgres
     env_file:
       - .env
-    expose:
-      - ${APP_PORT}
     volumes:
       - {{cookiecutter.app_name}}-data:/data
     logging:
@@ -55,5 +53,3 @@ services:
       options:
         max-size: "5m"
         max-file: "1"
-    ports:
-        - "5433:5432"
