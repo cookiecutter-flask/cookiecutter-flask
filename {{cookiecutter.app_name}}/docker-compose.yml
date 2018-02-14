@@ -27,8 +27,6 @@ services:
     build:
       context: .
       dockerfile: ./nginx/Dockerfile
-    env_file:
-      - .env
     depends_on:
       - app
     environment:
@@ -37,6 +35,8 @@ services:
       - ${APP_PORT}:${APP_PORT}
     volumes:
       - {{cookiecutter.app_name}}-data:/data
+    env_file:
+      - .env
     logging:
       options:
         max-size: "5m"
@@ -49,7 +49,8 @@ services:
       dockerfile: ./postgres/Dockerfile
     volumes:
       - {{cookiecutter.app_name}}-data:/data
-    env_file: .env
+    env_file:
+      - .env
     logging:
       options:
         max-size: "5m"
