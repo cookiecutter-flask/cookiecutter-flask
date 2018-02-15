@@ -17,10 +17,10 @@ TEST_PATH = os.path.join(PROJECT_ROOT, 'tests')
 @click.command()
 def test():
     """Run the tests."""
-    REQ_DIR = os.path.join(PROJECT_ROOT, 'requirements')
-    DEV_REQ = os.path.join(REQ_DIR, 'dev.txt')
-    click.echo('installing dev dep from {}'.format(DEV_REQ))
-    call(['pip', 'install', '-r', DEV_REQ])
+    req_dir = os.path.join(PROJECT_ROOT, 'requirements')
+    dev_req = os.path.join(req_dir, 'dev.txt')
+    click.echo('installing dev dep from {}'.format(dev_req))
+    call(['pip', 'install', '-r', dev_req])
     import pytest
     rv = pytest.main([TEST_PATH])
     exit(rv)
