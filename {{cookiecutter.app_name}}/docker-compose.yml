@@ -1,9 +1,5 @@
 version: '3'
 
-volumes:
-  {{cookiecutter.app_name}}-data:
-    driver: local
-
 services:
   app:
     build:
@@ -13,8 +9,6 @@ services:
       - postgres
     env_file:
       - .env
-    volumes:
-      - {{cookiecutter.app_name}}-data:/data
     logging:
       options:
         max-size: "5m"
@@ -31,8 +25,6 @@ services:
       - NGINX_PORT=${APP_PORT}
     ports:
       - ${APP_PORT}:${APP_PORT}
-    volumes:
-      - {{cookiecutter.app_name}}-data:/data
     env_file:
       - .env
     logging:
@@ -45,8 +37,6 @@ services:
     build:
       context: .
       dockerfile: ./postgres/Dockerfile
-    volumes:
-      - {{cookiecutter.app_name}}-data:/data
     env_file:
       - .env
     logging:

@@ -1,17 +1,23 @@
 version: '3'
 
 volumes:
-  {{cookiecutter.app_name}}-data:
+  {{cookiecutter.app_name}}_data:
     driver: local
 
 services:
   app:
     restart: always
-  environment:
-    - APP_SETTINGS={{cookiecutter.app_name}}.settings.ProdConfig
+    environment:
+      - APP_SETTINGS={{cookiecutter.app_name}}.settings.ProdConfig
+    volumes:
+      - {{cookiecutter.app_name}}_data:/data
 
   nginx:
     restart: always
+    volumes:
+      - {{cookiecutter.app_name}}_data:/data
 
   postgres:
     restart: always
+    volumes:
+      - {{cookiecutter.app_name}}_data:/data

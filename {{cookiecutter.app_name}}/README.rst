@@ -8,27 +8,12 @@
 Quickstart
 ----------
 
-First, set your app's secret key as an environment variable. For example,
-add the following to ``.bashrc`` or ``.bash_profile``.
-
 .. code-block:: bash
-
-    export {{cookiecutter.app_name | upper}}_SECRET='something-really-secret'
-
-Run the following commands to bootstrap your environment ::
 
     git clone https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
     cd {{cookiecutter.app_name}}
-    docker-compose up --build -d
-
-You will see a pretty welcome screen if you go to your browser at localhost:5000
-
-
-Your database is already created by the automation, run the following to create your app's
-database tables and perform the initial migration ::
-
-.. code-block:: bash
-
+    docker-compose build
+    docker-compose up -d
     docker exec myflaskapp_app_1 flask db init
     docker exec myflaskapp_app_1 flask db migrate
     docker exec myflaskapp_app_1 flask db upgrade
@@ -50,7 +35,19 @@ To deploy to Production::
     cd {{cookiecutter.app_name}}
     docker-compose -f docker-compose.yml -f docker-compose-prod.yaml build
     docker-compose -f docker-compose.yml -f docker-compose-prod.yaml up -d
+    docker exec myflaskapp_app_1 flask db init
+    docker exec myflaskapp_app_1 flask db migrate
+    docker exec myflaskapp_app_1 flask db upgrade
 
+To do live development::
+
+.. code-block:: bash
+    cd {{cookiecutter.app_name}}
+    docker-compose -f docker-compose.yml -f docker-compose-dev.yaml build
+    docker-compose -f docker-compose.yml -f docker-compose-dev.yaml up -d
+    docker exec myflaskapp_app_1 flask db init
+    docker exec myflaskapp_app_1 flask db migrate
+    docker exec myflaskapp_app_1 flask db upgrade
 
 Shell
 -----
@@ -65,7 +62,7 @@ By default, you will have access to the flask ``app``.
 Running Tests
 -------------
 
-To run all tests, run ::
+To run all tests on the host machine, run ::
 
     docker exec -it myflaskapp_app_1 flask test
 
