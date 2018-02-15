@@ -25,6 +25,7 @@ container name by following the following:
 
     docker ps
 
+Now, on your browser go to localhost:5000
 
 Deployment
 ----------
