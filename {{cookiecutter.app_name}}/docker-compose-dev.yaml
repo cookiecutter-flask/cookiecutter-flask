@@ -1,0 +1,17 @@
+version: '3'
+
+volumes:
+  {{cookiecutter.app_name}}_static:
+    driver: local
+
+services:
+  app:
+    environment:
+      - APP_SETTINGS={{cookiecutter.app_name}}.settings.ProdConfig
+    volumes:
+      - ./app:/app
+      # Used for leaving the static files intact within the container
+
+      - /app/node_modules
+      - /app/{{cookiecutter.app_name}}/static
+      - /app/myflaskapp/webpack

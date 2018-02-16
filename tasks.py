@@ -13,12 +13,15 @@ with open(os.path.join(HERE, 'cookiecutter.json'), 'r') as fp:
     COOKIECUTTER_SETTINGS = json.load(fp)
 # Match default value of app_name from cookiecutter.json
 COOKIE = os.path.join(HERE, COOKIECUTTER_SETTINGS['app_name'])
-AUTOAPP = os.path.join(COOKIE, 'autoapp.py')
-REQUIREMENTS = os.path.join(COOKIE, 'requirements', 'dev.txt')
+COOKIE_APP = os.path.join(HERE, COOKIECUTTER_SETTINGS['app_name'], 'app')
+AUTOAPP = os.path.join(COOKIE_APP, 'autoapp.py')
+REQUIREMENTS = os.path.join(COOKIE_APP, 'requirements', 'dev.txt')
+
+os.environ['FLASK_DEBUG'] = '1'
 
 
 def _run_npm_command(ctx, command):
-    os.chdir(COOKIE)
+    os.chdir(COOKIE_APP)
     ctx.run('npm {0}'.format(command), echo=True)
     os.chdir(HERE)
 
@@ -51,7 +54,7 @@ def test(ctx):
     ctx.run('pip install -r {0} --ignore-installed'.format(REQUIREMENTS),
             echo=True)
     _run_npm_command(ctx, 'run lint')
-    os.chdir(COOKIE)
+    os.chdir(COOKIE_APP)
     _run_flask_command(ctx, 'lint')
     _run_flask_command(ctx, 'test')
 
@@ -60,4 +63,3 @@ def readme(ctx, browse=False):
     ctx.run("rst2html.py README.rst > README.html")
     if browse:
         webbrowser.open_new_tab('README.html')
-

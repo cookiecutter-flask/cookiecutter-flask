@@ -8,57 +8,54 @@
 Quickstart
 ----------
 
-First, set your app's secret key as an environment variable. For example,
-add the following to ``.bashrc`` or ``.bash_profile``.
-
 .. code-block:: bash
-
-    export {{cookiecutter.app_name | upper}}_SECRET='something-really-secret'
-
-Run the following commands to bootstrap your environment ::
 
     git clone https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
     cd {{cookiecutter.app_name}}
-    pip install -r requirements/dev.txt
-    npm install
-    npm start  # run the webpack dev server and flask server using concurrently
+    docker-compose build
+    docker-compose up -d
+    docker exec myflaskapp_app_1 flask db init
+    docker exec myflaskapp_app_1 flask db migrate
+    docker exec myflaskapp_app_1 flask db upgrade
 
-You will see a pretty welcome screen.
+Where myflaskapp_app_1 is the name of the app container created, or you can check the name of your
+container name by following the following:
 
-In general, before running shell commands, set the ``FLASK_APP`` and
-``FLASK_DEBUG`` environment variables ::
+.. code-block:: bash
 
-    export FLASK_APP=autoapp.py
-    export FLASK_DEBUG=1
+    docker ps
 
-Once you have installed your DBMS, run the following to create your app's
-database tables and perform the initial migration ::
-
-    flask db init
-    flask db migrate
-    flask db upgrade
-    npm start
-
+Now, on your browser go to localhost:5000
 
 Deployment
 ----------
 
-To deploy::
+To deploy to Production::
 
-    export FLASK_DEBUG=0
-    npm run build   # build assets with webpack
-    flask run       # start the flask server
+.. code-block:: bash
+    cd {{cookiecutter.app_name}}
+    docker-compose -f docker-compose.yml -f docker-compose-prod.yaml build
+    docker-compose -f docker-compose.yml -f docker-compose-prod.yaml up -d
+    docker exec myflaskapp_app_1 flask db init
+    docker exec myflaskapp_app_1 flask db migrate
+    docker exec myflaskapp_app_1 flask db upgrade
 
-In your production environment, make sure the ``FLASK_DEBUG`` environment
-variable is unset or is set to ``0``, so that ``ProdConfig`` is used.
+To do live development::
 
+.. code-block:: bash
+    cd {{cookiecutter.app_name}}
+    docker-compose -f docker-compose.yml -f docker-compose-dev.yaml build
+    docker-compose -f docker-compose.yml -f docker-compose-dev.yaml up -d
+    docker exec myflaskapp_app_1 flask db init
+    docker exec myflaskapp_app_1 flask db migrate
+    docker exec myflaskapp_app_1 flask db upgrade
 
 Shell
 -----
 
-To open the interactive shell, run ::
+To open the interactive shell from the host machine, run ::
 
-    flask shell
+    docker exec -it myflaskapp_app_1 flask shell
 
 By default, you will have access to the flask ``app``.
 
@@ -66,9 +63,9 @@ By default, you will have access to the flask ``app``.
 Running Tests
 -------------
 
-To run all tests, run ::
+To run all tests on the host machine, run ::
 
-    flask test
+    docker exec -it myflaskapp_app_1 flask test
 
 
 Migrations
@@ -76,11 +73,11 @@ Migrations
 
 Whenever a database migration needs to be made. Run the following commands ::
 
-    flask db migrate
+    docker exec -it myflaskapp_app_1 flask db migrate
 
 This will generate a new migration script. Then run ::
 
-    flask db upgrade
+    docker exec -it myflaskapp_app_1 flask db upgrade
 
 To apply the migration.
 

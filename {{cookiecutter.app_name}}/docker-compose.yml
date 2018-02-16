@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./app/Dockerfile
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "1"
+    command: ["/app/run.sh"]
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    depends_on:
+      - app
+    environment:
+      - NGINX_PORT=${APP_PORT}
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    env_file:
+      - .env
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "1"
+    command: ["/run.sh"]
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./postgres/Dockerfile
+    env_file:
+      - .env
+    logging:
+      options:
+        max-size: "5m"
+        max-file: "1"

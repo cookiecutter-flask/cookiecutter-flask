@@ -10,15 +10,19 @@ from flask.cli import with_appcontext
 from werkzeug.exceptions import MethodNotAllowed, NotFound
 
 HERE = os.path.abspath(os.path.dirname(__file__))
-PROJECT_ROOT = os.path.join(HERE, os.pardir)
+PROJECT_ROOT = os.path.dirname(HERE)
 TEST_PATH = os.path.join(PROJECT_ROOT, 'tests')
 
 
 @click.command()
 def test():
     """Run the tests."""
+    req_dir = os.path.join(PROJECT_ROOT, 'requirements')
+    dev_req = os.path.join(req_dir, 'dev.txt')
+    click.echo('installing dev dep from {}'.format(dev_req))
+    call(['pip', 'install', '-r', dev_req])
     import pytest
-    rv = pytest.main([TEST_PATH, '--verbose'])
+    rv = pytest.main([TEST_PATH])
     exit(rv)
 
 

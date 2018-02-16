@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 """The app module, containing the app factory function."""
+import os
+
 from flask import Flask, render_template
 
 from {{cookiecutter.app_name}} import commands, public, user
@@ -7,11 +9,14 @@ from {{cookiecutter.app_name}}.extensions import bcrypt, cache, csrf_protect, db
 from {{cookiecutter.app_name}}.settings import ProdConfig
 
 
-def create_app(config_object=ProdConfig):
+def create_app(config_object=None):
     """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
 
     :param config_object: The configuration object to use.
     """
+    if not config_object:
+        config_object = os.environ.get('APP_SETTINGS', ProdConfig)
+
     app = Flask(__name__.split('.')[0])
     app.config.from_object(config_object)
     register_extensions(app)
