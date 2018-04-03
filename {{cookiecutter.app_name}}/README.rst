@@ -108,3 +108,54 @@ should cache all your assets forever by including the following line
 in your ``settings.py``::
 
     SEND_FILE_MAX_AGE_DEFAULT = 31556926  # one year
+
+Deploying to Heroku::
+
+In order to deploy this to Heroku you need to do a few extra things.  First off, make sure you have already gone through
+the Quickstart above as you will need to run some commands locally to get your migrations initialized before pushing that
+to Heroku.  Also, make sure you have ran git init to initialize your git repo.  Heroku uses git to deploy and when you run
+heroku create below it will add the git remote for you new app.
+
+First, in order to build the static assets using webpack, you need to add a postinstall script to the package.json.  This
+is the preferred approach to building static assets on Heroku.  To do this, simply update the package.json "scripts" section
+with the following::
+
+    "postinstall": "npm run build"
+
+Next, in order to run db migrations as part of the deployment, update the Procfile to look like::
+
+
+    release: flask db upgrade
+    web: gunicorn total_life_challenge.app:create_app\(\) -b 0.0.0.0:$PORT -w 3
+
+You will also need to update your SQLALCHEMY_DATABASE_URI in the Production config to the following::
+
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+
+At this point you are ready to create the Heroku app, to do this we not only need to create it but also need to ensure
+we have the nodejs and python buildpacks installed.  We will also add Postgres as well.  To do this, assuming you already
+have the Heroku CLI installed, run the following::
+
+    heroku create
+    heroku buildpacks:add --index=1 heroku/nodejs
+    heroku buildpacks:add --index=1 heroku/python
+    heroku addons:create heroku-postgresql:hobby-dev
+
+Finally, before we deploy we need to set the FLASK_APP environment variable on the app we just created so that the flask
+commands work properly.  To do this, go to your Heroku Dashboard and select the App we created above with heroku create.
+Once there, click on Settings > Reveal Config Vars and add the following::
+
+    Key: FLASK_APP Value: autoapp.py
+
+Now we are ready to deploy the app.  Simply do the following::
+
+    git add .
+    git commit -m"Added heroku configuration"
+    git push heroku master
+
+Once that is done, you should see your app successfully deployed in the console.  You can now run the following to open
+the app in a browser::
+
+    heroku open
+
+At this point you should have a fully functional application using a postgres database.
