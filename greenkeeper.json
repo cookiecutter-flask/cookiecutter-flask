@@ -1,0 +1,9 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "{{cookiecutter.app_name}}/package.json"
+      ]
+    }
+  }
+}
