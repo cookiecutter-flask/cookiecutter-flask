@@ -1,6 +1,10 @@
 cookiecutter-flask
 ==================
 
+.. image:: https://badges.greenkeeper.io/sloria/cookiecutter-flask.svg
+   :alt: Greenkeeper badge
+   :target: https://greenkeeper.io/
+
 A Flask template for cookiecutter_.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
