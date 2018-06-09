@@ -18,7 +18,7 @@ Flask-Migrate==2.1.1
 
 # Forms
 Flask-WTF==0.14.2
-WTForms==2.1
+WTForms==2.2.1
 
 # Deployment
 gunicorn>=19.1.1
