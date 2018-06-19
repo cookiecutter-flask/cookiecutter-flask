@@ -21,9 +21,10 @@
   },
   "homepage": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}#readme",
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.1.1",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "popper.js": "^1.14.3"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
@@ -45,6 +46,7 @@
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
     "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.4.5",
+    "sync-exec": "^0.6.2"
   }
 }
