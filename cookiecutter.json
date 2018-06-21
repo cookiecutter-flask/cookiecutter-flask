@@ -5,5 +5,5 @@
 	"project_name": "My Flask App",
 	"app_name": "myflaskapp",
 	"project_short_description": "A flasky app.",
-	"use_pipenv": ["yes", "no"]
+	"use_pipenv": ["no", "yes"]
 }
