@@ -19,7 +19,11 @@ Run the following commands to bootstrap your environment ::
 
     git clone https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
     cd {{cookiecutter.app_name}}
+    {%- if cookiecutter.use_pipenv == "yes" %}
+    pipenv install --dev
+    {%- else %}
     pip install -r requirements/dev.txt
+    {%- endif %}
     npm install
     npm start  # run the webpack dev server and flask server using concurrently
 
