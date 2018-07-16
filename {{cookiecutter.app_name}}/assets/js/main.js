@@ -7,6 +7,7 @@
 // JavaScript modules
 require('jquery');
 require('font-awesome-webpack');
+require('popper.js');
 require('bootstrap');
 
 // Your own code
