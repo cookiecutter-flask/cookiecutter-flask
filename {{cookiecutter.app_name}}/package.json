@@ -38,7 +38,7 @@
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^1.1.11",
     "font-awesome-webpack": "0.0.5-beta.2",
-    "less": "^2.7.2",
+    "less": "^3.8.0",
     "less-loader": "^4.0.4",
     "manifest-revision-webpack-plugin": "^0.4.0",
     "raw-loader": "^0.5.1",
