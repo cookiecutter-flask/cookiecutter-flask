@@ -6,7 +6,7 @@
     "build": "NODE_ENV=production webpack --progress --colors -p",
     "start": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-dev-server\" \"npm run flask-server\"",
     "webpack-dev-server": "NODE_ENV=debug webpack-dev-server --port 2992 --hot --inline",
-    "flask-server": "FLASK_APP=$PWD/autoapp.py FLASK_DEBUG=1 flask run",
+    "flask-server": "flask run",
     "lint": "eslint \"assets/js/*.js\""
   },
   "repository": {
