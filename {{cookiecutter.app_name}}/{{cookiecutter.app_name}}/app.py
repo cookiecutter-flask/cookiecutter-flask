@@ -4,10 +4,9 @@ from flask import Flask, render_template
 
 from {{cookiecutter.app_name}} import commands, public, user
 from {{cookiecutter.app_name}}.extensions import bcrypt, cache, csrf_protect, db, debug_toolbar, login_manager, migrate, webpack
-from {{cookiecutter.app_name}}.settings import ProdConfig
 
 
-def create_app(config_object=ProdConfig):
+def create_app(config_object='{{cookiecutter.app_name}}.settings'):
     """An application factory, as explained here: http://flask.pocoo.org/docs/patterns/appfactories/.
 
     :param config_object: The configuration object to use.

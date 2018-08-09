@@ -25,6 +25,7 @@ Features
 - Bootstrap 3 and Font Awesome 4 with starter templates
 - Flask-SQLAlchemy with basic User model
 - Easy database migrations with Flask-Migrate
+- Configuration in environment variables, as per `The Twelve-Factor App <https://12factor.net/config>`_
 - Flask-WTForms with login and registration forms
 - Flask-Login for authentication
 - Flask-Bcrypt for password hashing
