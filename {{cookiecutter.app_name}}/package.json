@@ -30,7 +30,7 @@
     "babel-eslint": "^8.2.6",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.6.0",
-    "concurrently": "^3.5.0",
+    "concurrently": "^4.0.1",
     "css-loader": "^1.0.0",
     "eslint": "^5.3.0",
     "eslint-config-airbnb-base": "^11.2.0",
