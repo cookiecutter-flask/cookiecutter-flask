@@ -42,7 +42,7 @@
     "less-loader": "^4.0.4",
     "manifest-revision-webpack-plugin": "^0.4.0",
     "raw-loader": "^0.5.1",
-    "style-loader": "^0.18.2",
+    "style-loader": "^0.23.0",
     "url-loader": "^1.0.1",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^3.1.5"
