@@ -8,28 +8,20 @@
 Quickstart
 ----------
 
-First, set your app's secret key as an environment variable. For example,
-add the following to ``.bashrc`` or ``.bash_profile``.
-
-.. code-block:: bash
-
-    export {{cookiecutter.app_name | upper}}_SECRET='something-really-secret'
-
 Run the following commands to bootstrap your environment ::
 
     git clone https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}
     cd {{cookiecutter.app_name}}
+    {%- if cookiecutter.use_pipenv == "yes" %}
+    pipenv install --dev
+    {%- else %}
     pip install -r requirements/dev.txt
+    {%- endif %}
+    cp .env.example .env
     npm install
     npm start  # run the webpack dev server and flask server using concurrently
 
 You will see a pretty welcome screen.
-
-In general, before running shell commands, set the ``FLASK_APP`` and
-``FLASK_DEBUG`` environment variables ::
-
-    export FLASK_APP=autoapp.py
-    export FLASK_DEBUG=1
 
 Once you have installed your DBMS, run the following to create your app's
 database tables and perform the initial migration ::
@@ -45,12 +37,14 @@ Deployment
 
 To deploy::
 
+    export FLASK_ENV=production
     export FLASK_DEBUG=0
+    export DATABASE_URL="<YOUR DATABASE URL>"
     npm run build   # build assets with webpack
     flask run       # start the flask server
 
 In your production environment, make sure the ``FLASK_DEBUG`` environment
-variable is unset or is set to ``0``, so that ``ProdConfig`` is used.
+variable is unset or is set to ``0``.
 
 
 Shell

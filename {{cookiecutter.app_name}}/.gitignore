@@ -51,3 +51,9 @@ env/
 # webpack-built files
 /{{cookiecutter.app_name}}/static/build/
 /{{cookiecutter.app_name}}/webpack/manifest.json
+
+# Configuration
+.env
+
+# Development database
+*.db

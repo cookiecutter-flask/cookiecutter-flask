@@ -13,7 +13,6 @@ with open(os.path.join(HERE, 'cookiecutter.json'), 'r') as fp:
     COOKIECUTTER_SETTINGS = json.load(fp)
 # Match default value of app_name from cookiecutter.json
 COOKIE = os.path.join(HERE, COOKIECUTTER_SETTINGS['app_name'])
-AUTOAPP = os.path.join(COOKIE, 'autoapp.py')
 REQUIREMENTS = os.path.join(COOKIE, 'requirements', 'dev.txt')
 
 
@@ -42,7 +41,8 @@ def clean(ctx):
 
 
 def _run_flask_command(ctx, command):
-    ctx.run('FLASK_APP={0} flask {1}'.format(AUTOAPP, command), echo=True)
+    os.chdir(COOKIE)
+    ctx.run('flask {0}'.format(command), echo=True)
 
 
 @task(pre=[clean, build])
@@ -52,12 +52,14 @@ def test(ctx):
             echo=True)
     _run_npm_command(ctx, 'run lint')
     os.chdir(COOKIE)
+    shutil.copyfile(os.path.join(COOKIE, '.env.example'),
+                    os.path.join(COOKIE, '.env'))
     _run_flask_command(ctx, 'lint')
     _run_flask_command(ctx, 'test')
 
+
 @task
 def readme(ctx, browse=False):
-    ctx.run("rst2html.py README.rst > README.html")
+    ctx.run('rst2html.py README.rst > README.html')
     if browse:
         webbrowser.open_new_tab('README.html')
-
