@@ -36,7 +36,6 @@
 <main role="main">
 {% with messages = get_flashed_messages(with_categories=true) %}
 {% if messages %}
-    <div class="container">
         <div class="row">
           <div class="col-md-12">
             {% for category, message in messages %}
@@ -47,7 +46,6 @@
             {% endfor %}
           </div><!-- end col-md -->
         </div><!-- end row -->
-    </div>
 {% endif %}
 {% endwith %}
 
