@@ -11,10 +11,10 @@ click>=5.0
 # Database
 Flask-SQLAlchemy==2.3.2
 psycopg2==2.7.5
-SQLAlchemy==1.2.8
+SQLAlchemy==1.2.11
 
 # Migrations
-Flask-Migrate==2.2.0
+Flask-Migrate==2.2.1
 
 # Forms
 Flask-WTF==0.14.2
@@ -35,3 +35,6 @@ Flask-Caching>=1.0.0
 
 # Debug toolbar
 Flask-DebugToolbar==0.10.1
+
+# Environment variable parsing
+environs==4.0.0

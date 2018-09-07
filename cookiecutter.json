@@ -4,5 +4,6 @@
 	"github_username": "sloria",
 	"project_name": "My Flask App",
 	"app_name": "myflaskapp",
-	"project_short_description": "A flasky app."
+	"project_short_description": "A flasky app.",
+	"use_pipenv": ["no", "yes"]
 }
