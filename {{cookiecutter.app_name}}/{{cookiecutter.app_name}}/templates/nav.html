@@ -31,12 +31,12 @@
       </li>
     </ul>
     {% elif form %}
-    <form class="form-inline my-2" id="loginForm" method="POST" action="/" role="login">
+    <form class="form-inline" id="loginForm" method="POST" action="/" role="login">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
       <div class="input-group mb-2 mr-sm-2">
         {{ form.username(placeholder="Username", class_="form-control mr-sm-1 my-auto") }} {{ form.password(placeholder="Password",
         class_="form-control mr-sm-1 my-auto") }}
-        <button class="btn btn-light btn-primary m-auto" type="submit">submit</button>
+        <button class="btn btn-light btn-primary m-auto" type="submit">Login</button>
       </div>
     </form>
     <ul class="navbar-nav my-auto">
