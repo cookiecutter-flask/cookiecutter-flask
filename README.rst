@@ -45,10 +45,10 @@ Features
 Screenshots
 -----------
 
-.. image:: https://user-images.githubusercontent.com/2379650/35603073-7f5b78c2-0609-11e8-8fa8-7c6cce27fed6.png
+.. image:: https://user-images.githubusercontent.com/2379650/45271508-917f1c00-b475-11e8-9153-7f7385707a8b.png
     :alt: Home page
 
-.. image:: https://user-images.githubusercontent.com/2379650/35603086-936a30e2-0609-11e8-8f63-a4c844310aab.png
+.. image:: https://user-images.githubusercontent.com/2379650/45271517-a9ef3680-b475-11e8-8de6-fbf3d9cab199.png
     :alt: Registration form
 
 
