@@ -3,29 +3,31 @@
 {% block content %}
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
-{% endraw %}
-  <h1>Welcome to {{ cookiecutter.project_name }}</h1>
-{% raw %}
-  <p>This is a starter Flask template. It includes Bootstrap 3, jQuery 2, Flask-SQLAlchemy, WTForms, and various testing utilities out of the box.</p>
-  <p><a href="https://github.com/sloria/cookiecutter-flask" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    <div class="container">
+    {% endraw %}
+      <h1 class="display-3">Welcome to {{ cookiecutter.project_name }}</h1>
+    {% raw %}
+      <p>This is a starter Flask template. It includes Bootstrap 4, jQuery 3, Flask-SQLAlchemy, WTForms, and various testing utilities out of the box.</p>
+      <p><a href="https://github.com/sloria/cookiecutter-flask" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+    </div>
 </div><!-- /.jumbotron -->
 
-<div class="body-content">
+<div class="container">
   <div class="row">
     <div class="col-lg-4">
-      <h2><i class="fa fa-code"></i> Bootstrap 3</h2>
+      <h2><i class="fa fa-code"></i> Bootstrap 4</h2>
       <p>Sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development.</p>
-      <p><a class="btn btn-default" href="http://getbootstrap.com/">Official website &raquo;</a></p>
+      <p><a class="btn btn-outline-secondary" href="http://getbootstrap.com/">Official website &raquo;</a></p>
     </div>
     <div class="col-lg-4">
       <h2><i class="fa fa-flask"></i> SQLAlchemy</h2>
       <p>SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL.</p>
-      <p><a href="http://www.sqlalchemy.org/" class="btn btn-default">Official website &raquo;</a></p>
+      <p><a href="http://www.sqlalchemy.org/" class="btn btn-outline-secondary">Official website &raquo;</a></p>
    </div>
     <div class="col-lg-4">
       <h2><i class="fa fa-edit"></i> WTForms</h2>
       <p>WTForms is a flexible forms validation and rendering library for python web development.</p>
-      <p><a href="http://wtforms.simplecodes.com/" class="btn btn-default">Official website &raquo;</a></p>
+      <p><a href="http://wtforms.simplecodes.com/" class="btn btn-outline-secondary">Official website &raquo;</a></p>
     </div>
   </div><!-- /.row -->
 </div>
