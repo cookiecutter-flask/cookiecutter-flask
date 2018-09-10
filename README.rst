@@ -9,6 +9,10 @@ A Flask template for cookiecutter_.
     :target: https://travis-ci.org/sloria/cookiecutter-flask
     :alt: Build Status
 
+.. image:: https://img.shields.io/badge/calver-YY.MINOR.MICRO-22bfda.svg
+    :target: http://calver.org
+    :alt: CalVer
+
 
 Use it now
 ----------
@@ -22,7 +26,7 @@ You will be asked about your basic info (name, project name, app name, etc.). Th
 Features
 --------
 
-- Bootstrap 3 and Font Awesome 4 with starter templates
+- Bootstrap 4 and Font Awesome 4 with starter templates
 - Flask-SQLAlchemy with basic User model
 - Easy database migrations with Flask-Migrate
 - Configuration in environment variables, as per `The Twelve-Factor App <https://12factor.net/config>`_
@@ -68,6 +72,15 @@ BSD licensed.
 
 Changelog
 ---------
+
+18.0.0 (09/09/2018)
+*******************
+
+- Use CalVer (``YY.MINOR.MICRO``).
+- Upgrade to Bootstrap 4. Thanks `@adawalli <https://github.com/adawalli>`_ and `@Hiyorimi <https://github.com/Hiyorimi>`_.
+- Use environment variables for configuration.
+- Add support for Pipenv.
+- Upgrade Python and Node dependencies.
 
 0.13.0 (06/25/2017)
 *******************
