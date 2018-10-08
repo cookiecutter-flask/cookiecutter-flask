@@ -46,7 +46,7 @@ environs = "==4.0.0"
 [dev-packages]
 # Testing
 pytest = "==3.8.2"
-WebTest = "==2.0.30"
+WebTest = "==2.0.32"
 factory-boy = "==2.11.*"
 
 # Lint and code style
