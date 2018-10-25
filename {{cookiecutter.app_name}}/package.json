@@ -45,7 +45,7 @@
     "raw-loader": "^0.5.1",
     "style-loader": "^0.23.0",
     "url-loader": "^1.0.1",
-    "webpack": "^2.6.1",
+    "webpack": "^4.22.0",
     "webpack-dev-server": "^2.11.1",
     "sync-exec": "^0.6.2"
   }
