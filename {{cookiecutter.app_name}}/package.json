@@ -6,7 +6,7 @@
     "build": "NODE_ENV=production webpack --progress --colors -p",
     "start": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-dev-server\" \"npm run flask-server\"",
     "webpack-dev-server": "NODE_ENV=debug webpack-dev-server --port 2992 --hot --inline",
-    "flask-server": "flask run",
+    "flask-server": "{% if cookiecutter.use_pipenv == 'yes' %}pipenv run {% endif %}flask run",
     "lint": "eslint \"assets/js/*.js\""
   },
   "repository": {
