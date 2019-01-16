@@ -1,5 +1,4 @@
 # Config file for automatic testing at travis-ci.org
-sudo: false  # http://docs.travis-ci.com/user/migrating-from-legacy/
 language: python
 env:
 - FLASK_APP=autoapp.py FLASK_DEBUG=1
