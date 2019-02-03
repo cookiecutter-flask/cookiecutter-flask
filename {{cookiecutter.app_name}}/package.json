@@ -14,7 +14,7 @@
     "url": "git+https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}.git"
   },
   "author": "{{cookiecutter.full_name}}",
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "engines": { "node" : ">=4" },
   "bugs": {
     "url": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}/issues"
