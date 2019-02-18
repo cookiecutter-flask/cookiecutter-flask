@@ -18,7 +18,7 @@ psycopg2 = "==2.7.7"
 SQLAlchemy = "==1.2.17"
 
 # Migrations
-Flask-Migrate = "==2.3.1"
+Flask-Migrate = "==2.4.0"
 
 # Forms
 Flask-WTF = "==0.14.2"
