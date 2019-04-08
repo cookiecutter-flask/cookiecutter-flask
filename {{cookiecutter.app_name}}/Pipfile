@@ -8,7 +8,7 @@ name = "pypi"
 Flask = "==1.0.2"
 MarkupSafe = "==1.1.1"
 Werkzeug = "==0.14.1"
-Jinja2 = "==2.10"
+Jinja2 = "==2.10.1"
 itsdangerous = "==1.1.0"
 click = ">=5.0"
 
