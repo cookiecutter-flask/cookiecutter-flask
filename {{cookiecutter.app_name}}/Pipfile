@@ -41,7 +41,7 @@ Flask-Caching = ">=1.0.0"
 Flask-DebugToolbar = "==0.10.1"
 
 # Environment variable parsing
-environs = "==4.1.0"
+environs = "==4.1.2"
 
 [dev-packages]
 # Testing
