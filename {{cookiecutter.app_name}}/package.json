@@ -40,7 +40,7 @@
     "file-loader": "^2.0.0",
     "font-awesome-webpack": "0.0.5-beta.2",
     "less": "^3.8.0",
-    "less-loader": "^4.0.4",
+    "less-loader": "^5.0.0",
     "manifest-revision-webpack-plugin": "^0.4.0",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.23.0",
