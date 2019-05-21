@@ -5,6 +5,7 @@
 pytest==3.7.4
 WebTest==2.0.30
 factory-boy==2.11.1
+pdbpp==0.10.0
 
 # Lint and code style
 flake8==3.5.0
