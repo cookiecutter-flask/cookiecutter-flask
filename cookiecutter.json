@@ -3,7 +3,9 @@
 	"email": "sloria1@gmail.com",
 	"github_username": "sloria",
 	"project_name": "My Flask App",
-	"app_name": "myflaskapp",
+	"app_name": "{{cookiecutter.project_name.lower().replace('-', '_').replace(' ', '_')}}",
 	"project_short_description": "A flasky app.",
-	"use_pipenv": ["no", "yes"]
+	"use_pipenv": ["no", "yes"],
+	"python_version": ["3.7", "3.6", "3.5"],
+	"node_version": ["12", "11", "10", "8"]
 }

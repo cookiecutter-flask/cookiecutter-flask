@@ -5,8 +5,8 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --progress --colors -p",
     "start": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-dev-server\" \"npm run flask-server\"",
-    "webpack-dev-server": "NODE_ENV=debug webpack-dev-server --port 2992 --hot --inline",
-    "flask-server": "{% if cookiecutter.use_pipenv == 'yes' %}pipenv run {% endif %}flask run",
+    "webpack-dev-server": "NODE_ENV=debug webpack-dev-server --host=0.0.0.0 --port 2992 --hot --inline",
+    "flask-server": "{% if cookiecutter.use_pipenv == 'yes' %}pipenv run {% endif %}flask run --host=0.0.0.0",
     "lint": "eslint \"assets/js/*.js\""
   },
   "repository": {
@@ -15,7 +15,7 @@
   },
   "author": "{{cookiecutter.full_name}}",
   "license": "MIT",
-  "engines": { "node" : ">=4" },
+  "engines": { "node" : ">={{cookiecutter.node_version}}" },
   "bugs": {
     "url": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}/issues"
   },

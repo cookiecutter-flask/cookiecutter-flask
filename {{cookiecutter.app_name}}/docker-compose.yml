@@ -1,0 +1,54 @@
+version: '3.6'
+
+x-build-args: &build_args
+  INSTALL_PYTHON_VERSION: {{cookiecutter.python_version}}
+  INSTALL_NODE_VERSION: {{cookiecutter.node_version}}
+
+x-default-volumes: &default_volumes
+  volumes:
+    - ./:/app
+    - node-modules:/app/node_modules
+    - ./dev.db:/tmp/dev.db
+
+services:
+  flask-dev:
+    build:
+      context: .
+      target: development
+      args:
+        <<: *build_args
+    image: "{{cookiecutter.app_name}}-development"
+    ports:
+      - "5000:5000"
+      - "2992:2992"
+    <<: *default_volumes
+
+  flask-prod:
+    build:
+      context: .
+      target: production
+      args:
+        <<: *build_args
+    image: "{{cookiecutter.app_name}}-production"
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_ENV: production
+      FLASK_DEBUG: 0
+      LOG_LEVEL: info
+      GUNICORN_WORKERS: 4
+    <<: *default_volumes
+
+  manage:
+    build:
+      context: .
+      target: manage
+    image: "{{cookiecutter.app_name}}-manage"
+    stdin_open: true
+    tty: true
+    <<: *default_volumes
+
+volumes:
+  node-modules:
+  static-build:
+  dev-db:
