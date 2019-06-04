@@ -62,5 +62,3 @@ flake8-quotes = "==2.0.1"
 isort = "==4.3.20"
 pep8-naming = "==0.8.2"
 
-[requires]
-python_version = "{{cookiecutter.python_version}}"
