@@ -4,8 +4,8 @@ const webpack = require('webpack');
 /*
  * Webpack Plugins
  */
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestRevisionPlugin = require('manifest-revision-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // take debug mode from the environment
 const debug = (process.env.NODE_ENV !== 'production');
@@ -40,10 +40,32 @@ module.exports = {
     headers: { 'Access-Control-Allow-Origin': '*' },
   },
   module: {
-    loaders: [
+    rules: [
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: debug,
+            },
+          },
+          'css-loader!less-loader',
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: debug,
+            },
+          },
+          'css-loader',
+        ],
+      },
       { test: /\.html$/, loader: 'raw-loader' },
-      { test: /\.less$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader!less-loader' }) },
-      { test: /\.css$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }) },
       { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
       { test: /\.(ttf|eot|svg|png|jpe?g|gif|ico)(\?.*)?$/i,
         loader: `file-loader?context=${rootAssetPath}&name=[path][name].[hash].[ext]` },
@@ -51,7 +73,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin('[name].[hash].css'),
+    new MiniCssExtractPlugin({ filename: '[name].[hash].css', }),
     new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }),
     new ManifestRevisionPlugin(path.join(__dirname, '{{cookiecutter.app_name}}', 'webpack', 'manifest.json'), {
       rootAssetPath,
