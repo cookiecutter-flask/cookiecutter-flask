@@ -1,13 +1,21 @@
 # Config file for automatic testing at travis-ci.org
+dist: xenial
 language: python
 python:
-  - 2.7
   - 3.5
   - 3.6
+  - 3.7
+
+env:
+  - INSTALL_NODE_VERSION=8
+  - INSTALL_NODE_VERSION=10
+  - INSTALL_NODE_VERSION=12
+
 install:
   - pip install cookiecutter
-  - pip install invoke==1.0.0
-  - nvm install 8.11.2
-  - nvm use 8.11.2
+  - pip install invoke==1.2.0
+  - nvm install $INSTALL_NODE_VERSION
+  - nvm use $INSTALL_NODE_VERSION
+
 script:
   - invoke test

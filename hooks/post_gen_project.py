@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Post gen hook to ensure that the generated project
-hase only one package managment, either pipenv or pip."""
+has only one package management, either pipenv or pip."""
 import os
 import shutil
 import sys
 
 
-def clean_extra_package_managment_files():
-    """Removes either requirements files and folderor the Pipfile."""
+def clean_extra_package_management_files():
+    """Removes either requirements files and folder or the Pipfile."""
     use_pipenv = '{{cookiecutter.use_pipenv}}'
     to_delete = []
 
@@ -32,4 +32,4 @@ def clean_extra_package_managment_files():
 
 
 if __name__ == '__main__':
-    clean_extra_package_managment_files()
+    clean_extra_package_management_files()

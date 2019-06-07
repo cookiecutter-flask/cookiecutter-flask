@@ -16,7 +16,26 @@ A Flask template for cookiecutter_.
 
 Use it now
 ----------
-::
+
+Docker
+******
+
+.. code-block:: bash
+
+   $ ./cookiecutter-docker.sh --help
+        Usage: ./cookiecutter-docker.sh [OPTIONS]
+
+        Options:
+        -b, --build    Build Docker image before running cookiecutter
+        -t, --template Specify custom cookiecutter template via a URI to a git repo
+                       e.g. https://github.com/cookiecutter-flask/cookiecutter-flask.git
+                       Defaults to template in current working directory
+        -h, --help     Show this message and exit
+
+Standard
+********
+
+.. code-block:: bash
 
     $ pip install cookiecutter
     $ cookiecutter https://github.com/cookiecutter-flask/cookiecutter-flask.git
@@ -120,7 +139,7 @@ Changelog
 
 - Update stale requirements.
 - Add CSRF protection.
-- Run ``lint`` commmand on Travis builds.
+- Run ``lint`` command on Travis builds.
 - Test against Python 3.5.
 
 0.8.0 (11/09/2015)
