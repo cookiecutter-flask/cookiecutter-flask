@@ -57,13 +57,18 @@ To open the interactive shell, run ::
 By default, you will have access to the flask ``app``.
 
 
-Running Tests
--------------
+Running Tests/Linter
+--------------------
 
 To run all tests, run ::
 
     flask test
 
+To run the linter, run ::
+
+    flask lint
+
+The ``lint`` command will attempt to fix any linting/style errors in the code. If you only want to know if the code will pass CI and do not wish for the linter to make changes, add the ``--check`` argument.
 
 Migrations
 ----------

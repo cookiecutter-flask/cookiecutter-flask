@@ -41,9 +41,12 @@ def clean(ctx):
         print('App directory does not exist. Skipping.')
 
 
-def _run_flask_command(ctx, command):
+def _run_flask_command(ctx, command, *args):
     os.chdir(COOKIE)
-    ctx.run('flask {0}'.format(command), echo=True)
+    flask_command = 'flask {0}'.format(command)
+    if args:
+        flask_command = '{0} {1}'.format(flask_command, ' '.join(args))
+    ctx.run(flask_command, echo=True)
 
 
 @task(pre=[clean, build])
@@ -55,9 +58,7 @@ def test(ctx):
     os.chdir(COOKIE)
     shutil.copyfile(os.path.join(COOKIE, '.env.example'),
                     os.path.join(COOKIE, '.env'))
-    os.environ["FLASK_ENV"] = "production"
-    os.environ["FLASK_DEBUG"] = "0"
-    _run_flask_command(ctx, 'lint')
+    _run_flask_command(ctx, 'lint', '--check')
     _run_flask_command(ctx, 'test')
 
 

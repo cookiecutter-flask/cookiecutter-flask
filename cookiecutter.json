@@ -6,6 +6,6 @@
 	"app_name": "{{cookiecutter.project_name.lower().replace('-', '_').replace(' ', '_')}}",
 	"project_short_description": "A flasky app.",
 	"use_pipenv": ["no", "yes"],
-	"python_version": ["3.7", "3.6", "3.5"],
+	"python_version": ["3.7", "3.6"],
 	"node_version": ["12", "10", "8"]
 }

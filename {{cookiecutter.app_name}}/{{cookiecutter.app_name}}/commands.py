@@ -23,11 +23,12 @@ def test():
 
 
 @click.command()
-@click.option('-f', '--fix-imports', default=False, is_flag=True,
+@click.option('-f', '--fix-imports', default=True, is_flag=True,
               help='Fix imports using isort, before linting')
-def lint(fix_imports):
-    """Lint and check code style with flake8 and isort."""
-    skip = ['node_modules', 'requirements']
+@click.option('-c', '--check', default=False, is_flag=True, help="Don't make any changes to files, just confirm they are formatted correctly")
+def lint(fix_imports, check):
+    """Lint and check code style with black, flake8 and isort."""
+    skip = ['node_modules', 'requirements', 'migrations']
     root_files = glob('*.py')
     root_directories = [
         name for name in next(os.walk('.'))[1] if not name.startswith('.')]
@@ -42,8 +43,14 @@ def lint(fix_imports):
         if rv != 0:
             exit(rv)
 
+    isort_args = ["-rc"]
+    black_args = []
+    if check:
+        isort_args.append('-c')
+        black_args.append('--check')
     if fix_imports:
-        execute_tool('Fixing import order', 'isort', '-rc')
+        execute_tool('Fixing import order', 'isort', *isort_args)
+    execute_tool('Formatting style', 'black', *black_args)
     execute_tool('Checking code style', 'flake8')
 
 
