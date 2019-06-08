@@ -15,7 +15,9 @@
   },
   "author": "{{cookiecutter.full_name}}",
   "license": "MIT",
-  "engines": { "node" : ">={{cookiecutter.node_version}}" },
+  "engines": {
+    "node": ">={{cookiecutter.node_version}}"
+  },
   "bugs": {
     "url": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}/issues"
   },
