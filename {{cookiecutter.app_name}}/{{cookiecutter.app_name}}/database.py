@@ -62,7 +62,7 @@ class SurrogatePK(object):
         return None
 
 
-def reference_col(tablename, nullable=False, pk_name='id', **kwargs):
+def reference_col(tablename, nullable=False, pk_name='id', foreign_key_kwargs=None, column_kwargs=None):
     """Column that adds primary key foreign key reference.
 
     Usage: ::
@@ -70,6 +70,11 @@ def reference_col(tablename, nullable=False, pk_name='id', **kwargs):
         category_id = reference_col('category')
         category = relationship('Category', backref='categories')
     """
+    if foreign_key_kwargs is None:
+        foreign_key_kwargs = {}
+    if column_kwargs is None:
+        column_kwargs = {}
+
     return Column(
-        db.ForeignKey('{0}.{1}'.format(tablename, pk_name)),
-        nullable=nullable, **kwargs)
+        db.ForeignKey('{0}.{1}'.format(tablename, pk_name), **foreign_key_kwargs),
+        nullable=nullable, **column_kwargs)
