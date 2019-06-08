@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Public section, including homepage and signup."""
-from flask import Blueprint, flash, redirect, render_template, request, url_for
+from flask import Blueprint, current_app, flash, redirect, render_template, request, url_for
 from flask_login import login_required, login_user, logout_user
 
 from {{cookiecutter.app_name}}.extensions import login_manager
@@ -22,6 +22,7 @@ def load_user(user_id):
 def home():
     """Home page."""
     form = LoginForm(request.form)
+    current_app.logger.info('Hello from the home page!')
     # Handle logging in
     if request.method == 'POST':
         if form.validate_on_submit():

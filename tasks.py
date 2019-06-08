@@ -55,6 +55,8 @@ def test(ctx):
     os.chdir(COOKIE)
     shutil.copyfile(os.path.join(COOKIE, '.env.example'),
                     os.path.join(COOKIE, '.env'))
+    os.environ["FLASK_ENV"] = "production"
+    os.environ["FLASK_DEBUG"] = "0"
     _run_flask_command(ctx, 'lint')
     _run_flask_command(ctx, 'test')
 

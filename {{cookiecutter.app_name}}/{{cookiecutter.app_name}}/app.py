@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 """The app module, containing the app factory function."""
+import logging
+import sys
+
 from flask import Flask, render_template
 
 from {{cookiecutter.app_name}} import commands, public, user
@@ -18,6 +21,7 @@ def create_app(config_object='{{cookiecutter.app_name}}.settings'):
     register_errorhandlers(app)
     register_shellcontext(app)
     register_commands(app)
+    configure_logger(app)
     return app
 
 
@@ -70,3 +74,10 @@ def register_commands(app):
     app.cli.add_command(commands.lint)
     app.cli.add_command(commands.clean)
     app.cli.add_command(commands.urls)
+
+
+def configure_logger(app):
+    """Configure loggers."""
+    handler = logging.StreamHandler(sys.stdout)
+    if not app.logger.handlers:
+        app.logger.addHandler(handler)
