@@ -70,10 +70,8 @@ def reference_col(tablename, nullable=False, pk_name='id', foreign_key_kwargs=No
         category_id = reference_col('category')
         category = relationship('Category', backref='categories')
     """
-    if foreign_key_kwargs is None:
-        foreign_key_kwargs = {}
-    if column_kwargs is None:
-        column_kwargs = {}
+    foreign_key_kwargs = foreign_key_kwargs or {}
+    column_kwargs = column_kwargs or {}
 
     return Column(
         db.ForeignKey('{0}.{1}'.format(tablename, pk_name), **foreign_key_kwargs),
