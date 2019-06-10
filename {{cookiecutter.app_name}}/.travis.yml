@@ -1,11 +1,9 @@
 # Config file for automatic testing at travis-ci.org
+dist: xenial
 language: python
 env:
 - FLASK_APP=autoapp.py FLASK_DEBUG=1
 python:
-  - 2.7
-  - 3.4
-  - 3.5
   - 3.6
   - 3.7
 install:
@@ -16,5 +14,5 @@ install:
 before_script:
   - npm run lint
   - npm run build
-  - flask lint
+  - flask lint --check
 script: flask test
