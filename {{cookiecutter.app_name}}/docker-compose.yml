@@ -43,6 +43,9 @@ services:
     build:
       context: .
       target: manage
+    environment:
+      FLASK_ENV: production
+      FLASK_DEBUG: 0
     image: "{{cookiecutter.app_name}}-manage"
     stdin_open: true
     tty: true
