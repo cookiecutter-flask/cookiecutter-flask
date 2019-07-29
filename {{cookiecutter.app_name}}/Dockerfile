@@ -1,6 +1,6 @@
 # ==================================== BASE ====================================
 ARG INSTALL_PYTHON_VERSION=${INSTALL_PYTHON_VERSION:-3.7}
-FROM python:${INSTALL_PYTHON_VERSION}-slim-stretch AS base
+FROM python:${INSTALL_PYTHON_VERSION}-slim-buster AS base
 
 RUN apt-get update
 RUN apt-get install -y \
