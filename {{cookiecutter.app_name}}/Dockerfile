@@ -11,6 +11,8 @@ RUN curl -sL https://deb.nodesource.com/setup_${INSTALL_NODE_VERSION}.x | bash -
 RUN apt-get install -y \
     nodejs \
     && apt-get -y autoclean
+RUN useradd --create-home flask
+USER flask
 
 WORKDIR /app
 {%- if cookiecutter.use_pipenv == "yes" %}
@@ -50,7 +52,7 @@ CMD ["-c", "/etc/supervisor/supervisord.conf"]
 # =================================== MANAGE ===================================
 FROM base AS manage
 {%- if cookiecutter.use_pipenv == "yes" %}
-COPY --from=development /root/.local/share/virtualenvs/ /root/.local/share/virtualenvs/
+COPY --from=development /home/flask/.local/share/virtualenvs/ /home/flask/.local/share/virtualenvs/
 {%- else %}
 RUN pip install -r requirements/dev.txt
 {%- endif %}
