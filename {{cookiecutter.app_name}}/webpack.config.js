@@ -80,6 +80,7 @@ module.exports = {
     new ManifestRevisionPlugin(path.join(__dirname, '{{cookiecutter.app_name}}', 'webpack', 'manifest.json'), {
       rootAssetPath,
       ignorePaths: ['/js', '/css'],
+      extensionsRegex: /\.(ttf|eot|svg|png|jpe?g|gif|ico)$/i,
     }),
   ].concat(debug ? [] : [
     // production webpack plugins go here
