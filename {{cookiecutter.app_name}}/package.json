@@ -38,7 +38,7 @@
     "css-loader": "^3.0.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.17.3",
-    "eslint": "^5.16.0",
+    "eslint": "^6.2.2",
     "file-loader": "^4.0.0",
     "less-loader": "^5.0.0",
     "manifest-revision-webpack-plugin": "^0.4.0",
