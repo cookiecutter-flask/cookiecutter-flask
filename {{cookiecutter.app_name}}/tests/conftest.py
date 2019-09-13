@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """Defines fixtures available to all tests."""
 
+import logging
+
 import pytest
 from webtest import TestApp
 
@@ -14,6 +16,7 @@ from .factories import UserFactory
 def app():
     """Create application for the tests."""
     _app = create_app("tests.settings")
+    _app.logger.setLevel(logging.CRITICAL)
     ctx = _app.test_request_context()
     ctx.push()
 
