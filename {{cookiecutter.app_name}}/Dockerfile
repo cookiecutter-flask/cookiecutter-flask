@@ -1,6 +1,6 @@
 # ==================================== BASE ====================================
 ARG INSTALL_PYTHON_VERSION=${INSTALL_PYTHON_VERSION:-3.7}
-FROM python:${INSTALL_PYTHON_VERSION}-slim-stretch AS base
+FROM python:${INSTALL_PYTHON_VERSION}-slim-buster AS base
 
 RUN apt-get update
 RUN apt-get install -y \
@@ -21,6 +21,11 @@ COPY requirements requirements
 {%- endif %}
 
 COPY [ "assets", "package.json", "webpack.config.js", "./" ]
+
+RUN useradd -m sid
+RUN chown -R sid:sid /app
+USER sid
+ENV PATH="/home/sid/.local/bin:${PATH}"
 RUN npm install
 
 # ================================= DEVELOPMENT ================================
@@ -28,7 +33,7 @@ FROM base AS development
 {%- if cookiecutter.use_pipenv == "yes" %}
 RUN pipenv install --dev
 {%- else %}
-RUN pip install -r requirements/dev.txt
+RUN pip install --user -r requirements/dev.txt
 {%- endif %}
 EXPOSE 2992
 EXPOSE 5000
@@ -39,7 +44,7 @@ FROM base AS production
 {%- if cookiecutter.use_pipenv == "yes" %}
 RUN pipenv install
 {%- else %}
-RUN pip install -r requirements/prod.txt
+RUN pip install --user -r requirements/prod.txt
 {%- endif %}
 COPY supervisord.conf /etc/supervisor/supervisord.conf
 COPY supervisord_programs /etc/supervisor/conf.d
@@ -50,8 +55,8 @@ CMD ["-c", "/etc/supervisor/supervisord.conf"]
 # =================================== MANAGE ===================================
 FROM base AS manage
 {%- if cookiecutter.use_pipenv == "yes" %}
-COPY --from=development /root/.local/share/virtualenvs/ /root/.local/share/virtualenvs/
+COPY --from=development /sid/.local/share/virtualenvs/ /sid/.local/share/virtualenvs/
 {%- else %}
-RUN pip install -r requirements/dev.txt
+RUN pip install --user -r requirements/dev.txt
 {%- endif %}
 ENTRYPOINT [ {% if cookiecutter.use_pipenv == 'yes' %}"pipenv", "run", {% endif %}"flask" ]
