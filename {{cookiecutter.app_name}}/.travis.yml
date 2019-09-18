@@ -2,7 +2,7 @@
 dist: xenial
 language: python
 env:
-- FLASK_APP=autoapp.py FLASK_DEBUG=1
+- FLASK_APP=autoapp.py FLASK_DEBUG=1 DATABASE_URL=sqlite:////test.db SECRET_KEY=test-secret
 python:
   - 3.6
   - 3.7
