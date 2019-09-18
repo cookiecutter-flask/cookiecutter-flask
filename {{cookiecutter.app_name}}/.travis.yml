@@ -1,8 +1,6 @@
 # Config file for automatic testing at travis-ci.org
 dist: xenial
 language: python
-env:
-- FLASK_APP=autoapp.py FLASK_DEBUG=1 DATABASE_URL=sqlite:////test.db SECRET_KEY=test-secret
 python:
   - 3.6
   - 3.7
@@ -12,6 +10,7 @@ install:
   - nvm use {{cookiecutter.node_version}}
   - npm install
 before_script:
+  - cp .env.example .env
   - npm run lint
   - npm run build
   - flask lint --check
