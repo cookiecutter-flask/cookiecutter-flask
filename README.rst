@@ -42,6 +42,11 @@ Standard
 
 You will be asked about your basic info (name, project name, app name, etc.). This info will be used in your new project.
 
+Usage Instructions
+------------------
+
+The README of the generated project contains instructions for how to configure and run the application.
+
 Features
 --------
 
