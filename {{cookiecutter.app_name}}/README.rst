@@ -135,3 +135,56 @@ should cache all your assets forever by including the following line
 in your ``settings.py``::
 
     SEND_FILE_MAX_AGE_DEFAULT = 31556926  # one year
+
+
+{%- if cookiecutter.deployment_on_heroku == "yes" %}
+Deployment on Heroku
+--------------------
+
+Before using automatic deployment on Heroku you have to add migrations to your repository.
+You can do it by using following commands ::
+
+    flask db init
+    flask db migrate
+    git add migrations/
+    git commit -m "Add migrations"
+    git commit push
+
+Make sure folder `migrations/versions` is not empty.
+
+Deploy to Heroku button
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.svg" title="Deploy" alt="Deploy"></a>
+
+
+Heroku CLI
+^^^^^^^^^^
+
+If you want deploy by using Heroku CLI:
+
+* create Heroku App. You can leave your app name, change it or leave it blank (random name will be generated)::
+
+    heroku create {{cookiecutter.app_name}}
+
+* add buildpacks::
+
+    heroku buildpacks:add --index=1 heroku/nodejs
+    heroku buildpacks:add --index=1 heroku/python
+
+* add Postgres database addon (it also sets `DATABASE_URL` environmental variable to created database)::
+
+    heroku addons:create heroku-postgresql:hobby-dev
+
+* set environmental variables (change secret key)::
+
+    heroku config:set SECRET_KEY=<secret-key>
+    heroku config:set FLASK_APP=autoapp.py
+
+* deploy on Heroku::
+
+    git push heroku master
+
+{%- endif %}
