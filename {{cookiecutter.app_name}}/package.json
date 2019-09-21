@@ -7,7 +7,8 @@
     "start": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-dev-server\" \"npm run flask-server\"",
     "webpack-dev-server": "NODE_ENV=debug webpack-dev-server --host=0.0.0.0 --port 2992 --hot --inline",
     "flask-server": "{% if cookiecutter.use_pipenv == 'yes' %}pipenv run {% endif %}flask run --host=0.0.0.0",
-    "lint": "eslint \"assets/js/*.js\""
+    "lint": "eslint \"assets/js/*.js\"",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",

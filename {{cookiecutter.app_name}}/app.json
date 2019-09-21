@@ -1,0 +1,30 @@
+{
+   "name": "{{cookiecutter.app_name}}",
+   "repository": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}",
+   "env": {
+      "SECRET_KEY": {
+         "description": "SECRET_KEY.",
+         "generator": "secret"
+      },
+      "FLASK_APP": {
+         "description": "FLASK_APP.",
+         "value": "autoapp.py"
+      }
+   },
+   "buildpacks": [
+      {
+         "url": "heroku/nodejs"
+      },
+      {
+         "url": "heroku/python"
+      }
+   ],
+   "addons": [
+      {
+         "plan": "heroku-postgresql",
+         "options": {
+            "version": "11"
+         }
+      }
+   ]
+}

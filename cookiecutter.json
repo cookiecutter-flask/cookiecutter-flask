@@ -7,5 +7,6 @@
 	"project_short_description": "A flasky app.",
 	"use_pipenv": ["no", "yes"],
 	"python_version": ["3.7", "3.6"],
-	"node_version": ["12", "10", "8"]
+	"node_version": ["12", "10", "8"],
+	"deployment_on_heroku": ["no", "yes"]
 }
