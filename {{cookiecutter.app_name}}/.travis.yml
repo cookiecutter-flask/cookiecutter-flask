@@ -12,6 +12,5 @@ install:
 before_script:
   - cp .env.example .env
   - npm run lint
-  - npm run build
   - flask lint --check
 script: flask test
