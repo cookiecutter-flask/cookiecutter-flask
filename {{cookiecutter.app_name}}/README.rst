@@ -85,6 +85,14 @@ To apply the migration.
 
 For a full migration command reference, run ``flask db --help``.
 
+If your deployment process is based on the git repository files (e.g on Heroku) you should add `migrations` folder to the repository.
+You can do this after ``flask db migrate`` by running the following commands ::
+
+    git add migrations/*
+    git commit -m "Add migrations"
+
+Make sure folder `migrations/versions` is not empty.
+
 
 Docker
 ------
@@ -138,32 +146,18 @@ in your ``settings.py``::
 
 {%- if cookiecutter.use_heroku == "yes" %}
 
-Deployment on Heroku
---------------------
+Heroku
+------
 
-Before using automatic deployment on Heroku you have to add migrations to your repository.
-You can do it by using following commands ::
+Before deployment on the Heroku you should be familiar with a basic concepts of `Git <https://git-scm.com/>`_ and `Heroku <https://heroku.com/>`_.
 
-    flask db init
-    flask db migrate
-    git add migrations/
-    git commit -m "Add migrations"
-    git commit push
+Remember to add migrations to your repository. Please check `Migrations`_ section.
 
-Make sure folder `migrations/versions` is not empty.
+Since filesystem on Heroku is ephemeral (sqlite database will be lost at least once every 24 hours) the PostgreSQL is a recommended choice. Due to this fact the additional library is required: ``psycopg2-binary``.
 
-Deploy to Heroku button
-^^^^^^^^^^^^^^^^^^^^^^^
+**WARNING!** ``psycopg2-binary`` package is a practical choice for development and testing but in production it is advised to use the package built from sources. Read more in the `psycopg2 documentation <http://initd.org/psycopg/docs/install.html?highlight=production%20advised%20use%20package%20built%20from%20sources#binary-install-from-pypi>`_
 
-.. raw:: html
-
-    <a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.svg" title="Deploy" alt="Deploy"></a>
-
-
-Heroku CLI
-^^^^^^^^^^
-
-If you want deploy by using Heroku CLI:
+Deployment by using `Heroku CLI <https://devcenter.heroku.com/articles/heroku-cli>`_:
 
 * create Heroku App. You can leave your app name, change it or leave it blank (random name will be generated)::
 
@@ -174,19 +168,27 @@ If you want deploy by using Heroku CLI:
     heroku buildpacks:add --index=1 heroku/nodejs
     heroku buildpacks:add --index=1 heroku/python
 
-* add database addon which sets Postgres in version 11 in free `hobby-dev` plan (https://elements.heroku.com/addons/heroku-postgresql#hobby-dev) (it also sets `DATABASE_URL` environmental variable to created database)::
+* add database addon which sets PostgresSQL in version 11 in free `hobby-dev <https://elements.heroku.com/addons/heroku-postgresql#hobby-dev>`_ plan (it also sets ``DATABASE_URL`` environmental variable to created database)::
 
     heroku addons:create heroku-postgresql:hobby-dev --version=11
 
-* set environmental variables: change secret key.
-  `DATABASE_URL` environmental variable is set by database addon in previous step.
-  Please check `.env.example` to get overview which environmental variables are used in project.::
+* set environmental variables (change ``SECRET_KEY`` value for your own)::
 
     heroku config:set SECRET_KEY=not-so-secret
     heroku config:set FLASK_APP=autoapp.py
 
-* deploy on Heroku::
+*   ``DATABASE_URL`` environmental variable is set by database addon.
+    Please check ``.env.example`` to get overview which environmental variables are used in the project.
+
+* deploy on Heroku by pushing to the ``heroku`` branch::
 
     git push heroku master
+
+If you keep your project on GitHub you can use 'Deploy to Heroku' button thanks to which the deployment can be done in web browser with minimal configuration required.
+The configuration used by the button is stored in ``app.json`` file.
+
+.. raw:: html
+
+    <a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.svg" title="Deploy" alt="Deploy"></a>
 
 {%- endif %}
