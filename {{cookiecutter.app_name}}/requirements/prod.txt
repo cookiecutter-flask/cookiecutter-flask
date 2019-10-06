@@ -8,8 +8,8 @@ click>=7.0
 # Database
 Flask-SQLAlchemy==2.4.1
 SQLAlchemy==1.3.9
-{%- if cookiecutter.deployment_on_heroku == "yes" %}
-psycopg2==2.8.3
+{%- if cookiecutter.use_heroku == "yes" %}
+psycopg2-binary==2.8.3
 {%- endif %}
 
 # Migrations
