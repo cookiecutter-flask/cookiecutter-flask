@@ -10,12 +10,16 @@ import sys
 def clean_extra_package_management_files():
     """Removes either requirements files and folder or the Pipfile."""
     use_pipenv = "{{cookiecutter.use_pipenv}}"
+    use_heroku = "{{cookiecutter.use_heroku}}"
     to_delete = []
 
     if use_pipenv == "yes":
         to_delete = to_delete + ["requirements.txt", "requirements"]
     else:
         to_delete.append("Pipfile")
+
+    if use_heroku == "no":
+        to_delete = to_delete + ["Procfile", "app.json"]
 
     try:
         for file_or_dir in to_delete:

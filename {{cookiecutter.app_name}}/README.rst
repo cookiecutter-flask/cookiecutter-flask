@@ -136,8 +136,8 @@ in your ``settings.py``::
 
     SEND_FILE_MAX_AGE_DEFAULT = 31556926  # one year
 
+{%- if cookiecutter.use_heroku == "yes" %}
 
-{%- if cookiecutter.deployment_on_heroku == "yes" %}
 Deployment on Heroku
 --------------------
 
@@ -174,13 +174,15 @@ If you want deploy by using Heroku CLI:
     heroku buildpacks:add --index=1 heroku/nodejs
     heroku buildpacks:add --index=1 heroku/python
 
-* add Postgres database addon (it also sets `DATABASE_URL` environmental variable to created database)::
+* add database addon which sets Postgres in version 11 in free `hobby-dev` plan (https://elements.heroku.com/addons/heroku-postgresql#hobby-dev) (it also sets `DATABASE_URL` environmental variable to created database)::
 
-    heroku addons:create heroku-postgresql:hobby-dev
+    heroku addons:create heroku-postgresql:hobby-dev --version=11
 
-* set environmental variables (change secret key)::
+* set environmental variables: change secret key.
+  `DATABASE_URL` environmental variable is set by database addon in previous step.
+  Please check `.env.example` to get overview which environmental variables are used in project.::
 
-    heroku config:set SECRET_KEY=<secret-key>
+    heroku config:set SECRET_KEY=not-so-secret
     heroku config:set FLASK_APP=autoapp.py
 
 * deploy on Heroku::
