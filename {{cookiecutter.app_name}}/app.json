@@ -1,6 +1,5 @@
 {
    "name": "{{cookiecutter.app_name}}",
-   "repository": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}",
    "env": {
       "SECRET_KEY": {
          "description": "SECRET_KEY.",
