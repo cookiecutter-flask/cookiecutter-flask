@@ -85,7 +85,7 @@ To apply the migration.
 
 For a full migration command reference, run ``flask db --help``.
 
-If your deployment process is based on the git repository files (e.g on Heroku) you should add `migrations` folder to the repository.
+If you will deploy your application remotely (e.g on Heroku) you should add the `migrations` folder to version control.
 You can do this after ``flask db migrate`` by running the following commands ::
 
     git add migrations/*
@@ -149,38 +149,37 @@ in your ``settings.py``::
 Heroku
 ------
 
-Before deployment on the Heroku you should be familiar with a basic concepts of `Git <https://git-scm.com/>`_ and `Heroku <https://heroku.com/>`_.
+Before deploying to Heroku you should be familiar with the basic concepts of `Git <https://git-scm.com/>`_ and `Heroku <https://heroku.com/>`_.
 
 Remember to add migrations to your repository. Please check `Migrations`_ section.
 
-Since filesystem on Heroku is ephemeral (sqlite database will be lost at least once every 24 hours) the PostgreSQL is a recommended choice. Due to this fact the additional library is required: ``psycopg2-binary``.
+Since the filesystem on Heroku is ephemeral, non-version controlled files (like a SQLite database) will be lost at least once every 24 hours. Therefore, a persistent, standalone database like PostgreSQL is recommended. This application will work with any database backend that is compatible with SQLAlchemy, but we provide specific instructions for Postgres, (including the required library ``psycopg2-binary``).
 
-**WARNING!** ``psycopg2-binary`` package is a practical choice for development and testing but in production it is advised to use the package built from sources. Read more in the `psycopg2 documentation <http://initd.org/psycopg/docs/install.html?highlight=production%20advised%20use%20package%20built%20from%20sources#binary-install-from-pypi>`_
+**Note:** ``psycopg2-binary`` package is a practical choice for development and testing but in production it is advised to use the package built from sources. Read more in the `psycopg2 documentation <http://initd.org/psycopg/docs/install.html?highlight=production%20advised%20use%20package%20built%20from%20sources#binary-install-from-pypi>`_
 
 Deployment by using `Heroku CLI <https://devcenter.heroku.com/articles/heroku-cli>`_:
 
-* create Heroku App. You can leave your app name, change it or leave it blank (random name will be generated)::
+* Create Heroku App. You can leave your app name, change it, or leave it blank (random name will be generated)::
 
     heroku create {{cookiecutter.app_name}}
 
-* add buildpacks::
+* Add buildpacks::
 
     heroku buildpacks:add --index=1 heroku/nodejs
     heroku buildpacks:add --index=1 heroku/python
 
-* add database addon which sets PostgresSQL in version 11 in free `hobby-dev <https://elements.heroku.com/addons/heroku-postgresql#hobby-dev>`_ plan (it also sets ``DATABASE_URL`` environmental variable to created database)::
+* Add database addon which creates a persistent PostgresSQL database. These instructions assume you're using the free `hobby-dev <https://elements.heroku.com/addons/heroku-postgresql#hobby-dev>`_ plan. This command also sets a ``DATABASE_URL`` environmental variable that your app will use to communicate with the DB.::
 
     heroku addons:create heroku-postgresql:hobby-dev --version=11
 
-* set environmental variables (change ``SECRET_KEY`` value for your own)::
+* Set environmental variables (change ``SECRET_KEY`` value)::
 
     heroku config:set SECRET_KEY=not-so-secret
     heroku config:set FLASK_APP=autoapp.py
 
-*   ``DATABASE_URL`` environmental variable is set by database addon.
-    Please check ``.env.example`` to get overview which environmental variables are used in the project.
+*   Please check ``.env.example`` to see which environmental variables are used in the project and also need to be set. The exception is ``DATABASE_URL``, which Heroku sets automatically.
 
-* deploy on Heroku by pushing to the ``heroku`` branch::
+* Deploy on Heroku by pushing to the ``heroku`` branch::
 
     git push heroku master
 
