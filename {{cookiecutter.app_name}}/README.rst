@@ -157,6 +157,14 @@ Since the filesystem on Heroku is ephemeral, non-version controlled files (like 
 
 **Note:** ``psycopg2-binary`` package is a practical choice for development and testing but in production it is advised to use the package built from sources. Read more in the `psycopg2 documentation <http://initd.org/psycopg/docs/install.html?highlight=production%20advised%20use%20package%20built%20from%20sources#binary-install-from-pypi>`_
 
+If you keep your project on GitHub you can use 'Deploy to Heroku' button thanks to which the deployment can be done in web browser with minimal configuration required.
+The configuration used by the button is stored in ``app.json`` file.
+
+.. raw:: html
+
+    <a href="https://heroku.com/deploy" style="display: block"><img src="https://www.herokucdn.com/deploy/button.svg" title="Deploy" alt="Deploy"></a>
+    <br>
+
 Deployment by using `Heroku CLI <https://devcenter.heroku.com/articles/heroku-cli>`_:
 
 * Create Heroku App. You can leave your app name, change it, or leave it blank (random name will be generated)::
@@ -182,12 +190,5 @@ Deployment by using `Heroku CLI <https://devcenter.heroku.com/articles/heroku-cl
 * Deploy on Heroku by pushing to the ``heroku`` branch::
 
     git push heroku master
-
-If you keep your project on GitHub you can use 'Deploy to Heroku' button thanks to which the deployment can be done in web browser with minimal configuration required.
-The configuration used by the button is stored in ``app.json`` file.
-
-.. raw:: html
-
-    <a href="https://heroku.com/deploy"><img src="https://www.herokucdn.com/deploy/button.svg" title="Deploy" alt="Deploy"></a>
 
 {%- endif %}
