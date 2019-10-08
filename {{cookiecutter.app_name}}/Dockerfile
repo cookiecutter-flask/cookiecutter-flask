@@ -20,7 +20,7 @@ RUN pip install pipenv
 COPY requirements requirements
 {%- endif %}
 
-COPY [ "assets", "package.json", "webpack.config.js", "./" ]
+COPY . .
 
 RUN useradd -m sid
 RUN chown -R sid:sid /app
