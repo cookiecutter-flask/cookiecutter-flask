@@ -9,6 +9,16 @@
          "description": "FLASK_APP.",
          "value": "autoapp.py"
       }
+      {%- if cookiecutter.use_google_logging == "yes" %},
+      "GOOGLE_CLIENT_ID": {
+         "description": "GOOGLE_CLIENT_ID.",
+         "value": "GOOGLE_CLIENT_ID"
+      },
+      "GOOGLE_CLIENT_SECRET": {
+         "description": "GOOGLE_CLIENT_SECRET.",
+         "value": "GOOGLE_CLIENT_SECRET"
+      }
+   {%- endif %}
    },
    "buildpacks": [
       {

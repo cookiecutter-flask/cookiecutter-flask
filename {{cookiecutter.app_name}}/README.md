@@ -173,7 +173,34 @@ in ``.env``:
 ```text
 SEND_FILE_MAX_AGE_DEFAULT=31556926  # one year
 ```
+{%- if cookiecutter.use_google_logging == "yes" %
+Google Login
+------------
 
+This app allows you to login by Google Account.
+
+You need to do a few steps before deploying app.
+
+You will need a Google Account. You already have one if you use Gmail.
+
+On the the `Google developers credentials page <https://console.developers.google.com/apis/credentials>`_
+press the ``Create credentials`` button and select the option for ``OAuth client ID``:
+
+Select the ``Web application`` option at the top.
+You can provide a name for the client in the ``Name`` field as well.
+The name you provide will be displayed to users when they are consenting to your application acting on their behalf.
+
+You need to set ``Authorised JavaScript origins`` and ``Authorised redirect URIs``::
+
+    Authorized JavaScript: https://127.0.0.1:5000
+    Authorised redirect URIs: https://127.0.0.1:5000/login/callback
+
+Set appropriate URIs with your app address for deployment.
+
+Finally, hit ``Create`` and take note of the ``client ID`` and ``client secret``. You’ll need both later.
+
+You need fill `OAuth consent screen <https://console.developers.google.com/apis/credentials/consent>`_ also.
+{%- endif %}
 {%- if cookiecutter.use_heroku == "yes" %}
 
 ## Heroku
