@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "{{cookiecutter.project_short_description}}",
   "scripts": {
-    "build": "NODE_ENV=production webpack --progress --colors -p",
-    "start": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-dev-server\" \"npm run flask-server\"",
-    "webpack-dev-server": "NODE_ENV=debug webpack-dev-server --host=0.0.0.0 --port 2992 --hot --inline",
+    "build": "NODE_ENV=production webpack --progress --colors -p && npm run flask-static-digest",
+    "start": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-watch\" \"npm run flask-server\"",
+    "webpack-watch": "NODE_ENV=debug webpack --mode development --watch",
     "flask-server": "{% if cookiecutter.use_pipenv == 'yes' %}pipenv run {% endif %}flask run --host=0.0.0.0",
-    "lint": "eslint \"assets/js/*.js\"",
-    "postinstall": "npm run build"
+    "flask-static-digest": "{% if cookiecutter.use_pipenv == 'yes' %}pipenv run {% endif %}flask digest compile",
+    "lint": "eslint \"assets/js/*.js\""
   },
   "repository": {
     "type": "git",
@@ -42,13 +42,11 @@
     "eslint": "^6.2.2",
     "file-loader": "^4.0.0",
     "less-loader": "^5.0.0",
-    "manifest-revision-webpack-plugin": "^0.4.0",
     "less": "^3.9.0",
     "mini-css-extract-plugin": "^0.8.0",
     "raw-loader": "^3.0.0",
     "url-loader": "^2.0.0",
     "webpack-cli": "^3.3.2",
-    "webpack-dev-server": "^3.5.1",
     "webpack": "^4.33.0"
   }
 }
