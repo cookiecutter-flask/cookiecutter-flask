@@ -4,7 +4,8 @@ FROM python:${INSTALL_PYTHON_VERSION}-slim-buster AS base
 
 RUN apt-get update
 RUN apt-get install -y \
-    curl
+    curl \
+    gcc
 
 ARG INSTALL_NODE_VERSION=${INSTALL_NODE_VERSION:-12}
 RUN curl -sL https://deb.nodesource.com/setup_${INSTALL_NODE_VERSION}.x | bash -
