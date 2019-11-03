@@ -98,7 +98,7 @@ Make sure folder `migrations/versions` is not empty.
 Docker
 ------
 
-This app can be run completely using ``Docker`` and ``docker-compose``. Before starting, make sure to create a new copy of ``.env.example`` called ``.env``. You will need to start the development version of the app at least once before running other Docker commands, as starting the dev app bootstraps a necessary file, ``webpack/manifest.json``.
+This app can be run completely using ``Docker`` and ``docker-compose``. Before starting, make sure to create a new copy of ``.env.example`` called ``.env``.
 
 There are three main services:
 
@@ -128,22 +128,20 @@ Asset Management
 
 Files placed inside the ``assets`` directory and its subdirectories
 (excluding ``js`` and ``css``) will be copied by webpack's
-``file-loader`` into the ``static/build`` directory, with hashes of
-their contents appended to their names.  For instance, if you have the
-file ``assets/img/favicon.ico``, this will get copied into something
-like
-``static/build/img/favicon.fec40b1d14528bf9179da3b6b78079ad.ico``.
-You can then put this line into your header::
+``file-loader`` into the ``static/build`` directory. In production, the plugin
+``Flask-Static-Digest`` zips the webpack content and tags them with a MD5 hash.
+As a result, you must use the ``static_url_for`` function when including static content,
+as it resolves the correct file name, including the MD5 hash.
+For example::
 
-    <link rel="shortcut icon" href="{{ "{{" }}asset_url_for('img/favicon.ico') {{ "}}" }}">
+    <link rel="shortcut icon" href="{{ "{{" }}static_url_for('static', filename='build/img/favicon.ico') {{ "}}" }}">
 
-to refer to it inside your HTML page.  If all of your static files are
-managed this way, then their filenames will change whenever their
+If all of your static files are managed this way, then their filenames will change whenever their
 contents do, and you can ask Flask to tell web browsers that they
 should cache all your assets forever by including the following line
-in your ``settings.py``::
+in ``.env``::
 
-    SEND_FILE_MAX_AGE_DEFAULT = 31556926  # one year
+    SEND_FILE_MAX_AGE_DEFAULT=31556926  # one year
 
 {%- if cookiecutter.use_heroku == "yes" %}
 

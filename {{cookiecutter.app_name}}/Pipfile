@@ -26,8 +26,8 @@ gevent = "==1.4.0"
 gunicorn = ">=19.1.1"
 supervisor = "==4.1.0"
 
-# Webpack
-flask-webpack = "==0.1.0"
+# Flask Static Digest
+Flask-Static-Digest = "==0.1.2"
 
 # Auth
 Flask-Login = "==0.4.1"
