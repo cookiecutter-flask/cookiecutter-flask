@@ -62,5 +62,3 @@ run_cookiecutter() {
 
 process_args "$@"
 run_cookiecutter
-
-exit 0
