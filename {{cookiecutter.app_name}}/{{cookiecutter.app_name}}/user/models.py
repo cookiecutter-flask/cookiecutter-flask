@@ -29,7 +29,7 @@ class Role(SurrogatePK, Model):
 
     def __repr__(self):
         """Represent instance as a unique string."""
-        return "<Role({name})>".format(name=self.name)
+        return f"<Role({self.name})>"
 
 
 class User(UserMixin, SurrogatePK, Model):
@@ -65,8 +65,8 @@ class User(UserMixin, SurrogatePK, Model):
     @property
     def full_name(self):
         """Full user name."""
-        return "{0} {1}".format(self.first_name, self.last_name)
+        return f"{self.first_name} {self.last_name}"
 
     def __repr__(self):
         """Represent instance as a unique string."""
-        return "<User({username!r})>".format(username=self.username)
+        return f"<User({self.username!r})>"

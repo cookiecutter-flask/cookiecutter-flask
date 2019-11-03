@@ -31,7 +31,7 @@ def validate_python_module_name():
     module_name = "{{ cookiecutter.app_name }}"
     if not re.match(MODULE_REGEX, module_name):
         log_warning(module_name)
-        raise ValueError
+        sys.exit(1)
 
 
 if __name__ == "__main__":
