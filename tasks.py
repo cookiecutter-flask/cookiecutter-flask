@@ -19,16 +19,23 @@ REQUIREMENTS = os.path.join(COOKIE, "requirements", "dev.txt")
 
 def _run_npm_command(ctx, command):
     os.chdir(COOKIE)
-    ctx.run("npm {0}".format(command), echo=True)
+    ctx.run(f"npm {command}", echo=True)
     os.chdir(HERE)
+
+
+def _run_flask_command(ctx, command, *args):
+    os.chdir(COOKIE)
+    flask_command = f"flask {command}"
+    if args:
+        flask_command += f" {' '.join(args)}"
+    ctx.run(flask_command, echo=True)
 
 
 @task
 def build(ctx):
     """Build the cookiecutter."""
-    ctx.run("cookiecutter {0} --no-input".format(HERE))
+    ctx.run(f"cookiecutter {HERE} --no-input")
     _run_npm_command(ctx, "install")
-    _run_npm_command(ctx, "run build")
 
 
 @task
@@ -36,23 +43,12 @@ def clean(ctx):
     """Clean out generated cookiecutter."""
     if os.path.exists(COOKIE):
         shutil.rmtree(COOKIE)
-        print("Removed {0}".format(COOKIE))
-    else:
-        print("App directory does not exist. Skipping.")
-
-
-def _run_flask_command(ctx, command, *args):
-    os.chdir(COOKIE)
-    flask_command = "flask {0}".format(command)
-    if args:
-        flask_command = "{0} {1}".format(flask_command, " ".join(args))
-    ctx.run(flask_command, echo=True)
 
 
 @task(pre=[clean, build])
 def test(ctx):
     """Run lint commands and tests."""
-    ctx.run("pip install -r {0} --ignore-installed".format(REQUIREMENTS), echo=True)
+    ctx.run(f"pip install -r {REQUIREMENTS} --ignore-installed", echo=True)
     _run_npm_command(ctx, "run lint")
     os.chdir(COOKIE)
     shutil.copyfile(os.path.join(COOKIE, ".env.example"), os.path.join(COOKIE, ".env"))
@@ -60,10 +56,3 @@ def test(ctx):
     os.environ["FLASK_DEBUG"] = "0"
     _run_flask_command(ctx, "lint", "--check")
     _run_flask_command(ctx, "test")
-
-
-@task
-def readme(ctx, browse=False):
-    ctx.run("rst2html.py README.rst > README.html")
-    if browse:
-        webbrowser.open_new_tab("README.html")

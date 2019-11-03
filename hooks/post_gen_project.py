@@ -2,9 +2,12 @@
 # -*- coding: utf-8 -*-
 """Post gen hook to ensure that the generated project
 has only one package management, either pipenv or pip."""
+import logging
 import os
 import shutil
 import sys
+
+LOGGER = logging.getLogger()
 
 
 def clean_extra_package_management_files():
@@ -27,10 +30,10 @@ def clean_extra_package_management_files():
                 os.remove(file_or_dir)
             else:
                 shutil.rmtree(file_or_dir)
-        sys.exit(0)
     except OSError as e:
-        sys.stdout.write("While attempting to remove file(s) an error occurred")
-        sys.stdout.write("Error: {}".format(e))
+        LOGGER.warning("While attempting to remove file(s) an error occurred")
+        LOGGER.warning(f"Error: {e}")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
