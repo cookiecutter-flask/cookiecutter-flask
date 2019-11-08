@@ -56,7 +56,7 @@ CMD ["-c", "/etc/supervisor/supervisord.conf"]
 # =================================== MANAGE ===================================
 FROM base AS manage
 {%- if cookiecutter.use_pipenv == "yes" %}
-COPY --from=development /sid/.local/share/virtualenvs/ /sid/.local/share/virtualenvs/
+COPY --from=development /home/sid/.local/share/virtualenvs/ /home/sid/.local/share/virtualenvs/
 {%- else %}
 RUN pip install --user -r requirements/dev.txt
 {%- endif %}
