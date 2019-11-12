@@ -14,6 +14,7 @@ Run the following commands to bootstrap your environment ::
     cd {{cookiecutter.app_name}}
     {%- if cookiecutter.use_pipenv == "yes" %}
     pipenv install --dev
+    pipenv shell
     {%- else %}
     pip install -r requirements/dev.txt
     {%- endif %}
