@@ -51,7 +51,6 @@ def test(ctx):
     ctx.run(f"pip install -r {REQUIREMENTS} --ignore-installed", echo=True)
     _run_npm_command(ctx, "run lint")
     os.chdir(COOKIE)
-    shutil.copyfile(os.path.join(COOKIE, ".env.example"), os.path.join(COOKIE, ".env"))
     os.environ["FLASK_ENV"] = "production"
     os.environ["FLASK_DEBUG"] = "0"
     _run_flask_command(ctx, "lint", "--check")

@@ -30,6 +30,7 @@ def clean_extra_package_management_files():
                 os.remove(file_or_dir)
             else:
                 shutil.rmtree(file_or_dir)
+        shutil.copy(".env.example", ".env")
     except OSError as e:
         LOGGER.warning("While attempting to remove file(s) an error occurred")
         LOGGER.warning(f"Error: {e}")
