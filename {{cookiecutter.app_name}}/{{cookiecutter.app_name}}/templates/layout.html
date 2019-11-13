@@ -10,6 +10,7 @@
   <head>
     <meta charset="utf-8" />
 
+    <link rel="shortcut icon" href="{{static_url_for('static', filename='build/img/favicon.ico') }}">
     <title>
       {% block page_title %} {% endraw %}
       {{ cookiecutter.project_name }}
@@ -27,7 +28,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ static_url_for('static', filename='build/main_css.css') }}"
+      href="{{ static_url_for('static', filename='build/main_css.bundle.css') }}"
     />
 
     {% block css %}{% endblock %}
@@ -61,7 +62,7 @@
     {% include "footer.html" %}
 
     <!-- JavaScript at the bottom for fast page loading -->
-    <script src="{{ static_url_for('static', filename='build/main_js.js') }}"></script>
+    <script src="{{ static_url_for('static', filename='build/main_js.bundle.js') }}"></script>
     {% block js %}{% endblock %}
     <!-- end scripts -->
     {% endblock %}
