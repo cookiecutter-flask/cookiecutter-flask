@@ -6,9 +6,16 @@ const webpack = require('webpack');
  */
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-// take debug mode from the environment
-const debug = (process.env.NODE_ENV !== 'production');
+const ProductionPlugins = [
+  // production webpack plugins go here
+  new webpack.DefinePlugin({
+    "process.env": {
+      NODE_ENV: JSON.stringify("production")
+    }
+  })
+]
 
+const debug = (process.env.NODE_ENV !== 'production');
 const rootAssetPath = path.join(__dirname, 'assets');
 
 module.exports = {
@@ -22,16 +29,21 @@ module.exports = {
       path.join(__dirname, 'assets', 'css', 'style.css'),
     ],
   },
+  mode: debug,
   output: {
+    chunkFilename: "[id].js",
+    filename: "[name].bundle.js",
     path: path.join(__dirname, "{{cookiecutter.app_name}}", "static", "build"),
-    publicPath: "/static/build/",
-    filename: "[name].js",
-    chunkFilename: "[id].js"
+    publicPath: "/static/build/"
   },
   resolve: {
     extensions: [".js", ".jsx", ".css"]
   },
-  devtool: "source-map",
+  devtool: debug ? "eval-source-map" : null,
+  plugins: [
+    new MiniCssExtractPlugin({ filename: "[name].bundle.css" }),
+    new webpack.ProvidePlugin({ $: "jquery", jQuery: "jquery" })
+  ].concat(debug ? [] : ProductionPlugins),
   module: {
     rules: [
       {
@@ -66,20 +78,5 @@ module.exports = {
       },
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', query: { presets: ['env'], cacheDirectory: true } },
     ],
-  },
-  plugins: [
-    new MiniCssExtractPlugin({ filename: "[name].css" }),
-    new webpack.ProvidePlugin({ $: "jquery", jQuery: "jquery" })
-  ].concat(
-    debug
-      ? []
-      : [
-          // production webpack plugins go here
-          new webpack.DefinePlugin({
-            "process.env": {
-              NODE_ENV: JSON.stringify("production")
-            }
-          })
-        ]
-  )
+  }
 };
