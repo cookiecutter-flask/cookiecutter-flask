@@ -11,10 +11,10 @@ require('popper.js');
 require('bootstrap');
 
 require.context(
-    "../img", // context folder
-    true, // include subdirectories
-    /.*/ // RegExp
-)
+  '../img', // context folder
+  true, // include subdirectories
+  /.*/, // RegExp
+);
 
 // Your own code
 require('./plugins.js');
