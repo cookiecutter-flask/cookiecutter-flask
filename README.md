@@ -39,7 +39,7 @@ You will be asked about your basic info (name, project name, app name, etc.). Th
 
 ## Configure and Run
 
-After you have generated the project code, a few more steps you must taken before your new app will run. The README of the generated project shows you how to configure and run the application. (You can see the [template README here](https://github.com/cookiecutter-flask/cookiecutter-flask/blob/master/%7B%7Bcookiecutter.app_name%7D%7D/README.md)).
+After you have generated the project code, a few more steps must be taken before your new app will run. The README of the generated project shows you how to configure and run the application. (You can see the [template README here](https://github.com/cookiecutter-flask/cookiecutter-flask/blob/master/%7B%7Bcookiecutter.app_name%7D%7D/README.md)).
 
 ## Features
 
