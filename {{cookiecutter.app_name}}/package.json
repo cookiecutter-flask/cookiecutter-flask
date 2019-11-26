@@ -40,7 +40,7 @@
     "eslint": "^6.2.2",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.17.3",
-    "file-loader": "^4.0.0",
+    "file-loader": "^5.0.2",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.8.0",
