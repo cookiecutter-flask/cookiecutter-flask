@@ -28,7 +28,7 @@ Options:
 
 ### Standard
 
-If using standard instructions, Python ≥ 3.6 is required. It's recommended that you use a virtual environment (like `virtualenv`).
+If using standard instructions, Python ≥ 3.6 is required. A virtual environment is recommended (like `virtualenv`).
 
 ```bash
 pip3 install cookiecutter
@@ -39,7 +39,7 @@ You will be asked about your basic info (name, project name, app name, etc.). Th
 
 ## Configure and Run
 
-After you have generated the project code, there are a few more steps you must take before your new app will run. The README of the generated project shows you how to configure and run the application. (You can see the [template README here](https://github.com/cookiecutter-flask/cookiecutter-flask/blob/master/%7B%7Bcookiecutter.app_name%7D%7D/README.md)).
+After you have generated the project code, a few more steps you must taken before your new app will run. The README of the generated project shows you how to configure and run the application. (You can see the [template README here](https://github.com/cookiecutter-flask/cookiecutter-flask/blob/master/%7B%7Bcookiecutter.app_name%7D%7D/README.md)).
 
 ## Features
 
