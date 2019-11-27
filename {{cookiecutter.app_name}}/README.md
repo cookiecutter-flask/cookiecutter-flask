@@ -45,10 +45,10 @@ Run the following commands to bootstrap your environment if you are unable to ru
 ```bash
 cd {{cookiecutter.app_name}}
 {%- if cookiecutter.use_pipenv == "yes" %}
-pipenv install --dev
-pipenv shell
+python -m pipenv install --dev
+python -m pipenv shell
 {%- else %}
-pip install -r requirements/dev.txt
+python -m pip install -r requirements/dev.txt
 {%- endif %}
 npm install
 npm start  # run the webpack dev server and flask server using concurrently
@@ -62,9 +62,9 @@ Once you have installed your DBMS, run the following to create your app's
 database tables and perform the initial migration
 
 ```bash
-flask db init
-flask db migrate
-flask db upgrade
+python -m flask db init
+python -m flask db migrate
+python -m flask db upgrade
 ```
 
 ## Deployment
