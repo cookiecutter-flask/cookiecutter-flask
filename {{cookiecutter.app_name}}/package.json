@@ -6,8 +6,8 @@
     "build": "NODE_ENV=production webpack --progress --colors -p && npm run flask-static-digest",
     "start": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-watch\" \"npm run flask-server\"",
     "webpack-watch": "NODE_ENV=debug webpack --mode development --watch",
-    "flask-server": "{% if cookiecutter.use_pipenv == 'yes' %}pipenv run {% endif %}flask run --host=0.0.0.0",
-    "flask-static-digest": "{% if cookiecutter.use_pipenv == 'yes' %}pipenv run {% endif %}flask digest compile",
+    "flask-server": "{% if cookiecutter.use_pipenv == 'yes' %}python -m pipenv run {% endif %}flask run --host=0.0.0.0",
+    "flask-static-digest": "{% if cookiecutter.use_pipenv == 'yes' %}python -m pipenv run {% endif %}flask digest compile",
     "lint": "eslint \"assets/js/*.js\""
   },
   "repository": {
