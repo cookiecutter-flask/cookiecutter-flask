@@ -1,5 +1,8 @@
 # Everything needed in production
 
+# pipenv
+pipenv==2018.11.26
+
 # Flask
 Flask==1.1.1
 Werkzeug==0.16.0
