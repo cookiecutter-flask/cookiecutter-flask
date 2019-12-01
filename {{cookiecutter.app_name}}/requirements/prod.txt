@@ -37,3 +37,8 @@ Flask-DebugToolbar==0.10.1
 
 # Environment variable parsing
 environs==6.1.0
+
+{% if cookiecutter.use_google_logging == "yes" %}
+# Google Login
+requests==2.21.0
+{% endif %}
