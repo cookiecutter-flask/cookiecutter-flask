@@ -2,12 +2,20 @@ import logging
 import re
 import sys
 
-# Provide ability to import from the `hooks` directory
-sys.path.append("..")
-
 logging.basicConfig()
 LOGGER = logging.getLogger(__name__)
 MODULE_REGEX = r"^[_a-zA-Z][_a-zA-Z0-9]+$"
+
+
+
+def log_module_name_warning(module_name, logger):
+    warning = (
+        f"\n{colorize('WARNING', 'WARNING:')} {colorize('BOLD', module_name)}"
+        " is not a valid Python module name!\n"
+        "See https://www.python.org/dev/peps/pep-0008/#package-and-module-names"
+        " for naming standards.\n"
+    )
+    logger.warning(warning)
 
 
 def check_python_version():
@@ -35,9 +43,5 @@ def validate_python_module_name():
 
 if __name__ == "__main__":
     check_python_version()
-
-    # Import after validating Python version to prevent confusing SyntaxError
-    # for users with incompatible Python versions.
-    from hooks.utils import log_module_name_warning
 
     validate_python_module_name()
