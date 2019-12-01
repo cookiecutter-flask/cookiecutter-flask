@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Public section, including homepage and signup."""
-{%- if cookiecutter.use_google_logging == "yes" %}
+{%- if cookiecutter.use_google_signin == "yes" %}
 import json
 
 import requests
@@ -15,7 +15,7 @@ from flask import (
     url_for,
 )
 from flask_login import login_required, login_user, logout_user
-{%- if cookiecutter.use_google_logging == "yes" %}
+{%- if cookiecutter.use_google_signin == "yes" %}
 from oauthlib.oauth2 import WebApplicationClient
 {%- endif %}
 
@@ -83,7 +83,7 @@ def about():
     """About page."""
     form = LoginForm(request.form)
     return render_template("public/about.html", form=form)
-{% if cookiecutter.use_google_logging == "yes" %}
+{% if cookiecutter.use_google_signin == "yes" %}
 
 def get_google_provider_cfg():
     """Returns Google Provide configuration."""

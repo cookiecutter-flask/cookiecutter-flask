@@ -9,7 +9,7 @@
          "description": "FLASK_APP.",
          "value": "autoapp.py"
       }
-      {%- if cookiecutter.use_google_logging == "yes" %},
+      {%- if cookiecutter.use_google_signin == "yes" %},
       "GOOGLE_CLIENT_ID": {
          "description": "GOOGLE_CLIENT_ID.",
          "value": "GOOGLE_CLIENT_ID"

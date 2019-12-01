@@ -9,5 +9,5 @@
   "python_version": ["3.8", "3.7", "3.6"],
   "node_version": ["12", "10"],
   "use_heroku": ["no", "yes"],
-  "use_google_logging": ["no", "yes"]
+  "use_google_signin": ["no", "yes"]
 }

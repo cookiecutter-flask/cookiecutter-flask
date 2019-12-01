@@ -173,9 +173,9 @@ in ``.env``:
 ```text
 SEND_FILE_MAX_AGE_DEFAULT=31556926  # one year
 ```
-{%- if cookiecutter.use_google_logging == "yes" %
-Google Login
-------------
+{%- if cookiecutter.use_google_signin == "yes" %
+Google Sign-In
+--------------
 
 This app allows you to login by Google Account.
 

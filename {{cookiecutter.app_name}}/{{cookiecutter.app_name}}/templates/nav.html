@@ -38,7 +38,7 @@
         class_="form-control mr-sm-1 my-auto") }}
         <button class="btn btn-light btn-primary m-auto" type="submit">Login</button>
       </div>
-    </form>{% endraw %}{% if cookiecutter.use_google_logging == "yes" %}{% raw %}
+    </form>{% endraw %}{% if cookiecutter.use_google_signin == "yes" %}{% raw %}
     <div class="form-inline">
       <div class="input-group mb-2 mr-sm-2">
         <a href="{{ url_for('public.login') }}" class="btn  btn-primary m-auto">Google Login</a>
