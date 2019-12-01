@@ -177,7 +177,7 @@ SEND_FILE_MAX_AGE_DEFAULT=31556926  # one year
 Google Sign-In
 --------------
 
-This app allows you to login by Google Account.
+This app allows you to [sign in using a Google Account](https://developers.google.com/identity/sign-in/web/sign-in).
 
 You need to do a few steps before deploying app.
 
