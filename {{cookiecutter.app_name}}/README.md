@@ -190,10 +190,10 @@ Select the ``Web application`` option at the top.
 You can provide a name for the client in the ``Name`` field as well.
 The name you provide will be displayed to users when they are consenting to your application acting on their behalf.
 
-You need to set ``Authorised JavaScript origins`` and ``Authorised redirect URIs``::
+You need to set ``Authorized JavaScript origins`` and ``Authorized redirect URIs``::
 
     Authorized JavaScript: https://127.0.0.1:5000
-    Authorised redirect URIs: https://127.0.0.1:5000/login/callback
+    Authorized redirect URIs: https://127.0.0.1:5000/login/callback
 
 Set appropriate URIs with your app address for deployment.
 
