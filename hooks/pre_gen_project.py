@@ -6,6 +6,7 @@ logging.basicConfig()
 LOGGER = logging.getLogger(__name__)
 MODULE_REGEX = r"^[_a-zA-Z][_a-zA-Z0-9]+$"
 
+
 class bcolors:
     WARNING = "\033[93m"
     ENDC = "\033[0m"
@@ -14,15 +15,18 @@ class bcolors:
 
 def colorize(escape_code, text):
     code = getattr(bcolors, escape_code)
-    return f"{code}{text}{bcolors.ENDC}"
+    return "{code}{text}{end_code}".format(code=code, text=text, end_code=bcolors.ENDC)
 
 
 def log_module_name_warning(module_name, logger):
     warning = (
-        f"\n{colorize('WARNING', 'WARNING:')} {colorize('BOLD', module_name)}"
+        "\n{warning} {fmt_module_name}"
         " is not a valid Python module name!\n"
         "See https://www.python.org/dev/peps/pep-0008/#package-and-module-names"
         " for naming standards.\n"
+    ).format(
+        warning=colorize("WARNING", "WARNING:"),
+        fmt_module_name=colorize("BOLD", module_name),
     )
     logger.warning(warning)
 
