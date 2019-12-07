@@ -39,7 +39,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".css"]
   },
-  devtool: debug ? "eval-source-map" : null,
+  devtool: debug ? "eval-source-map" : false,
   plugins: [
     new MiniCssExtractPlugin({ filename: "[name].bundle.css" }),
     new webpack.ProvidePlugin({ $: "jquery", jQuery: "jquery" })
