@@ -9,11 +9,7 @@ environment variables.
 from environs import Env
 
 env = Env()
-{% if cookiecutter.use_pipenv %}
-env.read_env(override=True)
-{% else %}
-env.read_env()
-{% endif %}
+{% if cookiecutter.use_pipenv == "yes" %}env.read_env(override=True){% elif cookiecutter.use_pipenv == "no" %}env.read_env(){% endif %}
 
 ENV = env.str("FLASK_ENV", default="production")
 DEBUG = ENV == "development"
