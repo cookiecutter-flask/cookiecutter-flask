@@ -32,9 +32,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.7.7",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
-    "babel-preset-env": "^1.7.0",
     "concurrently": "^5.0.0",
     "css-loader": "^3.0.0",
     "eslint": "^6.2.2",
