@@ -43,6 +43,9 @@ Flask-DebugToolbar = "==0.10.1"
 environs = "==7.1.0"
 
 [dev-packages]
+setuptools_scm = "==3.3.3"
+pytest-runner = "==5.2"
+
 # Testing
 pytest = "==5.3.2"
 WebTest = "==2.0.33"
