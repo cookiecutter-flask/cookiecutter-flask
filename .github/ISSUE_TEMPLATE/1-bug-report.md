@@ -9,10 +9,10 @@ assignees: ""
 <!--
 Thank you for helping make this project better!
 
-Please provide minimum reproducable examples and screenshots where relevant.
+Please provide minimum reproducible examples and screenshots where relevant.
 Always feel free to submit PRs for any bugs you discover.
 
-Additionally, please complete the following section with the options you used to generate the project where you obvserve the bug.
+Additionally, please complete the following section with the options you used to generate the project where you observe the bug.
 -->
 
 Project configuration:
