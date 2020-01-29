@@ -3,7 +3,7 @@
 
 # Testing
 pytest==5.3.4
-WebTest==2.0.33
+WebTest==2.0.34
 factory-boy==2.12.0
 pdbpp==0.10.2
 
