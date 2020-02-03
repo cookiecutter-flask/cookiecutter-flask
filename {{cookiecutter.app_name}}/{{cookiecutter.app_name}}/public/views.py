@@ -101,9 +101,10 @@ def login():
     # Use library to construct the request for Google login and provide
     # scopes that let you retrieve user's profile from Google
     request_uri = client.prepare_request_uri(
-        authorization_endpoint,
-        redirect_uri=request.base_url + "/callback",
-        scope=["openid", "email", "profile"],
+        # authorization_endpoint,
+        # redirect_uri=request.base_url + "/callback",
+        # scope=["openid", "email", "profile"],
+        state=
     )
     return redirect(request_uri)
 
@@ -113,7 +114,7 @@ def callback():
     """Google Login redirect endpoint."""
     client = WebApplicationClient(current_app.config["GOOGLE_CLIENT_ID"])
     # Get authorization code Google sent back to you
-    code = request.args.get("code")
+    state = request.args.get("state")
 
     # Find out what URL to hit to get tokens that allow you to ask for
     # things on behalf of a user
