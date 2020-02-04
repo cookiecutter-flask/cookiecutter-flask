@@ -51,7 +51,7 @@ pipenv shell
 pip install -r requirements/dev.txt
 {%- endif %}
 npm install
-npm start  # run the webpack dev server and flask server using concurrently
+npm start  # run the webpack dev server and flask server using concurrently (use `start-windows` in windows)
 ```
 
 You will see a pretty welcome screen.
@@ -88,7 +88,7 @@ If running without Docker
 export FLASK_ENV=production
 export FLASK_DEBUG=0
 export DATABASE_URL="<YOUR DATABASE URL>"
-npm run build   # build assets with webpack
+npm run build   # build assets with webpack, use `npm run build-windows` for windows
 flask run       # start the flask server
 ```
 
