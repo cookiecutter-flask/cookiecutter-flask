@@ -4,11 +4,11 @@
   "description": "{{cookiecutter.project_short_description}}",
   "scripts": {
     "build": "NODE_ENV=production webpack --progress --colors -p && npm run flask-static-digest",
-    "build-windows": "NODE_ENV=production && webpack --progress --colors -p && npm run flask-static-digest",
+    "build-windows": "SET NODE_ENV=production && webpack --progress --colors -p && npm run flask-static-digest",
     "start": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-watch\" \"npm run flask-server\"",
     "start-windows": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-watch-windows\" \"npm run flask-server\"",
     "webpack-watch": "NODE_ENV=debug webpack --mode development --watch",
-    "webpack-watch-windows": "NODE_ENV=debug && webpack --mode development --watch",
+    "webpack-watch-windows": "SET NODE_ENV=debug && webpack --mode development --watch",
     "flask-server": "{% if cookiecutter.use_pipenv == 'yes' %}pipenv run {% endif %}flask run --host=0.0.0.0",
     "flask-static-digest": "{% if cookiecutter.use_pipenv == 'yes' %}pipenv run {% endif %}flask digest compile",
     "lint": "eslint \"assets/js/*.js\""
