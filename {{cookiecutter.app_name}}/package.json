@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "{{cookiecutter.project_short_description}}",
   "scripts": {
-    "build": "NODE_ENV=production webpack --progress --colors -p && npm run flask-static-digest",
-    "build-windows": "SET NODE_ENV=production && webpack --progress --colors -p && npm run flask-static-digest",
-    "start": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-watch\" \"npm run flask-server\"",
-    "start-windows": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-watch-windows\" \"npm run flask-server\"",
-    "webpack-watch": "NODE_ENV=debug webpack --mode development --watch",
-    "webpack-watch-windows": "SET NODE_ENV=debug && webpack --mode development --watch",
+    "build": "run-script-os",
+    "build:win32": "SET NODE_ENV=production && webpack --progress --colors -p && npm run flask-static-digest",
+    "build:default": "NODE_ENV=production webpack --progress --colors -p && npm run flask-static-digest",
+    "start": "run-script-os",
+    "start:win32": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-watch:win32\" \"npm run flask-server\"",
+    "start:default": "concurrently -n \"WEBPACK,FLASK\" -c \"bgBlue.bold,bgMagenta.bold\" \"npm run webpack-watch\" \"npm run flask-server\"",
+    "webpack-watch": "run-script-os",
+    "webpack-watch:win32": "SET NODE_ENV=debug && webpack --mode development --watch",
+    "webpack-watch:default": "NODE_ENV=debug webpack --mode development --watch",
     "flask-server": "{% if cookiecutter.use_pipenv == 'yes' %}pipenv run {% endif %}flask run --host=0.0.0.0",
     "flask-static-digest": "{% if cookiecutter.use_pipenv == 'yes' %}pipenv run {% endif %}flask digest compile",
     "lint": "eslint \"assets/js/*.js\""
@@ -50,6 +53,7 @@
     "raw-loader": "^4.0.0",
     "url-loader": "^4.0.0",
     "webpack": "^4.33.0",
-    "webpack-cli": "^3.3.2"
+    "webpack-cli": "^3.3.2",
+    "run-script-os": "^1.0.7"
   }
 }
