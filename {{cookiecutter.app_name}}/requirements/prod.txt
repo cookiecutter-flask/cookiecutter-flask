@@ -36,4 +36,4 @@ Flask-Caching>=1.7.2
 Flask-DebugToolbar==0.10.1
 
 # Environment variable parsing
-environs==7.1.0
+environs==7.2.0
