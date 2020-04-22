@@ -22,7 +22,7 @@ Flask-WTF = "==0.14.3"
 WTForms = "==2.3.0"
 
 # Deployment
-gevent = "==1.5.0"
+gevent = "==20.4.0"
 gunicorn = ">=19.1.1"
 supervisor = "==4.1.0"
 
