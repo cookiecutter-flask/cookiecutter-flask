@@ -46,7 +46,7 @@ environs = "==7.4.0"
 [dev-packages]
 # Testing
 pytest = "==5.4.1"
-WebTest = "==2.0.34"
+WebTest = "==2.0.35"
 factory-boy = "==2.12.*"
 pdbpp = "==0.10.2"
 
