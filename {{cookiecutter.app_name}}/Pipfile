@@ -18,7 +18,7 @@ psycopg2-binary = "==2.8.5"
 Flask-Migrate = "==2.5.3"
 
 # Forms
-email-validator = "==1.1.0"
+email-validator = "==1.1.1"
 Flask-WTF = "==0.14.3"
 WTForms = "==2.3.1"
 
