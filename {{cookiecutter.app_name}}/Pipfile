@@ -45,7 +45,7 @@ environs = "==8.0.0"
 
 [dev-packages]
 # Testing
-pytest = "==5.4.2"
+pytest = "==5.4.3"
 WebTest = "==2.0.35"
 factory-boy = "==2.12.*"
 pdbpp = "==0.10.2"
