@@ -218,6 +218,7 @@ Deployment by using [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cl
     ```bash
     heroku config:set SECRET_KEY=not-so-secret
     heroku config:set FLASK_APP=autoapp.py
+    heroku config:set SEND_FILE_MAX_AGE_DEFAULT=31556926
     ```
 
 * Please check `.env.example` to see which environmental variables are used in the project and also need to be set. The exception is `DATABASE_URL`, which Heroku sets automatically.
