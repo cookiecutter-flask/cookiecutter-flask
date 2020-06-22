@@ -47,7 +47,7 @@ class User(UserMixin, PkModel):
 
     def __init__(self, username, email, password=None, **kwargs):
         """Create instance."""
-        db.Model.__init__(self, username=username, email=email, **kwargs)
+        super().__init__(self, username=username, email=email, **kwargs)
         if password:
             self.set_password(password)
         else:
