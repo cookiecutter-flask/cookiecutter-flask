@@ -41,14 +41,10 @@ class Model(CRUDMixin, db.Model):
 
     __abstract__ = True
 
+class PkModel(Model):
+    """Base model class that includes CRUD convenience methods, plus adds a 'primary key' column named ``id``"""
 
-# From Mike Bayer's "Building the app" talk
-# https://speakerdeck.com/zzzeek/building-the-app
-class SurrogatePK(object):
-    """A mixin that adds a surrogate integer 'primary key' column named ``id`` to any declarative-mapped class."""
-
-    __table_args__ = {"extend_existing": True}
-
+    __abstract__ = True
     id = Column(db.Integer, primary_key=True)
 
     @classmethod
@@ -62,7 +58,6 @@ class SurrogatePK(object):
         ):
             return cls.query.get(int(record_id))
         return None
-
 
 def reference_col(
     tablename, nullable=False, pk_name="id", foreign_key_kwargs=None, column_kwargs=None

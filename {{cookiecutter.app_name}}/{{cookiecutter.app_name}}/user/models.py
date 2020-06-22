@@ -6,8 +6,7 @@ from flask_login import UserMixin
 
 from {{cookiecutter.app_name}}.database import (
     Column,
-    Model,
-    SurrogatePK,
+    PkModel,
     db,
     reference_col,
     relationship,
@@ -15,7 +14,7 @@ from {{cookiecutter.app_name}}.database import (
 from {{cookiecutter.app_name}}.extensions import bcrypt
 
 
-class Role(SurrogatePK, Model):
+class Role(PkModel):
     """A role for a user."""
 
     __tablename__ = "roles"
@@ -32,7 +31,7 @@ class Role(SurrogatePK, Model):
         return f"<Role({self.name})>"
 
 
-class User(UserMixin, SurrogatePK, Model):
+class User(UserMixin, PkModel):
     """A user of the app."""
 
     __tablename__ = "users"
