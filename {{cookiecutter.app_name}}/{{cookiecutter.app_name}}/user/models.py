@@ -24,7 +24,7 @@ class Role(PkModel):
 
     def __init__(self, name, **kwargs):
         """Create instance."""
-        db.Model.__init__(self, name=name, **kwargs)
+        super().__init__(name=name, **kwargs)
 
     def __repr__(self):
         """Represent instance as a unique string."""
@@ -47,7 +47,7 @@ class User(UserMixin, PkModel):
 
     def __init__(self, username, email, password=None, **kwargs):
         """Create instance."""
-        super().__init__(self, username=username, email=email, **kwargs)
+        super().__init__(username=username, email=email, **kwargs)
         if password:
             self.set_password(password)
         else:
