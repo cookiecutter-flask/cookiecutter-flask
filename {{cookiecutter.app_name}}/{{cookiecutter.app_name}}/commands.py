@@ -54,10 +54,10 @@ def lint(fix_imports, check):
         if rv != 0:
             exit(rv)
 
-    isort_args = ["-rc"]
+    isort_args = []
     black_args = []
     if check:
-        isort_args.append("-c")
+        isort_args.append("--check")
         black_args.append("--check")
     if fix_imports:
         execute_tool("Fixing import order", "isort", *isort_args)
