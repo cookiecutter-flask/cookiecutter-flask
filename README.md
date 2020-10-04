@@ -86,6 +86,7 @@ MIT licensed.
 - Switch to using Github Actions for template CI
 - Remove support for Node 10 as a Cookiecutter option
 - Refactored Docker image to use multistage builds more efficiently
+- Projects generated with the template use Github actions for CI
 
 ### 18.0.0 (09/09/2018)
 
