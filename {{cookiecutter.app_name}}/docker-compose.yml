@@ -1,4 +1,4 @@
-version: '3.6'
+version: "3.6"
 
 x-build-args: &build_args
   INSTALL_PYTHON_VERSION: {{cookiecutter.python_version}}
@@ -42,7 +42,10 @@ services:
   manage:
     build:
       context: .
-      target: manage
+      target: development
+      args:
+        <<: *build_args
+    entrypoint: flask
     environment:
       FLASK_ENV: production
       FLASK_DEBUG: 0
@@ -53,5 +56,3 @@ services:
 
 volumes:
   node-modules:
-  static-build:
-  dev-db:
