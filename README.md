@@ -81,6 +81,7 @@ MIT licensed.
 
 ### Unreleased
 
+- Update all node dependencies to latest versions
 - Switch to using Github Actions for template CI
 - Remove support for Node 10 as a Cookiecutter option
 
