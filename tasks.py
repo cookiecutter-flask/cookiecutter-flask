@@ -32,6 +32,11 @@ def _run_flask_command(ctx, command, *args):
 def build(ctx):
     """Build the cookiecutter."""
     ctx.run(f"cookiecutter {HERE} --no-input")
+
+
+@task(pre=[build])
+def build_install(ctx):
+    """Build the cookiecutter."""
     _run_npm_command(ctx, "install")
     ctx.run(f"pip install -r {REQUIREMENTS} --ignore-installed", echo=True)
 
@@ -43,7 +48,7 @@ def clean(ctx):
         shutil.rmtree(COOKIE)
 
 
-@task(pre=[clean, build])
+@task(pre=[clean, build_install])
 def lint(ctx):
     """Run lint commands."""
     _run_npm_command(ctx, "run lint")
@@ -53,7 +58,7 @@ def lint(ctx):
     _run_flask_command(ctx, "lint", "--check")
 
 
-@task(pre=[clean, build])
+@task(pre=[clean, build_install])
 def test(ctx):
     """Run tests."""
     os.chdir(COOKIE)

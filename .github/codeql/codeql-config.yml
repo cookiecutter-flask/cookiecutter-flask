@@ -1,0 +1,5 @@
+name: "My CodeQL config"
+
+paths-ignore:
+  - "{{cookiecutter.app_name}}"
+  - "/opt/hostedtoolcache"

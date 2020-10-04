@@ -28,5 +28,5 @@ jobs:
           pip install cookiecutter==1.7.2 invoke==1.4.1
       - name: Run test suite
         run: invoke test
-      - name: Run lings
+      - name: Run lints
         run: invoke lint
