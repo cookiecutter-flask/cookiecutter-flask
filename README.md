@@ -85,6 +85,7 @@ MIT licensed.
 - Update all node dependencies to latest versions
 - Switch to using Github Actions for template CI
 - Remove support for Node 10 as a Cookiecutter option
+- Refactored Docker image to use multistage builds more efficiently
 
 ### 18.0.0 (09/09/2018)
 
