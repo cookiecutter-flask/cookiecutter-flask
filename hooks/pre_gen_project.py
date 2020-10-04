@@ -3,7 +3,7 @@ import re
 import sys
 
 logging.basicConfig()
-LOGGER = logging.getLogger(__name__)
+_logger = logging.getLogger(__name__)
 MODULE_REGEX = r"^[_a-zA-Z][_a-zA-Z0-9]+$"
 
 
@@ -43,18 +43,17 @@ def check_python_version():
     if (python_major_version == 2) or (
         python_major_version == 3 and python_minor_version < 6
     ):
-        LOGGER.warning(warning)
+        _logger.warning(warning)
         sys.exit(1)
 
 
 def validate_python_module_name():
     module_name = "{{ cookiecutter.app_name }}"
     if not re.match(MODULE_REGEX, module_name):
-        log_module_name_warning(module_name, LOGGER)
+        log_module_name_warning(module_name, _logger)
         sys.exit(1)
 
 
 if __name__ == "__main__":
     check_python_version()
-
     validate_python_module_name()
