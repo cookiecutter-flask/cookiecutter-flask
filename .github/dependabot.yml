@@ -1,0 +1,25 @@
+x-schedule: &daily-schedule
+  schedule:
+    interval: "daily"
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/{{cookiecutter.app_name}}"
+    <<: *daily-schedule
+
+  - package-ecosystem: "docker"
+    directory: "/"
+    <<: *daily-schedule
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    <<: *daily-schedule
+
+  - package-ecosystem: "pip"
+    directory: "/{{cookiecutter.app_name}}/requirements"
+    <<: *daily-schedule
+
+  - package-ecosystem: "pip"
+    directory: "/{{cookiecutter.app_name}}"
+    <<: *daily-schedule
