@@ -82,6 +82,7 @@ MIT licensed.
 ### Unreleased
 
 - Switch to using Github Actions for template CI
+- Remove support for Node 10 as a Cookiecutter option
 
 ### 18.0.0 (09/09/2018)
 

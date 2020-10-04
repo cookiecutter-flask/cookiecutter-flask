@@ -1,10 +1,7 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 """Invoke tasks."""
 import json
 import os
 import shutil
-import webbrowser
 
 from invoke import task
 
@@ -36,6 +33,7 @@ def build(ctx):
     """Build the cookiecutter."""
     ctx.run(f"cookiecutter {HERE} --no-input")
     _run_npm_command(ctx, "install")
+    ctx.run(f"pip install -r {REQUIREMENTS} --ignore-installed", echo=True)
 
 
 @task
@@ -46,12 +44,19 @@ def clean(ctx):
 
 
 @task(pre=[clean, build])
-def test(ctx):
-    """Run lint commands and tests."""
-    ctx.run(f"pip install -r {REQUIREMENTS} --ignore-installed", echo=True)
+def lint(ctx):
+    """Run lint commands."""
     _run_npm_command(ctx, "run lint")
     os.chdir(COOKIE)
     os.environ["FLASK_ENV"] = "production"
     os.environ["FLASK_DEBUG"] = "0"
     _run_flask_command(ctx, "lint", "--check")
+
+
+@task(pre=[clean, build])
+def test(ctx):
+    """Run tests."""
+    os.chdir(COOKIE)
+    os.environ["FLASK_ENV"] = "production"
+    os.environ["FLASK_DEBUG"] = "0"
     _run_flask_command(ctx, "test")

@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 """Post gen hook to ensure that the generated project
 has only one package management, either pipenv or pip."""
 import logging
@@ -7,7 +5,7 @@ import os
 import shutil
 import sys
 
-LOGGER = logging.getLogger()
+_logger = logging.getLogger()
 
 
 def clean_extra_package_management_files():
@@ -32,8 +30,8 @@ def clean_extra_package_management_files():
                 shutil.rmtree(file_or_dir)
         shutil.copy(".env.example", ".env")
     except OSError as e:
-        LOGGER.warning("While attempting to remove file(s) an error occurred")
-        LOGGER.warning(f"Error: {e}")
+        _logger.warning("While attempting to remove file(s) an error occurred")
+        _logger.warning(f"Error: {e}")
         sys.exit(1)
 
 
