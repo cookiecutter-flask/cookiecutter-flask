@@ -2,7 +2,7 @@
 
 A Flask template for [cookiecutter](https://github.com/audreyr/cookiecutter). (Supports Python ≥ 3.6)
 
-[![Build Status](https://travis-ci.org/cookiecutter-flask/cookiecutter-flask.svg?branch=master)](https://travis-ci.org/cookiecutter-flask/cookiecutter-flask)
+![Build Status](https://github.com/cookiecutter-flask/cookiecutter-flask/workflows/Lint%20cookiecutter%20template/badge.svg)
 [![CalVer](https://img.shields.io/badge/calver-YY.MINOR.MICRO-22bfda.svg)](http://calver.org)
 
 ## Use it now
@@ -78,6 +78,10 @@ After you have generated the project code, a few more steps must be taken before
 MIT licensed.
 
 ## Changelog
+
+### Unreleased
+
+- Switch to using Github Actions for template CI
 
 ### 18.0.0 (09/09/2018)
 
