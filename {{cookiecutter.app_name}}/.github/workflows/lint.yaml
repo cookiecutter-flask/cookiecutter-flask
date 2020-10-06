@@ -31,6 +31,14 @@ jobs:
       - name: Run Node lints
         run: npm run lint
       - name: Run Python lints
+        {%- if cookiecutter.use_pipenv == "yes" %}
+        run: pipenv run flask lint --check
+        {%- else %}
         run: flask lint --check
+        {%- endif %}
       - name: Run Python tests
+        {%- if cookiecutter.use_pipenv == "yes" %}
+        run: pipenv run flask test
+        {%- else %}
         run: flask test
+        {%- endif %}
