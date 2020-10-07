@@ -24,7 +24,7 @@ COPY package.json ./
 RUN npm install
 
 COPY webpack.config.js autoapp.py ./
-COPY my_flask_app my_flask_app
+COPY {{cookiecutter.app_name}} {{cookiecutter.app_name}}
 COPY assets assets
 COPY .env.example .env
 RUN npm run-script build
@@ -39,7 +39,7 @@ RUN chown -R sid:sid /app
 USER sid
 ENV PATH="/home/sid/.local/bin:${PATH}"
 
-COPY --from=builder --chown=sid:sid /app/my_flask_app/static /app/my_flask_app/static
+COPY --from=builder --chown=sid:sid /app/{{ cookiecutter.app_name }}/static /app/{{ cookiecutter.app_name }}/static
 
 {%- if cookiecutter.use_pipenv == "yes" %}
 COPY ["Pipfile", "shell_scripts/auto_pipenv.sh", "./"]
