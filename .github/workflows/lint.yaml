@@ -2,6 +2,7 @@ name: Build Status
 
 on:
   - push
+  - pull_request
 
 jobs:
   build:
@@ -30,3 +31,5 @@ jobs:
         run: invoke test
       - name: Run lints
         run: invoke lint
+      - name: Make sure placeholders not being committed
+        run: invoke no-placeholders

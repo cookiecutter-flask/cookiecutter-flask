@@ -1,7 +1,7 @@
 {
-  "full_name": "Steven Loria",
-  "email": "sloria1@gmail.com",
-  "github_username": "sloria",
+  "full_name": "First Last",
+  "email": "example@gmail.com",
+  "github_username": "yourGithubUsername",
   "project_name": "My Flask App",
   "app_name": "{{cookiecutter.project_name.lower().replace('-', '_').replace(' ', '_')}}",
   "project_short_description": "A flasky app.",
