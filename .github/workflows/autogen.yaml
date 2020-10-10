@@ -2,8 +2,8 @@ name: "Auto Build Example Repo"
 
 on:
   push:
-    # branches:
-    #   - master
+    branches:
+      - master
 
 jobs:
   analyze:
