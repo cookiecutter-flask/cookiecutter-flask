@@ -1,0 +1,42 @@
+name: "Auto Build Example Repo"
+
+on:
+  push:
+    # branches:
+    #   - master
+
+jobs:
+  analyze:
+    name: Auto Build Example Repo
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Prepare Deploy Key
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.DEMO_COOKIECUTTER_FLASK_PRIVATE_DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+      - name: Checkout template repository
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install cookiecutter==1.7.2 invoke==1.4.1
+      - name: Generate template project
+        run: invoke build
+      - name: Clone demo repo
+        run: git clone --no-checkout git@github.com:jamescurtin/demo-cookiecutter-flask.git /tmp/demo-cookiecutter-flask
+      - name: Move .git dir to generated project
+        run: mv /tmp/demo-cookiecutter-flask/.git my_flask_app
+      - name: Commit changes
+        run: |
+          cd my_flask_app
+          git config --global user.email "jameswcurtin@gmail.com"
+          git config --global user.name "James Curtin"
+          git add .
+          git commit -m "Autobuilding example project"
+          git push -u --force origin master
