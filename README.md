@@ -6,6 +6,8 @@ A Flask template for [cookiecutter](https://github.com/audreyr/cookiecutter). (S
 ![CodeQL](https://github.com/cookiecutter-flask/cookiecutter-flask/workflows/CodeQL/badge.svg)
 [![CalVer](https://img.shields.io/badge/calver-YY.MINOR.MICRO-22bfda.svg)](http://calver.org)
 
+See [this repo](https://github.com/jamescurtin/demo-cookiecutter-flask) for an example project generated from the most recent version of the template.
+
 ## Use it now
 
 ### Docker **(This is the preferred method for creating a new project)**
