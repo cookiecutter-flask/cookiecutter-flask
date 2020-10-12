@@ -54,6 +54,6 @@
     "run-script-os": "^1.1.1",
     "url-loader": "^4.1.0",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^4.0.0"
   }
 }
