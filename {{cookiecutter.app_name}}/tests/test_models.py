@@ -64,3 +64,13 @@ class TestUser:
         user.roles.append(role)
         user.save()
         assert role in user.roles
+
+    def test_roles_repr(self):
+        """Check __repr__ output for Role."""
+        role = Role(name="user")
+        assert role.__repr__() == "<Role(user)>"
+
+    def test_repr(self):
+        """Check __repr__ output for User."""
+        user = User(username="foo", email="foo@bar.com")
+        assert user.__repr__() == "<User('foo')>"
