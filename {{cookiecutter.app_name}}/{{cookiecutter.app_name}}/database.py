@@ -21,7 +21,9 @@ class CRUDMixin(object):
         """Update specific fields of a record."""
         for attr, value in kwargs.items():
             setattr(self, attr, value)
-        return commit and self.save() or self
+        if commit:
+            return self.save()
+        return self
 
     def save(self, commit=True):
         """Save the record."""
@@ -33,7 +35,9 @@ class CRUDMixin(object):
     def delete(self, commit=True):
         """Remove the record from the database."""
         db.session.delete(self)
-        return commit and db.session.commit()
+        if commit:
+            return db.session.commit()
+        return
 
 
 class Model(CRUDMixin, db.Model):
