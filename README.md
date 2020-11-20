@@ -89,6 +89,7 @@ MIT licensed.
 - Remove support for Node 10 as a Cookiecutter option
 - Refactored Docker image to use multistage builds more efficiently
 - Projects generated with the template use Github actions for CI
+- Upgrade Webpack to 5.x
 
 ### 18.0.0 (09/09/2018)
 
