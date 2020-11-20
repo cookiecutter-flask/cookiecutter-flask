@@ -33,3 +33,5 @@ jobs:
         run: invoke lint
       - name: Make sure placeholders not being committed
         run: invoke no-placeholders
+      - name: Make sure Docker images can build
+        run: invoke test-image-build
