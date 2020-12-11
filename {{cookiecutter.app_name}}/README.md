@@ -226,7 +226,7 @@ Deployment by using [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cl
 * Deploy on Heroku by pushing to the `heroku` branch
 
     ```bash
-    git push heroku master
+    git push heroku main
     ```
 
 {%- endif %}
