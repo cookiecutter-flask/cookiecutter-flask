@@ -47,7 +47,7 @@ environs = "==9.3.0"
 # Testing
 pytest = "==6.2.1"
 WebTest = "==2.0.35"
-factory-boy = "==3.1.*"
+factory-boy = "==3.2.*"
 pdbpp = "==0.10.2"
 
 # Lint and code style
