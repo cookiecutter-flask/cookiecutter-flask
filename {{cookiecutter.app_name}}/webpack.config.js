@@ -73,7 +73,7 @@ module.exports = {
       {
         test: /\.(ttf|eot|svg|png|jpe?g|gif|ico)(\?.*)?$/i,
         loader: 'file-loader',
-        options: { context: '${rootAssetPath}&name=[path][name].[ext]' }
+        options: { context: rootAssetPath, name: '[path][name].[ext]' }
       },
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', options: { presets: ["@babel/preset-env"], cacheDirectory: true } },
     ],
