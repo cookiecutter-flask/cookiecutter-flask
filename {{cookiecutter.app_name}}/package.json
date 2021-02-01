@@ -47,7 +47,7 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
     "file-loader": "^6.1.0",
-    "less": "^3.12.2",
+    "less": "^4.1.1",
     "less-loader": "^7.0.1",
     "mini-css-extract-plugin": "^1.0.0",
     "raw-loader": "^4.0.1",
