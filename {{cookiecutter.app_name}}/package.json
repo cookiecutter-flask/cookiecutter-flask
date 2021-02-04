@@ -12,8 +12,8 @@
     "webpack-watch": "run-script-os",
     "webpack-watch:win32": "SET NODE_ENV=debug && webpack --mode development --watch",
     "webpack-watch:default": "NODE_ENV=debug webpack --mode development --watch",
-    "flask-server": "{% if cookiecutter.use_pipenv == 'yes' %}pipenv run {% endif %}flask run --host=0.0.0.0",
-    "flask-static-digest": "{% if cookiecutter.use_pipenv == 'yes' %}pipenv run {% endif %}flask digest compile",
+    "flask-server": "{% if cookiecutter.use_pipenv == 'True' %}pipenv run {% endif %}flask run --host=0.0.0.0",
+    "flask-static-digest": "{% if cookiecutter.use_pipenv == 'True' %}pipenv run {% endif %}flask digest compile",
     "lint": "eslint \"assets/js/*.js\""
   },
   "repository": {

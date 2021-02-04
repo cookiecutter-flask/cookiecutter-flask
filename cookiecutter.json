@@ -1,12 +1,12 @@
 {
-  "full_name": "First Last",
-  "email": "example@gmail.com",
-  "github_username": "yourGithubUsername",
-  "project_name": "My Flask App",
-  "app_name": "{{cookiecutter.project_name.lower().replace('-', '_').replace(' ', '_')}}",
-  "project_short_description": "A flasky app.",
-  "use_pipenv": ["no", "yes"],
-  "python_version": ["3.8", "3.7", "3.6"],
-  "node_version": ["12"],
-  "use_heroku": ["no", "yes"]
+  "full_name": "",
+  "email": "",
+  "github_username": "",
+  "project_name": "",
+  "app_name": "",
+  "project_short_description": "",
+  "use_pipenv": "",
+  "python_version": "",
+  "node_version": "",
+  "use_heroku": ""
 }

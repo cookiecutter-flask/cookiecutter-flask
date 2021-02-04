@@ -13,7 +13,7 @@ COPY --from=node /usr/lib/ /usr/lib/
 RUN true
 COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
 
-{%- if cookiecutter.use_pipenv == "yes" %}
+{%- if cookiecutter.use_pipenv == "True" %}
 COPY ["Pipfile", "shell_scripts/auto_pipenv.sh", "./"]
 RUN pip install --no-cache pipenv
 RUN pipenv install
@@ -43,7 +43,7 @@ ENV PATH="/home/sid/.local/bin:${PATH}"
 
 COPY --from=builder --chown=sid:sid /app/{{ cookiecutter.app_name }}/static /app/{{ cookiecutter.app_name }}/static
 
-{%- if cookiecutter.use_pipenv == "yes" %}
+{%- if cookiecutter.use_pipenv == "True" %}
 COPY ["Pipfile", "shell_scripts/auto_pipenv.sh", "./"]
 RUN pip install --no-cache pipenv
 RUN pipenv install
@@ -65,11 +65,11 @@ CMD ["-c", "/etc/supervisor/supervisord.conf"]
 # ================================= DEVELOPMENT ================================
 FROM builder AS development
 
-{%- if cookiecutter.use_pipenv == "yes" %}
+{%- if cookiecutter.use_pipenv == "True" %}
 RUN pipenv install --dev
 {%- else %}
 RUN pip install --no-cache -r requirements/dev.txt
 {%- endif %}
 EXPOSE 2992
 EXPOSE 5000
-CMD [ {% if cookiecutter.use_pipenv == 'yes' %}"pipenv", "run", {% endif %}"npm", "start" ]
+CMD [ {% if cookiecutter.use_pipenv == 'True' %}"pipenv", "run", {% endif %}"npm", "start" ]
