@@ -7,12 +7,8 @@ from typing import Iterator
 from invoke import task
 
 HERE = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(HERE, "cookiecutter.json"), "r") as fp:
-    COOKIECUTTER_SETTINGS = json.load(fp)
-# Match default value of app_name from cookiecutter.json
 DEFAULT_APP_NAME = "my_flask_app"
-COOKIECUTTER_SETTINGS["app_name"] = DEFAULT_APP_NAME
-COOKIE = os.path.join(HERE, COOKIECUTTER_SETTINGS["app_name"])
+COOKIE = os.path.join(HERE, DEFAULT_APP_NAME)
 REQUIREMENTS = os.path.join(COOKIE, "requirements", "dev.txt")
 
 
@@ -33,7 +29,7 @@ def _run_flask_command(ctx, command, *args):
 @task
 def build(ctx):
     """Build the cookiecutter."""
-    ctx.run(f"cookiecutter {HERE} --no-input")
+    ctx.run(f"python cookiecutter_spec.py {HERE} --no-input")
 
 
 @task(pre=[build])

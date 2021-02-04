@@ -14,12 +14,12 @@ def clean_extra_package_management_files():
     use_heroku = "{{cookiecutter.use_heroku}}"
     to_delete = []
 
-    if use_pipenv == "yes":
+    if use_pipenv == "True":
         to_delete = to_delete + ["requirements.txt", "requirements"]
     else:
         to_delete.append("Pipfile")
 
-    if use_heroku == "no":
+    if use_heroku == "False":
         to_delete = to_delete + ["Procfile", "app.json"]
 
     try:

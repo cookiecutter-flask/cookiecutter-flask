@@ -18,7 +18,7 @@ jobs:
           registry-url: "https://registry.npmjs.org"
       - name: Install Python dependencies
         run: |
-          {%- if cookiecutter.use_pipenv == "yes" %}
+          {%- if cookiecutter.use_pipenv == "True" %}
           pip install pipenv
           pipenv install --dev
           {%- else %}
@@ -31,13 +31,13 @@ jobs:
       - name: Run Node lints
         run: npm run lint
       - name: Run Python lints
-        {%- if cookiecutter.use_pipenv == "yes" %}
+        {%- if cookiecutter.use_pipenv == "True" %}
         run: pipenv run flask lint --check
         {%- else %}
         run: flask lint --check
         {%- endif %}
       - name: Run Python tests
-        {%- if cookiecutter.use_pipenv == "yes" %}
+        {%- if cookiecutter.use_pipenv == "True" %}
         run: pipenv run flask test
         {%- else %}
         run: flask test

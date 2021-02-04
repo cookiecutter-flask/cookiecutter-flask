@@ -1,6 +1,7 @@
 FROM python:3.9.1-slim-buster
 
-RUN pip install --no-cache-dir \
-    cookiecutter==1.7.2
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-ENTRYPOINT [ "python", "-m", "cookiecutter" ]
+COPY cookiecutter_spec.py /cookiecutter_spec.py
+ENTRYPOINT [ "python", "/cookiecutter_spec.py" ]

@@ -44,7 +44,7 @@ Run the following commands to bootstrap your environment if you are unable to ru
 
 ```bash
 cd {{cookiecutter.app_name}}
-{%- if cookiecutter.use_pipenv == "yes" %}
+{%- if cookiecutter.use_pipenv == "True" %}
 pipenv install --dev
 pipenv shell
 {%- else %}
@@ -175,7 +175,7 @@ in ``.env``:
 SEND_FILE_MAX_AGE_DEFAULT=31556926  # one year
 ```
 
-{%- if cookiecutter.use_heroku == "yes" %}
+{%- if cookiecutter.use_heroku == "True" %}
 
 ## Heroku
 

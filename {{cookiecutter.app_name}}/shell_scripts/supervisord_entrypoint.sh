@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -e
 
-{%- if cookiecutter.use_pipenv == "yes" %}
+{%- if cookiecutter.use_pipenv == "True" %}
 source ./shell_scripts/auto_pipenv.sh
 auto_pipenv_shell
 {%- endif %}
