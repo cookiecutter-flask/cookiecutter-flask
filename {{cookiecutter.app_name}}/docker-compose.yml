@@ -45,7 +45,7 @@ services:
       target: development
       args:
         <<: *build_args
-    entrypoint: flask
+    entrypoint: pipenv run flask
     environment:
       FLASK_ENV: production
       FLASK_DEBUG: 0
