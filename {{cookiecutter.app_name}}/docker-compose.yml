@@ -45,7 +45,7 @@ services:
       target: development
       args:
         <<: *build_args
-    entrypoint: pipenv run flask
+    entrypoint: {% if cookiecutter.use_pipenv == 'True' %}pipenv run {% endif %}flask
     environment:
       FLASK_ENV: production
       FLASK_DEBUG: 0
