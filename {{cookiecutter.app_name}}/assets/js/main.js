@@ -17,5 +17,5 @@ require.context(
 );
 
 // Your own code
-require('./plugins.js');
-require('./script.js');
+require('./plugins');
+require('./script');
