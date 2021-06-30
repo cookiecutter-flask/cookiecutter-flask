@@ -19,7 +19,7 @@ Flask-Migrate = "==2.7.0"
 
 # Forms
 email-validator = "==1.1.2"
-Flask-WTF = "==0.14.3"
+Flask-WTF = "==0.15.1"
 WTForms = "==2.3.3"
 
 # Deployment
