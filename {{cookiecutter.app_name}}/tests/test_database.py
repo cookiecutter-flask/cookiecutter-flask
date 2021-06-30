@@ -2,6 +2,7 @@
 """Database unit tests."""
 import pytest
 from flask_login import UserMixin
+from sqlalchemy.orm.exc import ObjectDeletedError
 
 from {{cookiecutter.app_name}}.database import Column, PkModel, db
 
@@ -40,12 +41,13 @@ class TestCRUDMixin:
         user.delete(commit=True)
         assert ExampleUserModel.get_by_id(user.id) is None
 
-    def test_delete_without_commit(self):
+    def test_delete_without_commit_cannot_access(self):
         """Test CRUD delete without commit."""
         user = ExampleUserModel("foo", "foo@bar.com")
         user.save()
         user.delete(commit=False)
-        assert ExampleUserModel.get_by_id(user.id) is not None
+        with pytest.raises(ObjectDeletedError):
+            ExampleUserModel.get_by_id(user.id)
 
     @pytest.mark.parametrize("commit,expected", [(True, "bar"), (False, "foo")])
     def test_update(self, commit, expected, db):
