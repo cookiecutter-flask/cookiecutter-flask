@@ -33,7 +33,7 @@
     "@fortawesome/fontawesome-free": "^5.15.0",
     "bootstrap": "^5.0.2",
     "jquery": "^3.5.1",
-    "popper.js": "^1.15.0"
+    "@popperjs/core": "^2.9.2"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
@@ -47,8 +47,8 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1",
     "file-loader": "^6.1.0",
-    "less": "^3.12.2",
-    "less-loader": "^7.0.1",
+    "less": "^4.1.1",
+    "less-loader": "^10.0.0",
     "mini-css-extract-plugin": "^1.0.0",
     "raw-loader": "^4.0.1",
     "run-script-os": "^1.1.1",
