@@ -1,6 +1,9 @@
-{
+module.exports = {
   "extends": "airbnb-base",
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+  },
   "rules": {
     "no-param-reassign": 0,
     "import/no-extraneous-dependencies": 0,
