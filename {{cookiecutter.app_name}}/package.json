@@ -48,7 +48,7 @@
     "eslint-plugin-import": "^2.22.1",
     "file-loader": "^6.1.0",
     "less": "^3.12.2",
-    "less-loader": "^7.0.1",
+    "less-loader": "^10.0.0",
     "mini-css-extract-plugin": "^1.0.0",
     "raw-loader": "^4.0.1",
     "run-script-os": "^1.1.1",
