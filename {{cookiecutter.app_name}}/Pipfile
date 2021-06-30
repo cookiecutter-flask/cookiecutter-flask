@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 # Flask
 Flask = "==2.0.0"
-Werkzeug = "==2.0.0"
+Werkzeug = "==2.0.1"
 click = ">=5.0"
 
 # Database
