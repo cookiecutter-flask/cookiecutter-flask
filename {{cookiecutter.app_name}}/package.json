@@ -31,7 +31,7 @@
   "homepage": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.app_name}}#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.0",
-    "bootstrap": "^4.5.2",
+    "bootstrap": "^5.0.2",
     "jquery": "^3.5.1",
     "popper.js": "^1.15.0"
   },

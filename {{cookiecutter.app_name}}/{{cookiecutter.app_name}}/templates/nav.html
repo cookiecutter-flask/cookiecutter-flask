@@ -1,15 +1,16 @@
 {% raw %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
   <a class="navbar-brand" href="{{ url_for('public.home') }}">
     {% endraw %} {{cookiecutter.project_name}} {% raw %}
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav me-auto">
       <li class="nav-item active">
         <a class="nav-link" href="{{ url_for('public.home') }}">Home
           <span class="sr-only">(current)</span>
@@ -46,5 +47,6 @@
     </ul>
     {% endif %}
   </div><!-- /.navbar-collapse -->
+  </div>
 </nav>
 {% endraw %}
