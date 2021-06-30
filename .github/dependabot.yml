@@ -24,3 +24,8 @@ updates:
     directory: "/{{cookiecutter.app_name}}"
     schedule:
       interval: "daily"
+
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
