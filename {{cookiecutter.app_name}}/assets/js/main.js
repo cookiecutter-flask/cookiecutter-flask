@@ -7,7 +7,6 @@
 // JavaScript modules
 require('@fortawesome/fontawesome-free');
 require('jquery');
-require('popper.js');
 require('bootstrap');
 
 require.context(
