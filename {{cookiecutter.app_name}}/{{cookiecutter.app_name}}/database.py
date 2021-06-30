@@ -32,7 +32,7 @@ class CRUDMixin(object):
             db.session.commit()
         return self
 
-    def delete(self, commit=True):
+    def delete(self, commit: bool = True) -> None:
         """Remove the record from the database."""
         db.session.delete(self)
         if commit:

@@ -27,11 +27,16 @@ class TestCRUDMixin:
         user = ExampleUserModel.create(username="foo", email="foo@bar.com")
         assert ExampleUserModel.get_by_id(user.id).username == "foo"
 
+    def test_create_save(self):
+        """Test CRUD create with save."""
+        user = ExampleUserModel("foo", "foo@bar.com")
+        user.save()
+        assert ExampleUserModel.get_by_id(user.id) is not None
+
     def test_delete_with_commit(self):
         """Test CRUD delete with commit."""
         user = ExampleUserModel("foo", "foo@bar.com")
         user.save()
-        assert ExampleUserModel.get_by_id(user.id) is not None
         user.delete(commit=True)
         assert ExampleUserModel.get_by_id(user.id) is None
 
