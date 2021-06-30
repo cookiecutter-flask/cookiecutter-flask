@@ -70,7 +70,7 @@ class TestUser:
         role = Role(name="user")
         assert role.__repr__() == "<Role(user)>"
 
-    def test_repr(self):
+    def test_User_repr(self):
         """Check __repr__ output for User."""
         user = User(username="foo", email="foo@bar.com")
         assert user.__repr__() == "<User('foo')>"
