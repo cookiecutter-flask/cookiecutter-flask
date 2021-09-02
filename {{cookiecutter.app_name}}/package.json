@@ -49,7 +49,7 @@
     "file-loader": "^6.1.0",
     "less": "^4.1.1",
     "less-loader": "^10.0.0",
-    "mini-css-extract-plugin": "^1.0.0",
+    "mini-css-extract-plugin": "^2.2.2",
     "raw-loader": "^4.0.1",
     "run-script-os": "^1.1.1",
     "url-loader": "^4.1.0",
