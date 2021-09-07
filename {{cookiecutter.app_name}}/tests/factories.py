@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Factories to help in tests."""
-from factory import PostGenerationMethodCall, Sequence
+from factory import Sequence
 from factory.alchemy import SQLAlchemyModelFactory
 
 from {{cookiecutter.app_name}}.database import db
@@ -22,7 +22,6 @@ class UserFactory(BaseFactory):
 
     username = Sequence(lambda n: f"user{n}")
     email = Sequence(lambda n: f"user{n}@example.com")
-    password = PostGenerationMethodCall("set_password", "example")
     active = True
 
     class Meta:
