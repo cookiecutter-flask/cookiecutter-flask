@@ -41,6 +41,7 @@ class User(UserMixin, PkModel):
 
     @hybrid_property
     def password(self):
+        """Hashed password."""
         return self._password
 
     @password.setter
