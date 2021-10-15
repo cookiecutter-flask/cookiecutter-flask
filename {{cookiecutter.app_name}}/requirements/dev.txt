@@ -9,7 +9,7 @@ pdbpp==0.10.3
 
 # Lint and code style
 black==21.9b0
-flake8==3.9.2
+flake8==4.0.1
 flake8-blind-except==0.2.0
 flake8-debugger==4.0.0
 flake8-docstrings==1.6.0
