@@ -1,10 +1,9 @@
 import argparse
+from typing import List
 
 import columbo
-
 from cookiecutter.main import cookiecutter
 from packaging.utils import canonicalize_name
-from typing import Optional
 
 
 def handle_cli_input():
@@ -14,24 +13,31 @@ def handle_cli_input():
     return parser.parse_args()
 
 
-def _normalize_application_name(answers: columbo.Answers) -> Optional[str]:
-    applicaton_name = answers.get("project_name", "example_project")
-    return applicaton_name.lower().replace("-", "_").replace(" ", "_")
+def _normalize_application_name(answers: columbo.Answers) -> str:
+    application_name = str(answers.get("project_name", "example_project"))
+    return application_name.lower().replace("-", "_").replace(" ", "_")
 
 
-def validate_package_import_name(answer: str, _: columbo.Answers) -> Optional[str]:
+def validate_package_import_name(
+    answer: str, _: columbo.Answers
+) -> columbo.ValidationResponse:
     canonical_name = canonicalize_name(answer).replace("-", "_")
     if not canonical_name == answer:
-        return f"Import names should follow PEP-8 naming conventions. Did you mean {canonical_name}?"
+        error_message = (
+            "Import names should follow PEP-8 naming conventions."
+            f" Did you mean {canonical_name}?"
+        )
+        return columbo.ValidationFailure(error=error_message)
     if not answer.replace("_", "").isalpha():
-        return (
+        error_message = (
             "Import names may only contain alphabetical characters and underscores. "
             "They may not contain spaces, numbers, or other characters."
         )
-    return None
+        return columbo.ValidationFailure(error=error_message)
+    return columbo.ValidationSuccess()
 
 
-interactions = [
+interactions: List[columbo.Interaction] = [
     columbo.Echo("Please answer the following questions!"),
     columbo.BasicQuestion(
         "full_name",
