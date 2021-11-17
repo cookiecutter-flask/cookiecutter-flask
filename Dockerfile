@@ -1,4 +1,4 @@
-FROM python:3.9.8-slim-buster
+FROM python:3.9.9-slim-buster
 
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
