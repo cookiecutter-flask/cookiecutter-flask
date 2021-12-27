@@ -19,7 +19,7 @@ services:
         <<: *build_args
     image: "{{cookiecutter.app_name}}-development"
     ports:
-      - "5000:5000"
+      - "8080:5000"
       - "2992:2992"
     <<: *default_volumes
 
@@ -31,7 +31,7 @@ services:
         <<: *build_args
     image: "{{cookiecutter.app_name}}-production"
     ports:
-      - "5000:5000"
+      - "8080:5000"
     environment:
       FLASK_ENV: production
       FLASK_DEBUG: 0
