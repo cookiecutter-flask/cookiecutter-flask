@@ -11,7 +11,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: {{cookiecutter.python_version}}
+          python-version: "{{cookiecutter.python_version}}"
       - uses: actions/setup-node@v2.1.2
         with:
           node-version: "12.x"
