@@ -14,7 +14,7 @@ jobs:
           python-version: "{{cookiecutter.python_version}}"
       - uses: actions/setup-node@v2.1.2
         with:
-          node-version: "12.x"
+          node-version: "{{cookiecutter.node_version}}.x"
           registry-url: "https://registry.npmjs.org"
       - name: Install Python dependencies
         run: |

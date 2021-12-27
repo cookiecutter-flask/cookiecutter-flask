@@ -84,8 +84,8 @@ interactions: List[columbo.Interaction] = [
     columbo.Choice(
         "node_version",
         "Which version of Node will this application use?",
-        options=["14", "12"],
-        default="14",
+        options=["16", "14", "12"],
+        default="16",
     ),
     columbo.Confirm(
         "use_heroku",
