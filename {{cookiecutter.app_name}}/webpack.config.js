@@ -15,7 +15,7 @@ const ProductionPlugins = [
   })
 ]
 
-const debug = (process.env.NODE_ENV !== 'production');
+const debug = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 const rootAssetPath = path.join(__dirname, 'assets');
 
 module.exports = {
