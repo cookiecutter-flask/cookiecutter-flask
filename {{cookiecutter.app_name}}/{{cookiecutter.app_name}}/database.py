@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 """Database module, including the SQLAlchemy database object and DB-related utilities."""
+from typing import TypeVar, Optional, Type
+
 from .compat import basestring
 from .extensions import db
+
+T = TypeVar("T", bound="PkModel")
 
 # Alias common SQLAlchemy names
 Column = db.Column
@@ -53,7 +57,7 @@ class PkModel(Model):
     id = Column(db.Integer, primary_key=True)
 
     @classmethod
-    def get_by_id(cls, record_id):
+    def get_by_id(cls: Type[T], record_id) -> Optional[T]:
         """Get record by ID."""
         if any(
             (
