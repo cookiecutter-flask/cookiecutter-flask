@@ -1,7 +1,7 @@
 # Everything needed in production
 
 # Flask
-Flask==2.0.3
+Flask==2.1.1
 Werkzeug==2.0.3
 click>=7.0
 
@@ -34,7 +34,7 @@ Flask-Bcrypt==0.7.1
 Flask-Caching>=1.7.2
 
 # Debug toolbar
-Flask-DebugToolbar==0.11.0
+Flask-DebugToolbar==0.13.1
 
 # Environment variable parsing
 environs==9.5.0
