@@ -2,7 +2,7 @@
 
 # Flask
 Flask==2.1.2
-Werkzeug==2.1.1
+Werkzeug==2.1.2
 click>=7.0
 
 # Database
