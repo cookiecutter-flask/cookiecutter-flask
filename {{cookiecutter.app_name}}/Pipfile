@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 # Flask
-Flask = "==2.1.1"
+Flask = "==2.1.2"
 Werkzeug = "==2.1.2"
 click = ">=5.0"
 
