@@ -11,7 +11,7 @@ pdbpp==0.10.3
 black==22.3.0
 flake8==4.0.1
 flake8-blind-except==0.2.1
-flake8-debugger==4.0.0
+flake8-debugger==4.1.2
 flake8-docstrings==1.6.0
 flake8-isort==4.1.1
 isort==5.10.1
