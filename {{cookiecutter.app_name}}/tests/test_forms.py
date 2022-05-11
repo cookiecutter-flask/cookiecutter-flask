@@ -33,7 +33,7 @@ class TestRegisterForm:
         """Register with success."""
         form = RegisterForm(
             username="newusername",
-            email="new@test.test",
+            email="new@test.com",
             password="example",
             confirm="example",
         )
