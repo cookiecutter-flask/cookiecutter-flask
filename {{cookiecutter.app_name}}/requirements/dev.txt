@@ -8,7 +8,7 @@ factory-boy==3.2.1
 pdbpp==0.10.3
 
 # Lint and code style
-black==22.3.0
+black==22.6.0
 flake8==4.0.1
 flake8-blind-except==0.2.1
 flake8-debugger==4.1.2
