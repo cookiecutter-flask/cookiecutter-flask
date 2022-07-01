@@ -2,17 +2,17 @@
 -r prod.txt
 
 # Testing
-pytest==7.1.2
-WebTest==3.0.0
 factory-boy==3.2.1
 pdbpp==0.10.3
+pytest==7.1.2
+WebTest==3.0.0
 
 # Lint and code style
 black==22.6.0
-flake8==4.0.1
 flake8-blind-except==0.2.1
 flake8-debugger==4.1.2
 flake8-docstrings==1.6.0
 flake8-isort==4.1.1
+flake8==4.0.1
 isort==5.10.1
 pep8-naming==0.13.0

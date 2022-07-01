@@ -5,14 +5,14 @@ name = "pypi"
 
 [packages]
 # Flask
+click = ">=7.0"
 Flask = "==2.1.2"
 Werkzeug = "==2.1.2"
-click = ">=5.0"
 
 # Database
 Flask-SQLAlchemy = "==2.5.1"
-SQLAlchemy = "==1.4.39"
 psycopg2-binary = "==2.9.3"
+SQLAlchemy = "==1.4.39"
 
 # Migrations
 Flask-Migrate = "==3.1.0"
@@ -24,31 +24,31 @@ WTForms = "==3.0.1"
 
 # Deployment
 gevent = "==21.12.0"
-gunicorn = ">=19.1.1"
+gunicorn = ">=19.9.0"
 supervisor = "==4.2.4"
 
 # Flask Static Digest
 Flask-Static-Digest = "==0.2.1"
 
 # Auth
-Flask-Login = "==0.6.1"
 Flask-Bcrypt = "==1.0.1"
+Flask-Login = "==0.6.1"
 
 # Caching
-Flask-Caching = ">=1.0.0"
+Flask-Caching = ">=1.7.2"
 
 # Debug toolbar
-Flask-DebugToolbar = "==0.11.0"
+Flask-DebugToolbar = "==0.13.1"
 
 # Environment variable parsing
 environs = "==9.5.0"
 
 [dev-packages]
 # Testing
+factory-boy = "==3.2.1"
+pdbpp = "==0.10.3"
 pytest = "==7.1.2"
 WebTest = "==3.0.0"
-factory-boy = "==3.2.*"
-pdbpp = "==0.10.3"
 
 # Lint and code style
 black = "==22.6.0"
