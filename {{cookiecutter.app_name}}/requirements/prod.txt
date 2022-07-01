@@ -1,14 +1,14 @@
 # Everything needed in production
 
 # Flask
+click>=7.0
 Flask==2.1.2
 Werkzeug==2.1.2
-click>=7.0
 
 # Database
 Flask-SQLAlchemy==2.5.1
-SQLAlchemy==1.4.39
 psycopg2-binary==2.9.3
+SQLAlchemy==1.4.39
 
 # Migrations
 Flask-Migrate==3.1.0
@@ -27,8 +27,8 @@ supervisor==4.2.4
 Flask-Static-Digest==0.2.1
 
 # Auth
-Flask-Login==0.6.1
 Flask-Bcrypt==1.0.1
+Flask-Login==0.6.1
 
 # Caching
 Flask-Caching>=1.7.2
