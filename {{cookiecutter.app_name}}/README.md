@@ -38,6 +38,8 @@ docker-compose run --rm manage db upgrade
 
 A docker volume `node-modules` is created to store NPM packages and is reused across the dev and prod versions of the application. For the purposes of DB testing with `sqlite`, the file `dev.db` is mounted to all containers. This volume mount should be removed from `docker-compose.yml` if a production DB server is used.
 
+Go to `http://localhost:8080`. You will see a pretty welcome screen.
+
 ### Running locally
 
 Run the following commands to bootstrap your environment if you are unable to run the application using Docker
@@ -55,7 +57,7 @@ npm run-script build
 npm start  # run the webpack dev server and flask server using concurrently
 ```
 
-Go to `http://localhost:8080`. You will see a pretty welcome screen.
+Go to `http://localhost:5000`. You will see a pretty welcome screen.
 
 #### Database Initialization (locally)
 
