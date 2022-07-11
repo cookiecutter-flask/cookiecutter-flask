@@ -1,0 +1,6 @@
+[run]
+source = {{cookiecutter.app_name}}
+omit = 
+    tests/*
+    autoapp.py
+
