@@ -13,9 +13,15 @@ See [this repo](https://github.com/jamescurtin/demo-cookiecutter-flask) for an e
 ### Docker **(This is the preferred method for creating a new project)**
 
 ```bash
+$ git clone https://github.com/cookiecutter-flask/cookiecutter-flask.git
+$ cd cookiecutter-flask
+
 # Basic usage (You will be prompted to provide basic information about your application)
 $ ./cookiecutter-docker.sh
     full_name [Steven Loria]:
+    ...
+# The repository for your flask app will be created in a directory with the name
+# chosen in "package import name" question (default ./my_flask_app/)
 
 # Additional arguments are available
 $ ./cookiecutter-docker.sh --help
