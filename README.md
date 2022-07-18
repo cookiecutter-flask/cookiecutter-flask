@@ -52,7 +52,7 @@ After you have generated the project code, a few more steps must be taken before
 
 ## Features
 
-- Bootstrap 4 and Font Awesome 4 with starter templates
+- Bootstrap 5 and Font Awesome 6 with starter templates
 - Flask-SQLAlchemy with basic User model
 - Easy database migrations with Flask-Migrate
 - Configuration in environment variables, as per [The Twelve-Factor App](https://12factor.net/config)
