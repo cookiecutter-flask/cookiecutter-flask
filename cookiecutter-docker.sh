@@ -12,9 +12,6 @@ Usage: $PROGNAME [OPTIONS]
 
 Options:
 -b, --build    Build Docker image before running cookiecutter
--t, --template Specify custom cookiecutter template via a URI to a git repo
-               e.g. https://github.com/cookiecutter-flask/cookiecutter-flask.git
-               Defaults to template in current working directory
 -h, --help     Show this message and exit
 
 EOF
@@ -33,12 +30,6 @@ process_args() {
           -b) BUILD_IMAGE=true
               ;;
           --build) BUILD_IMAGE=true
-              ;;
-          -t) COOKIECUTTER_TEMPLATE="$2"
-              shift
-              ;;
-          --template) COOKIECUTTER_TEMPLATE="$2"
-              shift
               ;;
           --*) usage;
               exit 1;

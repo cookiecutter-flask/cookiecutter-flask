@@ -29,9 +29,6 @@ $ ./cookiecutter-docker.sh --help
 
 Options:
     -b, --build    Build Docker image before running cookiecutter
-    -t, --template Specify custom cookiecutter template via a URI to a git repo
-                    e.g. https://github.com/cookiecutter-flask/cookiecutter-flask.git
-                    Defaults to template in current working directory
     -h, --help     Show this message and exit
 ```
 
