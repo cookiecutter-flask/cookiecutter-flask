@@ -13,9 +13,15 @@ See [this repo](https://github.com/jamescurtin/demo-cookiecutter-flask) for an e
 ### Docker **(This is the preferred method for creating a new project)**
 
 ```bash
+$ git clone https://github.com/cookiecutter-flask/cookiecutter-flask.git
+$ cd cookiecutter-flask
+
 # Basic usage (You will be prompted to provide basic information about your application)
 $ ./cookiecutter-docker.sh
     full_name [Steven Loria]:
+    ...
+# The repository for your flask app will be created in a directory with the name
+# chosen in "package import name" question (default ./my_flask_app/)
 
 # Additional arguments are available
 $ ./cookiecutter-docker.sh --help
@@ -23,9 +29,6 @@ $ ./cookiecutter-docker.sh --help
 
 Options:
     -b, --build    Build Docker image before running cookiecutter
-    -t, --template Specify custom cookiecutter template via a URI to a git repo
-                    e.g. https://github.com/cookiecutter-flask/cookiecutter-flask.git
-                    Defaults to template in current working directory
     -h, --help     Show this message and exit
 ```
 
@@ -46,7 +49,7 @@ After you have generated the project code, a few more steps must be taken before
 
 ## Features
 
-- Bootstrap 4 and Font Awesome 4 with starter templates
+- Bootstrap 5 and Font Awesome 6 with starter templates
 - Flask-SQLAlchemy with basic User model
 - Easy database migrations with Flask-Migrate
 - Configuration in environment variables, as per [The Twelve-Factor App](https://12factor.net/config)
