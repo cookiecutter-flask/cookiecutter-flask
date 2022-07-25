@@ -7,7 +7,7 @@ name = "pypi"
 # Flask
 click = ">=7.0"
 Flask = "==2.1.2"
-Werkzeug = "==2.1.2"
+Werkzeug = "==2.2.0"
 
 # Database
 Flask-SQLAlchemy = "==2.5.1"
