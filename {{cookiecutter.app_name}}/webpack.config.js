@@ -68,12 +68,14 @@ module.exports = {
           'css-loader',
         ],
       },
-      { test: /\.html$/, loader: 'raw-loader' },
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader', options: { limit: 10000, mimetype: 'application/font-woff' } },
+      { test: /\.html$/, type: 'asset/source' },
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, type: 'asset/resource', mimetype: 'application/font-woff' },
       {
         test: /\.(ttf|eot|svg|png|jpe?g|gif|ico)(\?.*)?$/i,
-        loader: 'file-loader',
-        options: { context: rootAssetPath, name: '[path][name].[ext]' }
+        type: 'asset/resource',
+        generator: {
+          filename: '[name][ext]'
+        }
       },
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', options: { presets: ["@babel/preset-env"], cacheDirectory: true } },
     ],

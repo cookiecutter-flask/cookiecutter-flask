@@ -165,7 +165,7 @@ as it resolves the correct file name, including the MD5 hash.
 For example
 
 ```html
-<link rel="shortcut icon" href="{{ "{{" }}static_url_for('static', filename='build/img/favicon.ico') {{ "}}" }}">
+<link rel="shortcut icon" href="{{ "{{" }}static_url_for('static', filename='build/favicon.ico') {{ "}}" }}">
 ```
 
 If all of your static files are managed this way, then their filenames will change whenever their
