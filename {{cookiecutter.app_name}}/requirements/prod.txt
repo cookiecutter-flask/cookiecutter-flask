@@ -3,7 +3,7 @@
 # Flask
 click>=7.0
 Flask==2.2.1
-Werkzeug==2.2.1
+Werkzeug==2.2.2
 
 # Database
 Flask-SQLAlchemy==2.5.1
