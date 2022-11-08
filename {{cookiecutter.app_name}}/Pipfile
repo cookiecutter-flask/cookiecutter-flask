@@ -12,7 +12,7 @@ Werkzeug = "==2.2.2"
 # Database
 Flask-SQLAlchemy = "==3.0.2"
 psycopg2-binary = "==2.9.5"
-SQLAlchemy = "==1.4.42"
+SQLAlchemy = "==1.4.43"
 
 # Migrations
 Flask-Migrate = "==3.1.0"
