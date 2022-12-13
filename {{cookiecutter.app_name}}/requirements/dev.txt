@@ -15,5 +15,5 @@ flake8-debugger==4.1.2
 flake8-docstrings==1.6.0
 flake8-isort==5.0.3
 flake8==5.0.4
-isort==5.10.1
+isort==5.11.1
 pep8-naming==0.13.2
