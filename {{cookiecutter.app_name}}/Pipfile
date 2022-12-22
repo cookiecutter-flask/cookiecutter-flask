@@ -60,3 +60,8 @@ flake8-docstrings = "==1.6.0"
 flake8-isort = "==5.0.3"
 isort = "==5.11.4"
 pep8-naming = "==0.13.3"
+
+{% if cookiecutter.use_pipenv == "True" and  cookiecutter.python_version is defined and cookiecutter.python_version | trim -%}
+[requires]
+python_version = "{{ cookiecutter.python_version | trim }}"
+{% endif -%}
