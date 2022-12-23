@@ -7,12 +7,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@3.1.0
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: "{{cookiecutter.python_version}}"
-      - uses: actions/setup-node@v2.1.2
+      - uses: actions/setup-node@v3.5.1
         with:
           node-version: "{{cookiecutter.node_version}}.x"
           registry-url: "https://registry.npmjs.org"
