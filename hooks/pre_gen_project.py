@@ -37,7 +37,7 @@ def check_python_version():
     # Must remain compatible with Python 2 to provide useful error message.
     warning = (
         "\nWARNING: You are running cookiecutter using "
-        "Python {}.{}, but a version >= Python 3.7+ is required.\n"
+        "Python {}.{}, but a version >= Python 3.11+ is required.\n"
         "Either install a more recent version of Python, or use the Docker instructions.\n"
     ).format(python_major_version, python_minor_version)
     if (python_major_version == 2) or (

@@ -1,6 +1,6 @@
 # cookiecutter-flask
 
-A Flask template for [cookiecutter](https://github.com/audreyr/cookiecutter). (Supports Python ≥ 3.7)
+A Flask template for [cookiecutter](https://github.com/audreyr/cookiecutter). (Supports Python ≥ 3.8)
 
 ![Build Status](https://github.com/cookiecutter-flask/cookiecutter-flask/workflows/Lint%20cookiecutter%20template/badge.svg)
 ![CodeQL](https://github.com/cookiecutter-flask/cookiecutter-flask/workflows/CodeQL/badge.svg)
@@ -34,7 +34,7 @@ Options:
 
 ### Standard
 
-If using standard instructions, Python ≥ 3.7 is required. A virtual environment is recommended (like `virtualenv`).
+If using standard instructions, Python ≥ 3.8 is required. A virtual environment is recommended (like `virtualenv`).
 
 ```bash
 pip3 install cookiecutter
@@ -93,8 +93,8 @@ MIT licensed.
 - Refactored Docker image to use multistage builds more efficiently
 - Projects generated with the template use Github actions for CI
 - Upgrade Webpack to 5.x
-- Dropped Python 3.6 support
-- Added Python 3.9 and Python 3.10 support
+- Dropped Python 3.6 and 3.7 support
+- Added Python 3.9, 3.10, and 3.11 support
 - Added Node 16 LTS
 
 ### 18.0.0 (09/09/2018)

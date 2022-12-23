@@ -78,8 +78,8 @@ interactions: List[columbo.Interaction] = [
     columbo.Choice(
         "python_version",
         "Which version of Python will this application use?",
-        options=["3.10", "3.9", "3.8", "3.7"],
-        default="3.10",
+        options=["3.11", "3.10", "3.9", "3.8"],
+        default="3.11",
     ),
     columbo.Choice(
         "node_version",
