@@ -1,10 +1,18 @@
 """Invoke tasks."""
-import json
 import os
 import shutil
 from typing import Iterator
 
+# isort: off
+# Temporary monkeypatch; see https://github.com/pyinvoke/invoke/issues/833
+import inspect
+
+if not hasattr(inspect, "getargspec"):
+    inspect.getargspec = inspect.getfullargspec
+
 from invoke import task
+
+# isort: on
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 DEFAULT_APP_NAME = "my_flask_app"
