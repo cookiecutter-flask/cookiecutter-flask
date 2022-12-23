@@ -95,7 +95,8 @@ MIT licensed.
 - Upgrade Webpack to 5.x
 - Dropped Python 3.6 and 3.7 support
 - Added Python 3.9, 3.10, and 3.11 support
-- Added Node 16 LTS
+- Added Node 16 and 18 LTS
+- Removed Node 12 LTS
 
 ### 18.0.0 (09/09/2018)
 
