@@ -21,7 +21,7 @@ WTForms==3.0.1
 # Deployment
 gevent==22.10.2
 gunicorn>=19.9.0
-supervisor==4.2.4
+supervisor==4.2.5
 
 # Flask Static Digest
 Flask-Static-Digest==0.2.1
