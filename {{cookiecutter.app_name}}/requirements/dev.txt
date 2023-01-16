@@ -4,7 +4,7 @@
 # Testing
 factory-boy==3.2.1
 pdbpp==0.10.3
-pytest==7.2.0
+pytest==7.2.1
 pytest-cov==4.0.0
 WebTest==3.0.0
 
