@@ -13,8 +13,8 @@ TEST_PATH = os.path.join(PROJECT_ROOT, "tests")
 
 @click.command()
 @click.option(
-    "-c",
-    "--coverage",
+    "-c/-C",
+    "--coverage/--no-coverage",
     default=True,
     is_flag=True,
     help="Show coverage report",
