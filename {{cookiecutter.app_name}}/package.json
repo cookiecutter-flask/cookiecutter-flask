@@ -33,7 +33,7 @@
     "@fortawesome/fontawesome-free": "6.3.0",
     "bootstrap": "5.2.3",
     "jquery": "3.6.4",
-    "@popperjs/core": "2.11.6"
+    "@popperjs/core": "2.11.7"
   },
   "devDependencies": {
     "@babel/core": "7.21.3",
