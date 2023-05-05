@@ -2,6 +2,7 @@
 """Database unit tests."""
 import pytest
 from flask_login import UserMixin
+from sqlalchemy import text
 from sqlalchemy.orm.exc import ObjectDeletedError
 
 from {{cookiecutter.app_name}}.database import Column, PkModel, db
@@ -55,7 +56,8 @@ class TestCRUDMixin:
         user = ExampleUserModel(username="foo", email="foo@bar.com")
         user.save()
         user.update(commit=commit, username="bar")
-        retrieved = db.session.execute("""select * from testusers""").fetchone()
+        query = text("select * from testusers")
+        retrieved = db.session.execute(query).fetchone()
         assert retrieved.username == expected
 
 
