@@ -50,7 +50,7 @@
     "less-loader": "11.1.0",
     "mini-css-extract-plugin": "2.7.5",
     "run-script-os": "1.1.6",
-    "webpack": "5.82.1",
+    "webpack": "5.83.1",
     "webpack-cli": "5.1.1"
   }
 }
