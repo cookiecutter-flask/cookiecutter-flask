@@ -1,4 +1,4 @@
 columbo==0.13.0.post1
 cookiecutter==2.1.1
-invoke==2.1.2
+invoke==2.1.3
 packaging==23.1
