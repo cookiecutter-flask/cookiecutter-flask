@@ -17,10 +17,10 @@ Additionally, please complete the following section with the options you used to
 
 Project configuration:
 
-| Option                               | Values                                                                                     |
-| ------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `use_pipenv`                         | <ul><li>- [ ] `yes`</li><li>- [ ] `no`</li></ul>                                           |
+| Option                               | Values                                                                                      |
+| ------------------------------------ | ------------------------------------------------------------------------------------------- |
+| `use_pipenv`                         | <ul><li>- [ ] `yes`</li><li>- [ ] `no`</li></ul>                                            |
 | `python_version`                     | <ul><li>- [ ] `3.11`</li><li>- [ ] `3.10`</li><li>- [ ] `3.9`</li><li>- [ ] `3.8`</li></ul> |
-| `node_version`                       | <ul><li>- [ ] `18`</li><li>- [ ] `16`</li><li>- [ ] `14`</li></ul>                         |
-| `use_heroku`                         | <ul><li>- [ ] `yes`</li><li>- [ ] `no`</li></ul>                                           |
-| Are you using Docker to run the app? | <ul><li>- [ ] `yes`</li><li>- [ ] `no`</li></ul>                                           |
+| `node_version`                       | <ul><li>- [ ] `20`</li><li>- [ ] `18`</li></ul>                                             |
+| `use_heroku`                         | <ul><li>- [ ] `yes`</li><li>- [ ] `no`</li></ul>                                            |
+| Are you using Docker to run the app? | <ul><li>- [ ] `yes`</li><li>- [ ] `no`</li></ul>                                            |
