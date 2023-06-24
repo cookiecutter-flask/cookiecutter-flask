@@ -100,7 +100,7 @@ flask run       # start the flask server
 To open the interactive shell, run
 
 ```bash
-docker-compose run --rm manage db shell
+docker-compose run --rm manage shell
 flask shell # If running locally without Docker
 ```
 
