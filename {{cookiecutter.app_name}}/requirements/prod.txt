@@ -15,7 +15,7 @@ Flask-Migrate==4.0.5
 
 # Forms
 email-validator==2.0.0.post2
-Flask-WTF==1.1.1
+Flask-WTF==1.2.1
 WTForms==3.0.1
 
 # Deployment
