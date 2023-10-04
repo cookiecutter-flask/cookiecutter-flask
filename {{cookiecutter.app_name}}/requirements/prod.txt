@@ -7,7 +7,7 @@ Werkzeug==2.3.7
 
 # Database
 Flask-SQLAlchemy==3.1.1
-psycopg2-binary==2.9.8
+psycopg2-binary==2.9.9
 SQLAlchemy==2.0.21
 
 # Migrations
