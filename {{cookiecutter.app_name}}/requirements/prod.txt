@@ -28,7 +28,7 @@ Flask-Static-Digest==0.4.0
 
 # Auth
 Flask-Bcrypt==1.0.1
-Flask-Login==0.6.2
+Flask-Login==0.6.3
 
 # Caching
 Flask-Caching>=2.0.2
