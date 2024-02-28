@@ -48,7 +48,7 @@
     "eslint-plugin-import": "2.29.1",
     "less": "4.2.0",
     "less-loader": "12.2.0",
-    "mini-css-extract-plugin": "2.8.0",
+    "mini-css-extract-plugin": "2.8.1",
     "run-script-os": "1.1.6",
     "webpack": "5.90.3",
     "webpack-cli": "5.1.4"
