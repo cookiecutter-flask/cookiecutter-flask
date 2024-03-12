@@ -11,7 +11,7 @@ psycopg2-binary==2.9.9
 SQLAlchemy==2.0.28
 
 # Migrations
-Flask-Migrate==4.0.5
+Flask-Migrate==4.0.7
 
 # Forms
 email-validator==2.1.1
