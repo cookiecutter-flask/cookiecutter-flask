@@ -65,7 +65,7 @@ class PkModel(Model):
                 isinstance(record_id, (int, float)),
             )
         ):
-            return cls.query.get(int(record_id))
+            return cls.query.session.get(cls, int(record_id))
         return None
 
 
