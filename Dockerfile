@@ -1,4 +1,4 @@
-FROM python:3.11.4-slim-buster
+FROM python:3.12.2-slim-bullseye
 
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt

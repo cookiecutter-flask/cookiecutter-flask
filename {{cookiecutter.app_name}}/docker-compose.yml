@@ -1,4 +1,4 @@
-version: "3.6"
+version: "3.8"
 
 x-build-args: &build_args
   INSTALL_PYTHON_VERSION: "{{cookiecutter.python_version}}"

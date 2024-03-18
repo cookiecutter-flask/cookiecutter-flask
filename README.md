@@ -93,8 +93,8 @@ MIT licensed.
 - Refactored Docker image to use multistage builds more efficiently
 - Projects generated with the template use Github actions for CI
 - Upgrade Webpack to 5.x
-- Dropped Python 3.6 and 3.7 support
-- Added Python 3.9, 3.10, and 3.11 support
+- Dropped Python 3.6, 3.7, and 3.8 support
+- Added Python 3.9, 3.10, 3.11, and 3.12 support
 - Added Node 18 and 20 LTS
 - Removed Node 12, 14, and 16 LTS
 
