@@ -33,7 +33,9 @@ class User(UserMixin, PkModel):
     username = Column(db.String(80), unique=True, nullable=False)
     email = Column(db.String(80), unique=True, nullable=False)
     _password = Column("password", db.LargeBinary(128), nullable=True)
-    created_at = Column(db.DateTime, nullable=False, default=dt.datetime.now(dt.timezone.utc))
+    created_at = Column(
+        db.DateTime, nullable=False, default=dt.datetime.now(dt.timezone.utc)
+    )
     first_name = Column(db.String(30), nullable=True)
     last_name = Column(db.String(30), nullable=True)
     active = Column(db.Boolean(), default=False)
