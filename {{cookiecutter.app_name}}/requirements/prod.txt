@@ -34,7 +34,7 @@ Flask-Login==0.6.3
 Flask-Caching>=2.0.2
 
 # Debug toolbar
-Flask-DebugToolbar==0.14.1
+Flask-DebugToolbar==0.15.0
 
 # Environment variable parsing
 environs==11.0.0
