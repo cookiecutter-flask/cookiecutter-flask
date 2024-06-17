@@ -14,7 +14,7 @@ SQLAlchemy==2.0.30
 Flask-Migrate==4.0.7
 
 # Forms
-email-validator==2.1.1
+email-validator==2.1.2
 Flask-WTF==1.2.1
 WTForms==3.1.2
 
