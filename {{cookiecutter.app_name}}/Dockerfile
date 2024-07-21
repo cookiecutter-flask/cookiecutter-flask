@@ -32,7 +32,7 @@ COPY .env.example .env
 RUN npm run-script build
 
 # ================================= PRODUCTION =================================
-FROM python:${INSTALL_PYTHON_VERSION}-slim-buster as production
+FROM python:${INSTALL_PYTHON_VERSION}-slim-bullseye as production
 
 WORKDIR /app
 
