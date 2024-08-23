@@ -4,9 +4,18 @@
   "github_username": "",
   "project_name": "",
   "app_name": "",
-  "project_short_description": "",
+  "project_short_description": "Generated from cookiecutter template",
   "use_pipenv": "",
-  "python_version": "",
-  "node_version": "",
-  "use_heroku": ""
+  "python_version": "3.7",
+  "node_version": "2.5",
+  "use_heroku": "y",
+  "port_number": "3000"
+  "__prompts__": {
+    "full_name": "Enter your full name here",
+    "email": "Work email required",
+    "github_username": "Enter your github username",
+    "python_version": "Use supported versions only",
+    "node_version": "Use support versions only",
+    "port_number": "Enter the port number for your application (3000 - 19999 that is not used):"
+  }
 }
