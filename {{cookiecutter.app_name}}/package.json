@@ -38,7 +38,7 @@
   "devDependencies": {
     "@babel/core": "7.25.9",
     "@babel/preset-env": "7.25.8",
-    "@babel/eslint-parser": "7.25.8",
+    "@babel/eslint-parser": "7.25.9",
     "babel-loader": "9.2.1",
     "chokidar": "4.0.1",
     "concurrently": "9.0.1",
