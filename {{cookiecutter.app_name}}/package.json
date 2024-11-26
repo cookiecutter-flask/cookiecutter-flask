@@ -46,7 +46,7 @@
     "eslint": "8.57.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "2.31.0",
-    "less": "4.2.0",
+    "less": "4.2.1",
     "less-loader": "12.2.0",
     "mini-css-extract-plugin": "2.9.2",
     "run-script-os": "1.1.6",
