@@ -40,7 +40,7 @@
     "@babel/preset-env": "7.26.0",
     "@babel/eslint-parser": "7.25.9",
     "babel-loader": "9.2.1",
-    "chokidar": "4.0.1",
+    "chokidar": "4.0.2",
     "concurrently": "9.1.0",
     "css-loader": "7.1.2",
     "eslint": "8.57.0",
