@@ -51,6 +51,6 @@
     "mini-css-extract-plugin": "2.9.2",
     "run-script-os": "1.1.6",
     "webpack": "5.97.1",
-    "webpack-cli": "5.1.4"
+    "webpack-cli": "6.0.0"
   }
 }
