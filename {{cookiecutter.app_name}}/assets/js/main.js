@@ -5,16 +5,16 @@
  */
 
 // JavaScript modules
-require('@fortawesome/fontawesome-free');
-require('jquery');
-require('bootstrap');
+require("@fortawesome/fontawesome-free");
+require("jquery");
+require("bootstrap");
 
 require.context(
-  '../img', // context folder
+  "../img", // context folder
   true, // include subdirectories
   /.*/, // RegExp
 );
 
 // Your own code
-require('./plugins');
-require('./script');
+require("./plugins");
+require("./script");

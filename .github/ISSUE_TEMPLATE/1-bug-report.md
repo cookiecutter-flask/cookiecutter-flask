@@ -20,7 +20,7 @@ Project configuration:
 | Option                               | Values                                                                                      |
 | ------------------------------------ | ------------------------------------------------------------------------------------------- |
 | `use_pipenv`                         | <ul><li>- [ ] `yes`</li><li>- [ ] `no`</li></ul>                                            |
-| `python_version`                     | <ul><li>- [ ] `3.12`</li><li>- [ ] `3.11`</li><li>- [ ] `3.10`</li><li>- [ ] `3.9`</li></ul> |
-| `node_version`                       | <ul><li>- [ ] `20`</li><li>- [ ] `18`</li></ul>                                             |
+| `python_version`                     | <ul><li>- [ ] `3.13`</li><li>- [ ] `3.12`</li></ul> |
+| `node_version`                       | <ul><li>- [ ] `22`</li><li>- [ ] `20`</li></ul>                                             |
 | `use_heroku`                         | <ul><li>- [ ] `yes`</li><li>- [ ] `no`</li></ul>                                            |
 | Are you using Docker to run the app? | <ul><li>- [ ] `yes`</li><li>- [ ] `no`</li></ul>                                            |
