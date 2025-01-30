@@ -12,7 +12,7 @@ black==24.10.0
 flake8-blind-except==0.2.1
 flake8-debugger==4.1.2
 flake8-docstrings==1.7.0
-flake8-isort==6.1.1
+flake8-isort==6.1.2
 flake8==7.1.1
 isort==5.13.2
 pep8-naming==0.14.1
