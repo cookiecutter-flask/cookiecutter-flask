@@ -4,7 +4,7 @@
 # Testing
 factory-boy==3.3.3
 pytest==8.3.5
-pytest-cov==6.0.0
+pytest-cov==6.1.0
 WebTest==3.0.4
 
 # Lint and code style
