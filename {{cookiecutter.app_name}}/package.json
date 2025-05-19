@@ -43,7 +43,7 @@
     "chokidar": "4.0.3",
     "concurrently": "9.1.2",
     "css-loader": "7.1.2",
-    "eslint": "9.26.0",
+    "eslint": "9.27.0",
     "eslint-config-prettier": "10.1.5",
     "eslint-plugin-prettier": "5.4.0",
     "less": "4.3.0",
