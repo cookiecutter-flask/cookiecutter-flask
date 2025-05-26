@@ -1,0 +1,6 @@
+[run]
+source = promptyoself
+omit = 
+    tests/*
+    autoapp.py
+
