@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2>{{ title }}</h2>
+            
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                
+                <div class="mb-3">
+                    {{ form.title.label(class="form-label") }}
+                    {{ form.title(class="form-control") }}
+                    {% if form.title.errors %}
+                        <div class="text-danger">
+                            {% for error in form.title.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="mb-3">
+                    {{ form.content.label(class="form-label") }}
+                    {{ form.content(class="form-control", rows="4") }}
+                    {% if form.content.errors %}
+                        <div class="text-danger">
+                            {% for error in form.content.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="mb-3">
+                    {{ form.due_date.label(class="form-label") }}
+                    {{ form.due_date(class="form-control", type="datetime-local") }}
+                    {% if form.due_date.errors %}
+                        <div class="text-danger">
+                            {% for error in form.due_date.errors %}
+                                <small>{{ error }}</small>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <small class="form-text text-muted">Format: YYYY-MM-DD HH:MM</small>
+                </div>
+                
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">
+                        {% if reminder %}Update{% else %}Create{% endif %} Reminder
+                    </button>
+                    <a href="{{ url_for('reminders.list') }}" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

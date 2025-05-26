@@ -12,6 +12,11 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "workspaceFolder": "/workspace",
   "postCreateCommand": "./setup.sh",
+  "containerEnv": {
+    "FLASK_APP": "autoapp.py",
+    "FLASK_ENV": "development",
+    "DATABASE_URL": "sqlite:///instance/dev.sqlite3"
+  },
   "customizations": {
     "vscode": {
       "extensions": [

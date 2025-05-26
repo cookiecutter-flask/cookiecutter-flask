@@ -1,12 +1,10 @@
 x-build-args: &build_args
-  INSTALL_PYTHON_VERSION: "3.13"
-  INSTALL_NODE_VERSION: "22"
+  INSTALL_PYTHON_VERSION: "3.12"
 
 x-default-volumes: &default_volumes
   volumes:
     - ./:/app
-    - node-modules:/app/node_modules
-    - ./dev.db:/tmp/dev.db
+    - instance-data:/app/instance
 
 services:
   flask-dev:
@@ -17,8 +15,13 @@ services:
         <<: *build_args
     image: "promptyoself-development"
     ports:
-      - "8080:5000"
-      - "2992:2992"
+      - "5000:5000"
+    environment:
+      FLASK_ENV: development
+      FLASK_DEBUG: 1
+      DATABASE_URL: sqlite:///instance/dev.sqlite3
+      SECRET_KEY: dev-secret-key
+      SEND_FILE_MAX_AGE_DEFAULT: 0
     <<: *default_volumes
 
   flask-prod:
@@ -29,12 +32,13 @@ services:
         <<: *build_args
     image: "promptyoself-production"
     ports:
-      - "8080:5000"
+      - "5000:5000"
     environment:
       FLASK_ENV: production
       FLASK_DEBUG: 0
-      LOG_LEVEL: info
-      GUNICORN_WORKERS: 4
+      DATABASE_URL: sqlite:///instance/prod.sqlite3
+      SECRET_KEY: ${SECRET_KEY:-change-me-in-production}
+      SEND_FILE_MAX_AGE_DEFAULT: 31556926
     <<: *default_volumes
 
   manage:
@@ -45,12 +49,27 @@ services:
         <<: *build_args
     entrypoint: flask
     environment:
-      FLASK_ENV: production
-      FLASK_DEBUG: 0
+      FLASK_ENV: development
+      FLASK_DEBUG: 1
+      DATABASE_URL: sqlite:///instance/dev.sqlite3
+      SECRET_KEY: dev-secret-key
     image: "promptyoself-manage"
     stdin_open: true
     tty: true
     <<: *default_volumes
 
+  # Optional: PostgreSQL for production use
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: promptyoself
+      POSTGRES_USER: promptyoself
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-dev-password}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
 volumes:
-  node-modules:
+  instance-data:
+  postgres-data:

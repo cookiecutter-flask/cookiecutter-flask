@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """Test forms."""
 
-from promptyoself.public.forms import LoginForm
-from promptyoself.user.forms import RegisterForm
+from app.forms import LoginForm, RegisterForm
 
 
 class TestRegisterForm:

@@ -5,7 +5,7 @@ from flask_login import UserMixin
 from sqlalchemy import text
 from sqlalchemy.orm.exc import ObjectDeletedError
 
-from promptyoself.database import Column, PkModel, db
+from app.database import Column, PkModel, db
 
 
 class ExampleUserModel(UserMixin, PkModel):

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>My Reminders</h2>
+            <a href="{{ url_for('reminders.new') }}" class="btn btn-primary mb-3">New Reminder</a>
+
+            {% if reminders %}
+                <div class="row">
+                    {% for reminder in reminders %}
+                    <div class="col-md-6 mb-3">
+                        <div class="card {% if reminder.is_overdue %}border-danger{% elif reminder.completed %}border-success{% endif %}">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {{ reminder.title }}
+                                    {% if reminder.completed %}
+                                        <span class="badge bg-success">Completed</span>
+                                    {% elif reminder.is_overdue %}
+                                        <span class="badge bg-danger">Overdue</span>
+                                    {% endif %}
+                                </h5>
+                                {% if reminder.content %}
+                                    <p class="card-text">{{ reminder.content }}</p>
+                                {% endif %}
+                                <p class="card-text">
+                                    <small class="text-muted">Due: {{ reminder.due_date.strftime('%Y-%m-%d %H:%M') }}</small>
+                                </p>
+                                <div class="btn-group" role="group">
+                                    <a href="{{ url_for('reminders.edit', reminder_id=reminder.id) }}" class="btn btn-sm btn-outline-primary">Edit</a>
+                                    {% if not reminder.completed %}
+                                        <form method="POST" action="{{ url_for('reminders.complete', reminder_id=reminder.id) }}" class="d-inline">
+                                            <button type="submit" class="btn btn-sm btn-outline-success">Complete</button>
+                                        </form>
+                                    {% endif %}
+                                    <form method="POST" action="{{ url_for('reminders.delete', reminder_id=reminder.id) }}" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this reminder?');">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="alert alert-info">
+                    <h4>No reminders yet!</h4>
+                    <p>Create your first reminder to get started.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

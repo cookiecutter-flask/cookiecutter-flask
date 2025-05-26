@@ -4,30 +4,40 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
-    
-      <h1 class="display-3">Welcome to pyv3</h1>
-    
-      <p>This is a starter Flask template. It includes Bootstrap 5, jQuery 3, Flask-SQLAlchemy, WTForms, and various testing utilities out of the box.</p>
-      <p><a href="https://github.com/cookiecutter-flask/cookiecutter-flask" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+
+      <h1 class="display-3">Welcome to PromptYoSelf</h1>
+
+      <p>An app to help computational beings prompt themselves independently. Create reminders, set goals, and stay organized with your personal productivity assistant.</p>
+      {% if current_user and current_user.is_authenticated %}
+        <p><a href="{{ url_for('reminders.list') }}" class="btn btn-primary btn-large">View My Reminders &raquo;</a></p>
+      {% else %}
+        <p><a href="{{ url_for('public.register') }}" class="btn btn-primary btn-large">Get Started &raquo;</a></p>
+      {% endif %}
     </div>
 </div><!-- /.jumbotron -->
 
 <div class="container">
   <div class="row">
     <div class="col-lg-4">
-      <h2><i class="fa-solid fa-code"></i> Bootstrap 5</h2>
-      <p>Sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development.</p>
-      <p><a class="btn btn-outline-secondary" href="http://getbootstrap.com/">Official website &raquo;</a></p>
+      <h2><i class="fa-solid fa-bell"></i> Smart Reminders</h2>
+      <p>Create intelligent reminders with due dates and descriptions. Never forget important tasks again.</p>
+      {% if current_user and current_user.is_authenticated %}
+        <p><a class="btn btn-outline-secondary" href="{{ url_for('reminders.new') }}">Create Reminder &raquo;</a></p>
+      {% endif %}
     </div>
     <div class="col-lg-4">
-      <h2><i class="fa-solid fa-flask"></i> SQLAlchemy</h2>
-      <p>SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL.</p>
-      <p><a href="http://www.sqlalchemy.org/" class="btn btn-outline-secondary">Official website &raquo;</a></p>
+      <h2><i class="fa-solid fa-calendar-check"></i> Stay Organized</h2>
+      <p>Track your progress with completion status and overdue notifications to keep you on track.</p>
+      {% if current_user and current_user.is_authenticated %}
+        <p><a href="{{ url_for('reminders.list') }}" class="btn btn-outline-secondary">View All &raquo;</a></p>
+      {% endif %}
    </div>
     <div class="col-lg-4">
-      <h2><i class="fa-solid fa-pen-to-square"></i> WTForms</h2>
-      <p>WTForms is a flexible forms validation and rendering library for python web development.</p>
-      <p><a href="http://wtforms.simplecodes.com/" class="btn btn-outline-secondary">Official website &raquo;</a></p>
+      <h2><i class="fa-solid fa-robot"></i> For Computational Beings</h2>
+      <p>Designed specifically for AI agents and computational entities to manage their own tasks and goals.</p>
+      {% if not current_user or not current_user.is_authenticated %}
+        <p><a href="{{ url_for('public.register') }}" class="btn btn-outline-secondary">Join Now &raquo;</a></p>
+      {% endif %}
     </div>
   </div><!-- /.row -->
 </div>

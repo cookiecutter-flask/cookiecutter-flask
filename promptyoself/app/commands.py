@@ -31,7 +31,7 @@ def test(coverage, filter):
 
     args = [TEST_PATH, "--verbose"]
     if coverage:
-        args.append("--cov=promptyoself")
+        args.append("--cov=app")
     if filter:
         args.extend(["-k", filter])
     rv = pytest.main(args=args)
