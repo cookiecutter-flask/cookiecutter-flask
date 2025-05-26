@@ -6,6 +6,7 @@ import sys
 from flask import Flask, render_template
 
 from app import commands
+from app.jobs import reminder_jobs
 from app.extensions import (
     bcrypt,
     cache,
@@ -13,10 +14,13 @@ from app.extensions import (
     db,
     debug_toolbar,
     flask_static_digest,
+    limiter,
     login_manager,
     migrate,
+    scheduler,
 )
-from app.views import public, user, reminders
+from app.api import auth as api_auth, reminders as api_reminders
+from app.ui import public, user, reminders
 
 
 def create_app(config_object="app.settings"):
@@ -31,6 +35,7 @@ def create_app(config_object="app.settings"):
     register_errorhandlers(app)
     register_shellcontext(app)
     register_commands(app)
+    register_jobs(app)
     configure_logger(app)
     return app
 
@@ -45,14 +50,21 @@ def register_extensions(app):
     debug_toolbar.init_app(app)
     migrate.init_app(app, db)
     flask_static_digest.init_app(app)
+    limiter.init_app(app)
+    scheduler.init_app(app)
     return None
 
 
 def register_blueprints(app):
     """Register Flask blueprints."""
-    app.register_blueprint(public.views.blueprint)
-    app.register_blueprint(user.views.blueprint)
+    # UI blueprints
+    app.register_blueprint(public.blueprint)
+    app.register_blueprint(user.blueprint)
     app.register_blueprint(reminders.blueprint)
+
+    # API blueprints
+    app.register_blueprint(api_auth.blueprint)
+    app.register_blueprint(api_reminders.blueprint)
     return None
 
 
@@ -85,6 +97,12 @@ def register_commands(app):
     """Register Click commands."""
     app.cli.add_command(commands.test)
     app.cli.add_command(commands.lint)
+
+
+def register_jobs(app):
+    """Register scheduled jobs."""
+    with app.app_context():
+        reminder_jobs.register_jobs()
 
 
 def configure_logger(app):

@@ -41,3 +41,13 @@ environs==14.2.0
 
 # Scheduling
 APScheduler==3.10.4
+Flask-APScheduler>=1.14.0
+
+# Rate limiting
+Flask-Limiter>=3.5.0
+
+# HTTP requests
+requests>=2.31.0
+
+# Retry logic
+tenacity>=8.2.0

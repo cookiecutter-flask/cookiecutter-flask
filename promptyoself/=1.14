@@ -1,0 +1,70 @@
+Collecting Flask-APScheduler
+  Downloading Flask-APScheduler-1.13.1.tar.gz (12 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting Flask-Limiter
+  Downloading flask_limiter-3.12-py3-none-any.whl.metadata (6.3 kB)
+Requirement already satisfied: requests in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (2.32.3)
+Collecting tenacity
+  Using cached tenacity-9.1.2-py3-none-any.whl.metadata (1.2 kB)
+Collecting flask<4.0.0,>=2.2.5 (from Flask-APScheduler)
+  Downloading flask-3.1.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting apscheduler<4.0.0,>=3.2.0 (from Flask-APScheduler)
+  Using cached APScheduler-3.11.0-py3-none-any.whl.metadata (6.4 kB)
+Requirement already satisfied: python-dateutil>=2.4.2 in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (from Flask-APScheduler) (2.9.0.post0)
+Collecting limits>=3.13 (from Flask-Limiter)
+  Downloading limits-5.2.0-py3-none-any.whl.metadata (10 kB)
+Collecting ordered-set<5,>4 (from Flask-Limiter)
+  Using cached ordered_set-4.1.0-py3-none-any.whl.metadata (5.3 kB)
+Collecting rich<14,>=12 (from Flask-Limiter)
+  Using cached rich-13.9.4-py3-none-any.whl.metadata (18 kB)
+Requirement already satisfied: charset-normalizer<4,>=2 in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (from requests) (3.4.1)
+Requirement already satisfied: idna<4,>=2.5 in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (from requests) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (from requests) (2.3.0)
+Requirement already satisfied: certifi>=2017.4.17 in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (from requests) (2025.1.31)
+Collecting tzlocal>=3.0 (from apscheduler<4.0.0,>=3.2.0->Flask-APScheduler)
+  Using cached tzlocal-5.3.1-py3-none-any.whl.metadata (7.6 kB)
+Collecting blinker>=1.9.0 (from flask<4.0.0,>=2.2.5->Flask-APScheduler)
+  Using cached blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Requirement already satisfied: click>=8.1.3 in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (from flask<4.0.0,>=2.2.5->Flask-APScheduler) (8.2.1)
+Collecting itsdangerous>=2.2.0 (from flask<4.0.0,>=2.2.5->Flask-APScheduler)
+  Using cached itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Requirement already satisfied: jinja2>=3.1.2 in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (from flask<4.0.0,>=2.2.5->Flask-APScheduler) (3.1.6)
+Requirement already satisfied: markupsafe>=2.1.1 in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (from flask<4.0.0,>=2.2.5->Flask-APScheduler) (3.0.2)
+Collecting werkzeug>=3.1.0 (from flask<4.0.0,>=2.2.5->Flask-APScheduler)
+  Using cached werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting deprecated>=1.2 (from limits>=3.13->Flask-Limiter)
+  Using cached Deprecated-1.2.18-py2.py3-none-any.whl.metadata (5.7 kB)
+Requirement already satisfied: packaging<26,>=21 in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (from limits>=3.13->Flask-Limiter) (25.0)
+Requirement already satisfied: typing_extensions in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (from limits>=3.13->Flask-Limiter) (4.12.2)
+Requirement already satisfied: six>=1.5 in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (from python-dateutil>=2.4.2->Flask-APScheduler) (1.17.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (from rich<14,>=12->Flask-Limiter) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (from rich<14,>=12->Flask-Limiter) (2.19.1)
+Collecting wrapt<2,>=1.10 (from deprecated>=1.2->limits>=3.13->Flask-Limiter)
+  Downloading wrapt-1.17.2-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)
+Requirement already satisfied: mdurl~=0.1 in /home/cyansam/.local/share/virtualenvs/cyansam-LeopbnV0/lib/python3.11/site-packages (from markdown-it-py>=2.2.0->rich<14,>=12->Flask-Limiter) (0.1.2)
+Downloading flask_limiter-3.12-py3-none-any.whl (28 kB)
+Using cached tenacity-9.1.2-py3-none-any.whl (28 kB)
+Using cached APScheduler-3.11.0-py3-none-any.whl (64 kB)
+Downloading flask-3.1.1-py3-none-any.whl (103 kB)
+Downloading limits-5.2.0-py3-none-any.whl (60 kB)
+Using cached ordered_set-4.1.0-py3-none-any.whl (7.6 kB)
+Using cached rich-13.9.4-py3-none-any.whl (242 kB)
+Using cached blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Using cached Deprecated-1.2.18-py2.py3-none-any.whl (10.0 kB)
+Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Using cached tzlocal-5.3.1-py3-none-any.whl (18 kB)
+Using cached werkzeug-3.1.3-py3-none-any.whl (224 kB)
+Downloading wrapt-1.17.2-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (83 kB)
+Building wheels for collected packages: Flask-APScheduler
+  Building wheel for Flask-APScheduler (setup.py): started
+  Building wheel for Flask-APScheduler (setup.py): finished with status 'done'
+  Created wheel for Flask-APScheduler: filename=Flask_APScheduler-1.13.1-py3-none-any.whl size=15580 sha256=38cc57bc892a773ae291c01505f95d756eeffd7b624ea5a1e61682e7cbc872e4
+  Stored in directory: /home/cyansam/.cache/pip/wheels/73/b8/38/7b2d93c74992e8b93fcc1eeb385402997a77f166e08a837ff8
+Successfully built Flask-APScheduler
+Installing collected packages: wrapt, werkzeug, tzlocal, tenacity, ordered-set, itsdangerous, blinker, rich, flask, deprecated, apscheduler, limits, Flask-APScheduler, Flask-Limiter
+  Attempting uninstall: rich
+    Found existing installation: rich 14.0.0
+    Uninstalling rich-14.0.0:
+      Successfully uninstalled rich-14.0.0
+Successfully installed Flask-APScheduler-1.13.1 Flask-Limiter-3.12 apscheduler-3.11.0 blinker-1.9.0 deprecated-1.2.18 flask-3.1.1 itsdangerous-2.2.0 limits-5.2.0 ordered-set-4.1.0 rich-13.9.4 tenacity-9.1.2 tzlocal-5.3.1 werkzeug-3.1.3 wrapt-1.17.2

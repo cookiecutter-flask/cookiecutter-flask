@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Public section, including homepage and signup."""
+"""Public UI views, including homepage and signup."""
 from flask import (
     Blueprint,
     current_app,
