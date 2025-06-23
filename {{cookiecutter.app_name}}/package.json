@@ -49,7 +49,7 @@
     "less": "4.3.0",
     "less-loader": "12.3.0",
     "mini-css-extract-plugin": "2.9.2",
-    "prettier": "3.5.3",
+    "prettier": "3.6.0",
     "run-script-os": "1.1.6",
     "webpack": "5.99.9",
     "webpack-cli": "6.0.1"
