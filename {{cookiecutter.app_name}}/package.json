@@ -46,7 +46,7 @@
     "eslint": "9.31.0",
     "eslint-config-prettier": "10.1.5",
     "eslint-plugin-prettier": "5.5.1",
-    "less": "4.3.0",
+    "less": "4.4.0",
     "less-loader": "12.3.0",
     "mini-css-extract-plugin": "2.9.2",
     "prettier": "3.6.2",
