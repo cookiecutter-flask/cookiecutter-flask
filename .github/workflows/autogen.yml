@@ -17,7 +17,7 @@ jobs:
           echo "${{ secrets.DEMO_COOKIECUTTER_FLASK_PRIVATE_DEPLOY_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
       - name: Checkout template repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
