@@ -48,7 +48,7 @@
     "eslint-plugin-prettier": "5.5.4",
     "less": "4.4.0",
     "less-loader": "12.3.0",
-    "mini-css-extract-plugin": "2.9.3",
+    "mini-css-extract-plugin": "2.9.4",
     "prettier": "3.6.2",
     "run-script-os": "1.1.6",
     "webpack": "5.101.0",
