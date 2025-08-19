@@ -51,7 +51,7 @@
     "mini-css-extract-plugin": "2.9.4",
     "prettier": "3.6.2",
     "run-script-os": "1.1.6",
-    "webpack": "5.101.1",
+    "webpack": "5.101.3",
     "webpack-cli": "6.0.1"
   }
 }
