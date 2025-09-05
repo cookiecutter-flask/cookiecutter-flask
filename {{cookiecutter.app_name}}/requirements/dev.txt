@@ -3,7 +3,7 @@
 
 # Testing
 factory-boy==3.3.3
-pytest==8.4.1
+pytest==8.4.2
 pytest-cov==6.2.1
 WebTest==3.0.6
 
