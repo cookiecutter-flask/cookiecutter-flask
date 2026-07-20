@@ -7,9 +7,6 @@ from typing import Iterator
 # Temporary monkeypatch; see https://github.com/pyinvoke/invoke/issues/833
 import inspect
 
-if not hasattr(inspect, "getargspec"):
-    inspect.getargspec = inspect.getfullargspec
-
 from invoke import task
 
 # isort: on
